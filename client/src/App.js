@@ -1,37 +1,68 @@
-import logo from './logo.svg';
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
 import Header from './components/Header'
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import Home from './pages/Home';
 import Calendar from './pages/Calendar';
 import Nutrition from './pages/Nutrition';
 
-const App = () => {
-  const [currentPage, setCurrentPage] = useState('Login');
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
 
-
-  const renderPage = () => {
-    if (currentPage === 'Login') {
-      return <Login />;
-    }
-    if (currentPage === 'Home') {
-      return <Home />;
-    }
-    if (currentPage === 'Calendar') {
-      return <Calendar />;
-    }
-    return <Nutrition />;
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
   };
+});
 
-  const handlePageChange = (page) => setCurrentPage(page);
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
+const App = () => {
     return (
-      <>
-      <Header currentPage={currentPage} handlePageChange={handlePageChange} />
-      <div>
-        {renderPage()}
-      </div>
-      </>
+      <ApolloProvider client={client}>
+        <Router>
+          <Header/>
+          <Routes>
+            <Route 
+              path="/" 
+              element={<Home />} 
+            />
+            <Route 
+              path="/login" 
+              element={<Login />} 
+            />
+            <Route 
+              path="/signup" 
+              element={<Signup />} 
+            />
+            <Route 
+              path="/nutrition" 
+              element={<Nutrition />} 
+            />
+            <Route 
+              path="/calendar" 
+              element={<Calendar />} 
+            />
+          </Routes>
+        </Router>
+      </ApolloProvider>
     );
 }
 
