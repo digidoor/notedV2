@@ -1,94 +1,45 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, Order } = require('../models');
+const { User, Event, Note, Recipe } = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
-// this file was taken from an activity -- we need to change all of this info
 const resolvers = {
+  // Date: new GraphQLScalarType({
+  //   name: 'Date',
+  //   description: 'Date custom scalar type',
+  //   parseValue(value) {
+  //       return new Date(value); // value from the client
+  //   },
+  //   serialize(value) {
+  //       return value.getTime(); // value sent to the client
+  //   },
+  //   parseLiteral(ast) {
+  //       if (ast.kind === Kind.INT) {
+  //       return parseInt(ast.value, 10); // ast value is always in string format
+  //       }
+  //       return null;
+  //   },
+  // }),
+
   Query: {
-    categories: async () => {
-      return await Category.find();
+    notes: async () => {
+      return await Note.find();
     },
-    products: async (parent, { category, name }) => {
-      const params = {};
-
-      if (category) {
-        params.category = category;
-      }
-
-      if (name) {
-        params.name = {
-          $regex: name
-        };
-      }
-
-      return await Product.find(params).populate('category');
+    events: async () => {
+      return await Event.find();
     },
-    product: async (parent, { _id }) => {
-      return await Product.findById(_id).populate('category');
+    recipies: async (p) => {
+      return await Recipe.find();
+    },
+    users: async () => {
+      return await User.find();
     },
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.products',
-          populate: 'category'
-        });
-
-        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
-
-        return user;
+        return await User.findById(context.user._id);
       }
-
       throw new AuthenticationError('Not logged in');
     },
-    order: async (parent, { _id }, context) => {
-      if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.products',
-          populate: 'category'
-        });
-
-        return user.orders.id(_id);
-      }
-
-      throw new AuthenticationError('Not logged in');
-    },
-    checkout: async (parent, args, context) => {
-      const url = new URL(context.headers.referer).origin;
-      const order = new Order({ products: args.products });
-      const line_items = [];
-
-      const { products } = await order.populate('products');
-
-      for (let i = 0; i < products.length; i++) {
-        const product = await stripe.products.create({
-          name: products[i].name,
-          description: products[i].description,
-          images: [`${url}/images/${products[i].image}`]
-        });
-
-        const price = await stripe.prices.create({
-          product: product.id,
-          unit_amount: products[i].price * 100,
-          currency: 'usd',
-        });
-
-        line_items.push({
-          price: price.id,
-          quantity: 1
-        });
-      }
-
-      const session = await stripe.checkout.sessions.create({
-        payment_method_types: ['card'],
-        line_items,
-        mode: 'payment',
-        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${url}/`
-      });
-
-      return { session: session.id };
-    }
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -97,29 +48,43 @@ const resolvers = {
 
       return { token, user };
     },
-    addOrder: async (parent, { products }, context) => {
-      console.log(context);
-      if (context.user) {
-        const order = new Order({ products });
+    // addNote: async (parent, { content }, context) => {
+    //   console.log(context);
+    //   if (context.user) {
+    //     const note = new Note({ content });
 
-        await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+    //     //await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
 
-        return order;
-      }
+    //     return note;
+    //   }
+    //   throw new AuthenticationError('Not logged in');
+    // },
+    // addEvent: async (parent, { content }, context) => {
+    //   console.log(context);
+    //   if (context.user) {
+    //     const event = new Event({ content });
 
-      throw new AuthenticationError('Not logged in');
-    },
+    //     //await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+
+    //     return event;
+    //   }
+    //   throw new AuthenticationError('Not logged in');
+    // },
+    // addRecipe: async (parent, { content }, context) => {
+    //   console.log(context);
+    //   if (context.user) {
+    //     const recipe = new Recipe({ content });
+    //     //await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+    //     return recipe;
+    //   }
+    //   throw new AuthenticationError('Not logged in');
+    // },
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
       }
 
       throw new AuthenticationError('Not logged in');
-    },
-    updateProduct: async (parent, { _id, quantity }) => {
-      const decrement = Math.abs(quantity) * -1;
-
-      return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
