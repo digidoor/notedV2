@@ -9,10 +9,10 @@ const noteSchema = new Schema({
         required: true,
         maxlength: 250
     },
-    created_at: {
-        type: Date,
-        default: Date.now
-    }
+    // created_at: {
+    //     type: Date,
+    //     default: Date.now
+    // }
 });
 
 const Note = mongoose.model('Note', noteSchema);
