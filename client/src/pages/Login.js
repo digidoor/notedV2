@@ -1,67 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
+import Welcome from '../components/Welcome';
+import LoginForm from '../components/LoginForm';
 
-import Auth from '../utils/auth';
 
-const Login = (props) => {
-    const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login, { error, data }] = useMutation(LOGIN_USER);
 
-    // update state based on form input changes
-    const handleChange = (event) => {
-        const { name, value } = event.target;
+const Login = () => {
 
-        setFormState({
-            ...formState,
-            [name]: value,
-        });
-    };
-
-    // submit form
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-        console.log(formState);
-        try {
-            const { data } = await login({
-                variables: { ...formState },
-            });
-
-            Auth.login(data.login.token);
-        } catch (e) {
-            console.error(e);
-        }
-
-        // clear form values
-        setFormState({
-            email: '',
-            password: '',
-        });
-    };
 
     return (
         <div className="container text-center">
             <div className="row">
                 <div className="col">
-                    <h2>Welcome!</h2>
-                    <p>
-                        this is where the website blurb will go.
-                        this is where the website blurb will go.
-                        this is where the website blurb will go.
-                        this is where the website blurb will go.
-                        this is where the website blurb will go.
-                        this is where the website blurb will go.
-                        this is where the website blurb will go.
-                        this is where the website blurb will go.
-                        this is where the website blurb will go.
-                        this is where the website blurb will go.
-                        this is where the website blurb will go.
-                        this is where the website blurb will go.
-                        this is where the website blurb will go.
-                        this is where the website blurb will go.
-                        this is where the website blurb will go.
-                    </p>
+                    <Welcome/>
                 </div>
                 <div className="col">
                     <div>
@@ -98,6 +49,8 @@ const Login = (props) => {
                         </form>
                         <img src="./stickynotelarge - Copy.png" alt="sticky note image" width="500px" height="500px" />
                     </div>
+                <div className="col">
+                    <LoginForm/>
                 </div>
             </div>
 
