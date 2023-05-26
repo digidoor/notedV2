@@ -3,13 +3,17 @@ import React from 'react';
 import Welcome from '../components/Welcome';
 import LoginForm from '../components/LoginForm';
 
-
+const styles = {
+signIn: {
+paddingTop: '25px',
+}
+}
 
 const Login = () => {
 
 
     return (
-        <div className="container text-center">
+        <div className="container text-center" style={styles.signIn}>
             <div className="row">
                 <div className="col">
                     <Welcome/>
