@@ -49,6 +49,21 @@ const styles = {
     /* weather results from API */
 weatherResults: {
     fontSize: '18px',
+},
+/* sticky notes */
+addNote: {
+    // backgroundImage: url("./notelanding.png"),
+    padding: '3rem',
+},
+/* Stickynote layout */
+stickyNotes: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    position: 'absolute',
+    width: '75%',
+    justifyContent: 'left',
+    marginLeft: '300px',
 }
 
 }
@@ -83,9 +98,9 @@ export default function Home() {
                     </div>
                 </div>
                 {/* ADDING NEW NOTES*/}
-                <div id="stickyNotes" className="stickyNotes">
+                <div id="stickyNotes" className="stickyNotes" style={styles.stickyNotes}>
                     <button type="button" className="btn btn-outline-secondary addNote" id="addNote" data-bs-toggle="modal"
-                        data-bs-target="#myModal">
+                        data-bs-target="#myModal" style={styles.addNote}>
                         Add New Note
                     </button>
                     <div className="modal" id="myModal" tabindex="-1">
