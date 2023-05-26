@@ -82,7 +82,7 @@ export default function Nutrition() {
             <input className="add" id="addRecipe" type="text" placeholder="+ your recipe URL here"></input>
             <div style={styles.mealPlanBtns}>
             <button className="add btn btn-danger" id="add" style={styles.addBtn}>Add</button>
-            <button className="btn btn-danger" id="clear-button" style={styles.clearBtn}>clear</button>
+            <button className="btn btn-danger" id="clear-button" style={styles.clearBtn}>Clear</button>
             </div>
             <ul id="savedList"></ul>
 
