@@ -1,10 +1,16 @@
-import logo from './logo.svg';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import React, { useState } from 'react';
 import Header from './components/Header'
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Calendar from './pages/Calendar';
 import Nutrition from './pages/Nutrition';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('Login');
@@ -26,12 +32,12 @@ const App = () => {
   const handlePageChange = (page) => setCurrentPage(page);
 
     return (
-      <>
+      <ApolloProvider client={client}>
       <Header currentPage={currentPage} handlePageChange={handlePageChange} />
       <div>
         {renderPage()}
       </div>
-      </>
+      </ApolloProvider>
     );
 }
 
