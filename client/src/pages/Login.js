@@ -99,11 +99,13 @@ const Login = (props) => {
                 </div>
             </div>
 
-            <a>
+            
+            <a href='/signup'>
                 <h3>Sign-Up!</h3>
             </a>
         </div>
-    );
-};
+               
+     );
+}; 
 
 export default Login;

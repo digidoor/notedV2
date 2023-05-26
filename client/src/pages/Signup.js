@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
+import Auth from '../utils/auth'
 // import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-import Auth from '../utils/auth';
 
 const Signup = () => {
     const [formState, setFormState] = useState({
-        name: '',
+        username: '',
         email: '',
         password: '',
     });
-    const [addUser, { error, data }] = useMutation(ADD_USER);
+    const [addUser, { error }] = useMutation(ADD_USER);
 
     // update state based on form input changes
     const handleChange = (event) => {
@@ -28,9 +28,10 @@ const Signup = () => {
         console.log(formState);
 
         try {
-            const { data } = await ADD_USER({
+            const { data } = await addUser({
                 variables: { ...formState },
             });
+            console.log(data);
 
             Auth.login(data.addUser.token);
         } catch (e) {
@@ -44,7 +45,7 @@ const Signup = () => {
             <div>
                 <h2>Sign-Up</h2>
                 <form onSubmit={handleFormSubmit}>
-                <div class="form-floating mb-3">
+                    <div class="form-floating mb-3">
                         <input
                             className="form-control"
                             id="floatingInput"
@@ -77,6 +78,8 @@ const Signup = () => {
                             placeholder="Password"
                             name="password"
                             type="password"
+                            value={formState.password}
+                            onChange={handleChange}
                         />
                         <label for="floatingPassword">Password</label>
                     </div>
@@ -89,6 +92,6 @@ const Signup = () => {
         </div>
 
     );
-};           
+};
 
 export default Signup;
