@@ -17,6 +17,9 @@ const styles = {
     nav: {
         backgroundColor: '#feedaa',
         color: 'black',
+        height: '40px',
+        lineHeight: '2',
+        fontSize: '20px',
     }
 }
 
