@@ -23,23 +23,23 @@ const styles = {
 function showNavigation() {
     if (Auth.loggedIn()) {
         return (
-            <ul className="flex-row">
-                <li className="mx-1">
+            <ul className="nav nav-pills d-flex justify-content-end" style={styles.nav}>
+                <li className="mx-1 nav-item">
                     <Link to="/home">
                         Home
                     </Link>
                 </li>
-                <li className="mx-1">
+                <li className="mx-1 nav-item">
                     <Link to="/calendar">
                         Calendar
                     </Link>
                 </li>
-                <li className="mx-1">
+                <li className="mx-1 nav-item">
                     <Link to="/nutrition">
                         Nutrition
                     </Link>
                 </li>
-                <li className="mx-1">
+                <li className="mx-1 nav-item">
                     {/* this is not using the Link component to logout or user and then refresh the application to the start */}
                     <a href="/" onClick={() => Auth.logout()}>
                         Logout
@@ -49,13 +49,13 @@ function showNavigation() {
         );
     } else {
         return (
-            <ul className="nav nav-pills d-flex justify-content-end">
-                <li className="mx-1">
+            <ul className="nav nav-pills d-flex justify-content-end" style={styles.nav}>
+                <li className="mx-1 nav-item">
                     <Link to="/signup">
                         Signup
                     </Link>
                 </li>
-                <li className="mx-1">
+                <li className="mx-1 nav-item">
                     <Link to="/login">
                         Login
                     </Link>
@@ -72,7 +72,7 @@ function Header() {
                 <h1 style={styles.main}>Noted</h1>
             </header>
             <nav>
-                <ul className="nav nav-pills d-flex justify-content-end" style={styles.nav}>
+                {/* <ul className="nav nav-pills d-flex justify-content-end" style={styles.nav}>
                     <li className="nav-item">
                         <a
                             href="#Home"
@@ -109,7 +109,7 @@ function Header() {
                             Login
                         </a>
                     </li>
-                </ul>
+                </ul> */}
                 {showNavigation()}
             </nav>
         </>
