@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import Auth from '../utils/auth'
 // import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
 const Signup = () => {
     const [formState, setFormState] = useState({
-        name: '',
+        username: '',
         email: '',
         password: '',
     });
-    const [addUser, { error, data }] = useMutation(ADD_USER);
+    const [addUser, { error }] = useMutation(ADD_USER);
 
     // update state based on form input changes
     const handleChange = (event) => {
@@ -30,6 +31,7 @@ const Signup = () => {
             const { data } = await addUser({
                 variables: { ...formState },
             });
+            console.log(data);
 
             Auth.login(data.addUser.token);
         } catch (e) {
@@ -43,6 +45,19 @@ const Signup = () => {
             <div>
                 <h2>Sign-Up</h2>
                 <form onSubmit={handleFormSubmit}>
+                    <div class="form-floating mb-3">
+                        <input
+                            className="form-control"
+                            id="floatingInput"
+                            placeholder="username"
+                            name="username"
+                            type="username"
+                            value={formState.username}
+                            onChange={handleChange}
+
+                        />
+                        <label for="floatingInput">Username</label>
+                    </div>
                     <div class="form-floating mb-3">
                         <input
                             className="form-control"
@@ -63,11 +78,13 @@ const Signup = () => {
                             placeholder="Password"
                             name="password"
                             type="password"
+                            value={formState.password}
+                            onChange={handleChange}
                         />
                         <label for="floatingPassword">Password</label>
                     </div>
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <button className="btn btn-primary" type="button">Sign-Up</button>
+                        <button className="btn btn-primary" type="submit" >Sign-Up</button>
                     </div>
                 </form>
                 <img src="./stickynotelarge - Copy.png" alt="sticky note image" width="500px" height="500px" />
@@ -75,6 +92,6 @@ const Signup = () => {
         </div>
 
     );
-};           
+};
 
 export default Signup;
