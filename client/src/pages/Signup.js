@@ -3,6 +3,7 @@ import Auth from '../utils/auth'
 // import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const Signup = () => {
     const [formState, setFormState] = useState({
@@ -28,7 +29,7 @@ const Signup = () => {
         console.log(formState);
 
         try {
-            const { data } = await addUser({
+            const { data } = await ADD_USER({
                 variables: { ...formState },
             });
 
@@ -44,6 +45,19 @@ const Signup = () => {
             <div>
                 <h2>Sign-Up</h2>
                 <form onSubmit={handleFormSubmit}>
+                <div class="form-floating mb-3">
+                        <input
+                            className="form-control"
+                            id="floatingInput"
+                            placeholder="username"
+                            name="username"
+                            type="username"
+                            value={formState.username}
+                            onChange={handleChange}
+
+                        />
+                        <label for="floatingInput">Username</label>
+                    </div>
                     <div class="form-floating mb-3">
                         <input
                             className="form-control"
@@ -68,7 +82,7 @@ const Signup = () => {
                         <label for="floatingPassword">Password</label>
                     </div>
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <button className="btn btn-primary" type="button">Sign-Up</button>
+                        <button className="btn btn-primary" type="submit" >Sign-Up</button>
                     </div>
                 </form>
                 <img src="./stickynotelarge - Copy.png" alt="sticky note image" width="500px" height="500px" />
