@@ -3,6 +3,13 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
+const styles = {
+signUpBtn: {
+    marginTop: '20px',
+    
+}
+}
+
 
 export default function SignupForm() {
     
@@ -84,7 +91,7 @@ export default function SignupForm() {
                         <label for="floatingPassword">Password</label>
                     </div>
                     <div className="d-grid gap-2 col-6 mx-auto">
-                        <button className="btn btn-primary" type="submit" >Sign-Up</button>
+                        <button className="btn btn-primary" type="submit" style={styles.signUpBtn}>Sign-Up!</button>
                     </div>
                 </form>
             </div>
