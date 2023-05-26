@@ -91,7 +91,7 @@ const Login = (props) => {
                                 <label for="floatingPassword">Password</label>
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto">
-                                <button className="btn btn-primary" type="button">Sign-In</button>
+                                <button className="btn btn-primary" type="submit">Sign-In</button>
                             </div>
                         </form>
                         <img src="./stickynotelarge - Copy.png" alt="sticky note image" width="500px" height="500px" />
