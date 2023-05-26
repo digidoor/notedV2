@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Calendar from './pages/Calendar';
 import Nutrition from './pages/Nutrition';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('Login');
