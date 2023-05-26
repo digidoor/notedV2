@@ -1,3 +1,4 @@
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
@@ -14,6 +15,7 @@ import Signup from './pages/Signup';
 import Home from './pages/Home';
 import Calendar from './pages/Calendar';
 import Nutrition from './pages/Nutrition';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
