@@ -21,8 +21,8 @@ const styles = {
     weatherCard: {
         width: '288px',
         height: '600px',
-        border: '2px solid darkgrey',
-        boxShadow: '3px 2px 2px lightgrey',
+        borderRight: '2px solid darkgrey',
+        boxShadow: '0px 2px 0px lightgrey',
     },
     //content within the weather sidebar
     cardBody: {
@@ -32,7 +32,7 @@ const styles = {
     cardTitle: {
         fontSize: '30px',
         fontWeight: 'bold',
-        textShadow: '2px 2px 2px #ef7c8e',
+        // textShadow: '2px 2px 2px #ef7c8e',
     },
     // textbox for zip code
     weatherInput: {
@@ -53,7 +53,7 @@ weatherResults: {
 },
 /* sticky notes */
 addNote: {
-   // backgroundImage: url("./notelanding.png"),
+   backgroundImage: `url("./notelanding.png")`,
     padding: '3rem',
 },
 /* Stickynote layout */
@@ -91,6 +91,7 @@ export default function Home() {
                 <div className="weather" style={styles.weather}>
                     <div className="card weatherCard" style={styles.weatherCard}>
                         <div className="card-body" style={styles.cardBody}>
+                        <h5 className="card-title" style={styles.cardTitle}>View</h5>
                             <h5 className="card-title" style={styles.cardTitle}>Today's Weather</h5>
                             <input className="weatherInput" type="text" placeholder="Enter zip code here.." style={styles.weatherInput}></input>
                             <h3 style={styles.h3}>Current Temperature</h3>
