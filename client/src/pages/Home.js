@@ -1,52 +1,62 @@
 import React from "react";
 
+const styles = {
+    // HEADER STYLING
+    header: {
+        backgroundColor: '#bbe8d9',
+        height: '90px',
+    },
+    
+  }
+
+
 export default function Home() {
 
     return (
-        <div class="container">
-        <div class="row align-items-start ">
-            <div class="weather">
-                <div class="card weatherCard">
-                    <div class="card-body">
-                        <h5 class="card-title">Today's Weather</h5>
-                        <input class="weatherInput" type="text" placeholder="Enter zip code here.."></input>
+        <div className="container" style={styles.main}>
+        <div className="row align-items-start ">
+            <div className="weather">
+                <div className="card weatherCard">
+                    <div className="card-body">
+                        <h5 className="card-title">Today's Weather</h5>
+                        <input className="weatherInput" type="text" placeholder="Enter zip code here.."></input>
                         <h3>Current Temperature</h3>
-                        <p class="weatherResults" id="temp"></p>
+                        <p className="weatherResults" id="temp"></p>
                         <h2>Max-Temperature:</h2>
-                        <p class="weatherResults" id="maxtemp"></p>
+                        <p className="weatherResults" id="maxtemp"></p>
                         <h2>Min-Temperature:</h2>
-                        <p class="weatherResults" id="mintemp"></p>
+                        <p className="weatherResults" id="mintemp"></p>
                         <h3>Humidity</h3>
-                        <p class="weatherResults" id="humidity"></p>
+                        <p className="weatherResults" id="humidity"></p>
                         <h3>Wind</h3>
                         <h2>Speed:</h2>
-                        <p class="weatherResults" id="windspeed"></p>
-                        <button type="button" class="btn btn-outline-secondary seeWeather" id="fetch-button">
+                        <p className="weatherResults" id="windspeed"></p>
+                        <button type="button" className="btn btn-outline-secondary seeWeather" id="fetch-button">
                             See Today's Weather
                         </button>
                     </div>
                 </div>
             </div>
-            <div id="stickyNotes" class="stickyNotes">
-                <button type="button" class="btn btn-outline-secondary addNote" id="addNote" data-bs-toggle="modal"
+            <div id="stickyNotes" className="stickyNotes">
+                <button type="button" className="btn btn-outline-secondary addNote" id="addNote" data-bs-toggle="modal"
                     data-bs-target="#myModal">
                     Add New Note
                 </button>
-                <div class="modal" id="myModal" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title">What do you need Noted?</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                <div className="modal" id="myModal" tabindex="-1">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h1 className="modal-title">What do you need Noted?</h1>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
+                            <div className="modal-body">
                                 <input class="notebody" id="noteBody" type="text"
                                     placeholder="Add your note here..."></input>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button id="saveNote" type="button" class="btn btn-primary">Save changes</button>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button id="saveNote" type="button" className="btn btn-primary">Save changes</button>
                             </div>
                         </div>
                     </div>
