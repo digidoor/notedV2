@@ -112,7 +112,7 @@ export default function Home() {
                                         aria-label="Close"></button>
                                 </div>
                                 <div className="modal-body">
-                                    <input class="notebody" id="noteBody" type="text"
+                                    <input className="notebody" id="noteBody" type="text"
                                         placeholder="Add your note here..."></input>
                                 </div>
                                 <div className="modal-footer">

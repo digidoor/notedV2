@@ -41,9 +41,9 @@ const Login = (props) => {
     };
 
     return (
-        <div class="container text-center">
-            <div class="row">
-                <div class="col">
+        <div className="container text-center">
+            <div className="row">
+                <div className="col">
                     <h2>Welcome!</h2>
                     <p>
                         this is where the website blurb will go.
@@ -63,11 +63,11 @@ const Login = (props) => {
                         this is where the website blurb will go.
                     </p>
                 </div>
-                <div class="col">
+                <div className="col">
                     <div>
                         <h2>Sign-In</h2>
                         <form onSubmit={handleFormSubmit}>
-                            <div class="form-floating mb-3">
+                            <div className="form-floating mb-3">
                                 <input
                                     className="form-control"
                                     id="floatingInput"
@@ -80,17 +80,19 @@ const Login = (props) => {
                                 />
                                 <label for="floatingInput">Email address</label>
                             </div>
-                            <div class="form-floating">
+                            <div className="form-floating">
                                 <input
                                     className="form-control"
                                     id="floatingPassword"
                                     placeholder="Password"
                                     name="password"
                                     type="password"
+                                    value={formState.password}
+                                    onChange={handleChange}
                                 />
                                 <label for="floatingPassword">Password</label>
                             </div>
-                            <div class="d-grid gap-2 col-6 mx-auto">
+                            <div className="d-grid gap-2 col-6 mx-auto">
                                 <button className="btn btn-primary" type="submit">Sign-In</button>
                             </div>
                         </form>

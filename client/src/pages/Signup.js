@@ -41,11 +41,11 @@ const Signup = () => {
 
 
     return (
-        <div class="col">
+        <div className="col">
             <div>
                 <h2>Sign-Up</h2>
                 <form onSubmit={handleFormSubmit}>
-                    <div class="form-floating mb-3">
+                    <div className="form-floating mb-3">
                         <input
                             className="form-control"
                             id="floatingInput"
@@ -58,7 +58,7 @@ const Signup = () => {
                         />
                         <label for="floatingInput">Username</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div className="form-floating mb-3">
                         <input
                             className="form-control"
                             id="floatingInput"
@@ -71,7 +71,7 @@ const Signup = () => {
                         />
                         <label for="floatingInput">Email address</label>
                     </div>
-                    <div class="form-floating">
+                    <div className="form-floating">
                         <input
                             className="form-control"
                             id="floatingPassword"
@@ -83,7 +83,7 @@ const Signup = () => {
                         />
                         <label for="floatingPassword">Password</label>
                     </div>
-                    <div class="d-grid gap-2 col-6 mx-auto">
+                    <div className="d-grid gap-2 col-6 mx-auto">
                         <button className="btn btn-primary" type="submit" >Sign-Up</button>
                     </div>
                 </form>
