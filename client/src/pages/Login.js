@@ -100,7 +100,7 @@ const Login = (props) => {
             </div>
 
             
-            <a href='/Signup'>
+            <a href='/signup'>
                 <h3>Sign-Up!</h3>
             </a>
         </div>
