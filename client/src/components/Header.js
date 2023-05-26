@@ -1,28 +1,31 @@
 import React from 'react';
 
 const styles = {
-    navPillActive: {
-      backgroundColor: "gray",
-      color: "black"
-  
+    // HEADER STYLING
+    header: {
+        backgroundColor: '#bbe8d9',
+        height: '90px',
     },
-    navPillInactive: { 
-      color: "gray"
+    // MAIN TITLE IN HEADER
+    main: { 
+        fontSize: '123px',
+        textShadow: '3px 2px 2px #ef7c8e',
     },
-    navBar: {
-      paddingBottom: '3px',
-      borderBottom: '1px solid black',
+    // NAVBAR STYLING
+    nav: {
+        backgroundColor: '#feedaa',
+        color: 'black',
     }
   }
 
 function Header({ currentPage, handlePageChange}) {
     return (
         <>
-        <header>
-            <h1>Noted</h1>
+        <header style={styles.header}>
+            <h1 style={styles.main}>Noted</h1>
         </header>
         <nav>
-            <ul className="nav nav-pills d-flex justify-content-end">
+            <ul className="nav nav-pills d-flex justify-content-end" style={styles.nav}>
                 <li className="nav-item">
                     <a 
                         href="#Home" 
