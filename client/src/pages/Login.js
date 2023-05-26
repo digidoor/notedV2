@@ -3,13 +3,22 @@ import React from 'react';
 import Welcome from '../components/Welcome';
 import LoginForm from '../components/LoginForm';
 
-
+const styles = {
+    // content container
+signIn: {
+paddingTop: '25px',
+},
+// signup anchor
+signUpHere: {
+marginTop: '30px',
+}
+}
 
 const Login = () => {
 
 
     return (
-        <div className="container text-center">
+        <div className="container text-center" style={styles.signIn}>
             <div className="row">
                 <div className="col">
                     <Welcome/>
@@ -21,7 +30,7 @@ const Login = () => {
 
             
             <a href='/signup'>
-                <h3>Sign-Up!</h3>
+                <h3 style={styles.signUpHere}>Sign-Up Here!</h3>
             </a>
         </div>
                

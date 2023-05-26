@@ -54,7 +54,6 @@ function showNavigation() {
         return (
             <ul className="nav nav-pills d-flex justify-content-end" style={styles.nav}>
                 <li className="mx-1 nav-item">
-                    Please Sign In
                 </li>
             </ul>
         );
