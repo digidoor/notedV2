@@ -2,6 +2,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import React, { useState } from 'react';
 import Header from './components/Header'
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import Home from './pages/Home';
 import Calendar from './pages/Calendar';
 import Nutrition from './pages/Nutrition';
@@ -19,6 +20,9 @@ const App = () => {
   const renderPage = () => {
     if (currentPage === 'Login') {
       return <Login />;
+    }
+    if (currentPage === 'Signup'){
+      return <Signup />;
     }
     if (currentPage === 'Home') {
       return <Home />;
