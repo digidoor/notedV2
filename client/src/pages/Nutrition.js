@@ -1,31 +1,94 @@
 import React from "react";
 
+const styles = {
+  columnLeft: {
+    float: 'left',
+  },
+
+  columnRight: {
+    float: 'right',
+  },
+
+  // recipes
+  cardOne: {
+    flexDirection: 'column',
+    display: 'flex',
+    float: 'left',
+    padding: '25px',
+    width: '780px',
+    border: 'solid',
+    borderColor: 'black',
+  },
+
+  // meal plan
+  cardTwo: {
+    flexDirection: 'column',
+    display: 'flex',
+    float: 'right',
+    padding: '25px',
+    width: '500px',
+    border: 'solid',
+    borderColor: 'black',
+  },
+
+  nutContainer: {
+    marginTop: '30px',
+  },
+
+  // Recipe column
+  searchBar: {
+    width: '80%',
+  },
+
+  searchBtn: {
+    width: '15%',
+    marginLeft: '10px',
+  },
+
+  // meal plan column
+mealPlanBtns: {
+  marginTop: '8px',
+},
+  addBtn: {
+    width: '40%',
+  },
+
+  clearBtn: {
+    width: '40%',
+    marginLeft: '15px',
+  }
+
+}
+
 export default function Nutrition() {
 
-    return (
-        <div class="container text-center">
-    <div class="column-left">
-      <div class="card-one recipeUrl" id="recipe">
-        <h4>Recipes</h4>
-        <input id="userSearch" type="search" placeholder="Search Recipe"></input>
-        <button class="btn btn-danger" id="fetch-button">Search</button>
-        <div id="results"></div>
+  return (
+    <div className="container text-center" style={styles.nutContainer}>
+      <div className="column-left" style={styles.columnLeft}>
+        <div className="card-one recipeUrl" id="recipe" style={styles.cardOne}>
+          <h4>Recipes</h4>
+          <div style={styles.recipeInputs}>
+          <input id="userSearch" type="search" placeholder="Search Recipe" style={styles.searchBar}></input>
+          <button className="btn btn-danger" id="fetch-button" style={styles.searchBtn}>Search</button>
+          </div>
+          <div id="results"></div>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="column-right" id="mealPlan">
-        <div class="card-two">
-          <h4>Meal plan</h4>
-          <input class="add" id="addRecipe" type="text" placeholder="+ your recipe URL here"></input>
-          <button class="add btn btn-danger" id="add">Add</button>
+      <div className="row">
+        <div className="column-right" id="mealPlan" style={styles.columnRight}>
+          <div className="card-two" style={styles.cardTwo}>
+            <h4>Meal Plan</h4>
+            <input className="add" id="addRecipe" type="text" placeholder="+ your recipe URL here"></input>
+            <div style={styles.mealPlanBtns}>
+            <button className="add btn btn-danger" id="add" style={styles.addBtn}>Add</button>
+            <button className="btn btn-danger" id="clear-button" style={styles.clearBtn}>Clear</button>
+            </div>
+            <ul id="savedList"></ul>
 
-          <ul id="savedList"></ul>
-          <button class="btn btn-danger" id="clear-button">clear</button>
-
+          </div>
         </div>
       </div>
     </div>
-  </div>
-    )
+  )
 }
