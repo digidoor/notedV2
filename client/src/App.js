@@ -12,7 +12,7 @@ import Header from './components/Header'
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
-import Calendar from './pages/Calendar';
+import CalendarPage from './pages/CalendarPage';
 import Nutrition from './pages/Nutrition';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -59,7 +59,7 @@ const App = () => {
             />
             <Route 
               path="/calendar" 
-              element={<Calendar />} 
+              element={<CalendarPage />} 
             />
             <Route
               path="/"
