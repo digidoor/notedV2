@@ -3,6 +3,7 @@ import React from "react";
 const styles = {
     //Container that holds sidebar and stickynotes section
     container: {
+        paddingTop: '28px',
         marginLeft: '0',
         fontSize: '18px',
         display: 'flex',
@@ -52,7 +53,7 @@ weatherResults: {
 },
 /* sticky notes */
 addNote: {
-    // backgroundImage: url("./notelanding.png"),
+   // backgroundImage: url("./notelanding.png"),
     padding: '3rem',
 },
 /* Stickynote layout */
@@ -64,6 +65,18 @@ stickyNotes: {
     width: '75%',
     justifyContent: 'left',
     marginLeft: '300px',
+},
+
+/* Modal Styling */
+/* modal Title */
+h1: {
+    fontSize: '20px',
+},
+
+/* text box for input */
+noteBody: {
+    width: '470px',
+    height: '275px',
 }
 
 }
