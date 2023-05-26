@@ -42,7 +42,7 @@ const App = () => {
           <Header/>
           <Routes>
             <Route 
-              path="/" 
+              path="/home" 
               element={<Home />} 
             />
             <Route 
@@ -60,6 +60,10 @@ const App = () => {
             <Route 
               path="/calendar" 
               element={<Calendar />} 
+            />
+            <Route
+              path="/"
+              element={<Login />}
             />
           </Routes>
         </Router>
