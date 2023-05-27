@@ -7,6 +7,18 @@ const styles ={
     signInBtn: {
         paddingTop: '7px',
         marginTop: '10px',
+        color: 'black',
+        backgroundColor: '#bbe8d9',
+        boxShadow: '2px 2px 0px darkgrey', 
+        fontWeight: 'bold',
+    },
+
+    signInTitle: {
+        color: 'black',
+    },
+
+    signInForm: {
+        paddingTop: '15px',
     }
 
 }
@@ -49,8 +61,8 @@ export default function LoginForm() {
 
     return (
         <div>
-            <h2>Sign-In</h2>
-            <form onSubmit={handleFormSubmit}>
+            <h2 style={styles.signInTitle}>Sign-In</h2>
+            <form onSubmit={handleFormSubmit} style={styles.signInForm}>
                 <div className="form-floating mb-3">
                     <input
                       className="form-control"
@@ -76,7 +88,7 @@ export default function LoginForm() {
                     <label for="floatingPassword">Password</label>
                 </div>
                 <div className="d-grid gap-2 col-6 mx-auto">
-                    <button className="btn btn-primary" type="submit" style={styles.signInBtn}>Sign-In</button>
+                    <button className="btn" type="submit" style={styles.signInBtn}>Sign-In</button>
                 </div>
             </form>
         </div>

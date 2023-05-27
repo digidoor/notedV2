@@ -1,10 +1,21 @@
 import React from "react";
 
+const styles = {
+    welcomeSection: {
+        color: 'Black',
+    },
+    welcomeBlurb: {
+        fontSize: '18px',
+        paddingTop: '15px',
+    }
+
+}
+
 export default function Welcome() {
     return (
-        <div>
+        <div style={styles.welcomeSection}>
             <h2>Welcome!</h2>
-            <p>
+            <p style={styles.welcomeBlurb}>
                 Noted is an application which is designed to help you keep track of some of the many things we all worry about in our daily lives.
                 From what to prepare for dinner, to what kind of weather to dress for. Even remembering what time your upcoming appointment 
                 is scheduled for. With the app’s large catalog of recipes you will always have new ideas of meals at your disposal which you can find and 
