@@ -12,6 +12,8 @@ const styles = {
     main: {
         fontSize: '123px',
         textShadow: '3px 2px 2px #ef7c8e',
+        fontWeight: '500',
+        lineHeight: '140px',
     },
     // NAVBAR
     nav: {
@@ -20,6 +22,11 @@ const styles = {
         height: '40px',
         lineHeight: '2',
         fontSize: '20px',
+    },
+
+    navItem: {
+        color: 'black',
+        textShadow: '3px 2px 2px #ef7c8e',
     }
 }
 
@@ -28,24 +35,24 @@ function showNavigation() {
         return (
             <ul className="nav nav-pills d-flex justify-content-end" style={styles.nav}>
                 <li className="mx-1 nav-item">
-                    <Link to="/home">
-                        Home
+                    <Link to="/home" style={styles.navItem}>
+                    <i class="large material-icons">home</i>
                     </Link>
                 </li>
                 <li className="mx-1 nav-item">
-                    <Link to="/calendar">
-                        Calendar
+                    <Link to="/calendar" style={styles.navItem}>
+                    <i class="large material-icons">date_range</i>
                     </Link>
                 </li>
                 <li className="mx-1 nav-item">
-                    <Link to="/nutrition">
-                        Nutrition
+                    <Link to="/nutrition" style={styles.navItem}>
+                    <i class="large material-icons">restaurant_menu</i>
                     </Link>
                 </li>
                 <li className="mx-1 nav-item">
                     {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-                    <a href="/" onClick={() => Auth.logout()}>
-                        Logout
+                    <a href="/" onClick={() => Auth.logout()} style={styles.navItem}>
+                    <i class="large material-icons">exit_to_app</i>
                     </a>
                 </li>
             </ul>
@@ -54,6 +61,9 @@ function showNavigation() {
         return (
             <ul className="nav nav-pills d-flex justify-content-end" style={styles.nav}>
                 <li className="mx-1 nav-item">
+                    <Link to="/login">
+                        Please Sign In
+                    </Link>
                 </li>
             </ul>
         );
