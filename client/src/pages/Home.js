@@ -34,6 +34,7 @@ const styles = {
     cardTitle: {
         fontSize: '30px',
         fontWeight: 'bold',
+        color: 'black',
         // textShadow: '2px 2px 2px #ef7c8e',
     },
 
@@ -46,6 +47,7 @@ const styles = {
     weatherInput: {
         margin: '3px 3px 3px 3px',
         width: '70%',
+        color: 'black',
     },
     // view weather button in sidebar
     viewWeatherBtn: {
@@ -58,14 +60,17 @@ const styles = {
     h3: {
         fontSize: '22px',
         textDecoration: 'underline',
+        color: 'black',
     },
     // sub-titles
     h2: {
         fontSize: '18px',
+        color: 'black',
     },
     /* weather results from API */
     weatherResults: {
         fontSize: '18px',
+        color: 'black',
     },
     /* sticky notes */
     addNote: {
@@ -98,6 +103,10 @@ const styles = {
     btnIcon: {
         display: 'flex',
         justifyContent: 'center',
+    },
+    btnTitle: {
+        color: 'black',
+        fontSize: '12px',
     }
 
 }
@@ -137,8 +146,10 @@ export default function Home() {
                 <div id="stickyNotes" className="stickyNotes" style={styles.stickyNotes}>
                     <button type="button" className="btn btn-outline-secondary addNote" id="addNote" data-bs-toggle="modal"
                         data-bs-target="#myModal" style={styles.addNote}>
-                        <i class="large material-icons">add_circle_outline</i>
-                        Add New Note
+                        <div style={styles.btnTitle}>
+                            <i class="large material-icons">add_circle_outline</i>
+                            <h4>Add New Note</h4>
+                        </div>
                     </button>
                     <div className="modal" id="myModal" tabindex="-1">
                         <div className="modal-dialog">
