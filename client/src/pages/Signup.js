@@ -4,12 +4,12 @@ import SignupForm from '../components/SignupForm';
 
 const styles = {
     // login here anchor
-loginAnch: {
-marginTop: '15px',
-},
-signUpContainer: {
-    marginTop: '30px',
-}
+    loginAnch: {
+        marginTop: '15px',
+    },
+    signUpContainer: {
+        marginTop: '30px',
+    }
 }
 
 const Signup = () => {
@@ -18,10 +18,10 @@ const Signup = () => {
         <div className="container text-center" style={styles.signUpContainer}>
             <div className="row">
                 <div className="col">
-                    <Welcome/>
+                    <Welcome />
                 </div>
                 <div className="col">
-                    <SignupForm/>
+                    <SignupForm />
                 </div>
             </div>
             <a href='/login'>

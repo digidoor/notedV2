@@ -18,7 +18,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 5
+    minlength: 3 // change this back to something reasonable much later in development
   },
 // add more user fields -- this file was taken from an activity
 });

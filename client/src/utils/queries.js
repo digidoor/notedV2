@@ -1,5 +1,25 @@
 import { gql } from '@apollo/client';
 
+export const QUERY_NOTES = gql`
+  query allNotes {
+    notes {
+      _id
+      content
+    }
+  }
+`
+
+export const QUERY_USERS = gql`
+  query allUsers {
+    users {
+      _id
+      username
+      email
+      password
+    }
+  }
+`
+
 export const QUERY_PROFILES = gql`
   query allProfiles {
     profiles {
