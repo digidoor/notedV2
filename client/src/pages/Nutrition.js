@@ -46,9 +46,9 @@ const styles = {
   },
 
   // meal plan column
-mealPlanBtns: {
-  marginTop: '8px',
-},
+  mealPlanBtns: {
+    marginTop: '8px',
+  },
   addBtn: {
     width: '40%',
   },
@@ -68,8 +68,8 @@ export default function Nutrition() {
         <div className="card-one recipeUrl" id="recipe" style={styles.cardOne}>
           <h4>Recipes</h4>
           <div style={styles.recipeInputs}>
-          <input id="userSearch" type="search" placeholder="Search Recipe" style={styles.searchBar}></input>
-          <button className="btn btn-danger" id="fetch-button" style={styles.searchBtn}>Search</button>
+            <input id="userSearch" type="search" placeholder="Search Recipe" style={styles.searchBar}></input>
+            <button className="btn btn-danger" id="fetch-button" style={styles.searchBtn}>Search</button>
           </div>
           <div id="results"></div>
         </div>
@@ -81,8 +81,8 @@ export default function Nutrition() {
             <h4>Meal Plan</h4>
             <input className="add" id="addRecipe" type="text" placeholder="+ your recipe URL here"></input>
             <div style={styles.mealPlanBtns}>
-            <button className="add btn btn-danger" id="add" style={styles.addBtn}>Add</button>
-            <button className="btn btn-danger" id="clear-button" style={styles.clearBtn}>Clear</button>
+              <button className="add btn btn-danger" id="add" style={styles.addBtn}>Add</button>
+              <button className="btn btn-danger" id="clear-button" style={styles.clearBtn}>Clear</button>
             </div>
             <ul id="savedList"></ul>
 
