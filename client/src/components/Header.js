@@ -12,6 +12,8 @@ const styles = {
     main: {
         fontSize: '123px',
         textShadow: '3px 2px 2px #ef7c8e',
+        fontWeight: '500',
+        lineHeight: '140px',
     },
     // NAVBAR
     nav: {
@@ -59,6 +61,9 @@ function showNavigation() {
         return (
             <ul className="nav nav-pills d-flex justify-content-end" style={styles.nav}>
                 <li className="mx-1 nav-item">
+                    <Link to="/login">
+                        Please Sign In
+                    </Link>
                 </li>
             </ul>
         );
