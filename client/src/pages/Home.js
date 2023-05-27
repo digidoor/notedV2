@@ -34,18 +34,20 @@ const styles = {
     cardTitle: {
         fontSize: '30px',
         fontWeight: 'bold',
+        color: 'black',
         // textShadow: '2px 2px 2px #ef7c8e',
     },
 
-    viewWeather:{
+    viewWeather: {
         display: 'flex',
-        marginTop:'5px',
+        marginTop: '5px',
     },
 
     // textbox for zip code
     weatherInput: {
         margin: '3px 3px 3px 3px',
-        width:'70%',
+        width: '70%',
+        color: 'black',
     },
     // view weather button in sidebar
     viewWeatherBtn: {
@@ -58,47 +60,54 @@ const styles = {
     h3: {
         fontSize: '22px',
         textDecoration: 'underline',
+        color: 'black',
     },
     // sub-titles
     h2: {
         fontSize: '18px',
+        color: 'black',
     },
     /* weather results from API */
-weatherResults: {
-    fontSize: '18px',
-},
-/* sticky notes */
-addNote: {
-   backgroundImage: `url("./notelanding.png")`,
-    padding: '3rem',
-},
-/* Stickynote layout */
-stickyNotes: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-    position: 'absolute',
-    width: '75%',
-    justifyContent: 'left',
-    marginLeft: '300px',
-},
+    weatherResults: {
+        fontSize: '18px',
+        color: 'black',
+    },
+    /* sticky notes */
+    addNote: {
+        backgroundImage: `url("./notelanding.png")`,
+        padding: '3rem',
+    },
+    /* Stickynote layout */
+    stickyNotes: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        position: 'absolute',
+        width: '75%',
+        justifyContent: 'left',
+        marginLeft: '300px',
+    },
 
-/* Modal Styling */
-/* modal Title */
-h1: {
-    fontSize: '20px',
-},
+    /* Modal Styling */
+    /* modal Title */
+    h1: {
+        fontSize: '20px',
+    },
 
-/* text box for input */
-noteBody: {
-    width: '470px',
-    height: '275px',
-},
+    /* text box for input */
+    noteBody: {
+        width: '470px',
+        height: '275px',
+    },
 
-btnIcon: {
-    display: 'flex',
-    justifyContent: 'center',
-}
+    btnIcon: {
+        display: 'flex',
+        justifyContent: 'center',
+    },
+    btnTitle: {
+        color: 'black',
+        fontSize: '12px',
+    }
 
 }
 
@@ -115,9 +124,9 @@ export default function Home() {
                             <h5 className="card-header" style={styles.cardTitle}>View Today's Weather</h5>
                             <div style={styles.viewWeather}>
                                 <input className="weatherInput" type="text" placeholder="Enter zip code here.." style={styles.weatherInput}></input>
-                            <button type="button" className="btn btn-outline-secondary seeWeather " id="fetch-button" style={styles.viewWeatherBtn}>
-                            <i className="material-icons" style={styles.btnIcon}>filter_drama</i>
-                            </button>
+                                <button type="button" className="btn btn-outline-secondary seeWeather " id="fetch-button" style={styles.viewWeatherBtn}>
+                                    <i className="material-icons" style={styles.btnIcon}>filter_drama</i>
+                                </button>
                             </div>
                             <h3 style={styles.h3}>Current Temperature</h3>
                             <p className="weatherResults" id="temp" style={styles.weatherResults}></p>
@@ -137,7 +146,10 @@ export default function Home() {
                 <div id="stickyNotes" className="stickyNotes" style={styles.stickyNotes}>
                     <button type="button" className="btn btn-outline-secondary addNote" id="addNote" data-bs-toggle="modal"
                         data-bs-target="#myModal" style={styles.addNote}>
-                        Add New Note
+                        <div style={styles.btnTitle}>
+                            <i class="large material-icons">add_circle_outline</i>
+                            <h4>Add New Note</h4>
+                        </div>
                     </button>
                     <div className="modal" id="myModal" tabindex="-1">
                         <div className="modal-dialog">

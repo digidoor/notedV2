@@ -10,6 +10,7 @@ const styles = {
     },
     // MAIN TITLE STYLING
     main: {
+        color: 'black',
         fontSize: '123px',
         textShadow: '3px 2px 2px #ef7c8e',
         fontWeight: '500',
@@ -22,6 +23,7 @@ const styles = {
         height: '40px',
         lineHeight: '2',
         fontSize: '20px',
+        boxShadow: '0px 2px 4px 0 grey'
     },
 
     navItem: {

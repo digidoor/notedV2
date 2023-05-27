@@ -5,13 +5,13 @@ import LoginForm from '../components/LoginForm';
 
 const styles = {
     // content container
-signIn: {
-paddingTop: '25px',
-},
-// signup anchor
-signUpHere: {
-marginTop: '30px',
-}
+    signIn: {
+        paddingTop: '25px',
+    },
+    // signup anchor
+    signUpHere: {
+        marginTop: '30px',
+    }
 }
 
 const Login = () => {
@@ -21,20 +21,20 @@ const Login = () => {
         <div className="container text-center" style={styles.signIn}>
             <div className="row">
                 <div className="col">
-                    <Welcome/>
+                    <Welcome />
                 </div>
                 <div className="col">
-                    <LoginForm/>
+                    <LoginForm />
                 </div>
             </div>
 
-            
+
             <a href='/signup'>
                 <h3 style={styles.signUpHere}>Sign-Up Here!</h3>
             </a>
         </div>
-               
-     );
-}; 
+
+    );
+};
 
 export default Login;
