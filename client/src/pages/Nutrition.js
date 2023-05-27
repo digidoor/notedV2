@@ -16,8 +16,9 @@ const styles = {
     float: 'left',
     padding: '25px',
     width: '780px',
-    border: 'solid',
-    borderColor: 'black',
+    color: 'black',
+    // border: 'solid',
+    // borderColor: 'black',
   },
 
   // meal plan
@@ -28,7 +29,8 @@ const styles = {
     padding: '25px',
     width: '500px',
     border: 'solid',
-    borderColor: 'black',
+    borderColor: 'darkgrey',
+    color: 'black',
   },
 
   nutContainer: {
@@ -43,6 +45,8 @@ const styles = {
   searchBtn: {
     width: '15%',
     marginLeft: '10px',
+    backgroundColor: '#bbe8d9',
+    color: 'black',
   },
 
   // meal plan column
@@ -51,11 +55,15 @@ const styles = {
   },
   addBtn: {
     width: '40%',
+    backgroundColor: '#bbe8d9',
+    color: 'black',
   },
 
   clearBtn: {
     width: '40%',
     marginLeft: '15px',
+    backgroundColor: '#bbe8d9',
+    color: 'black',
   }
 
 }
@@ -69,7 +77,7 @@ export default function Nutrition() {
           <h4>Recipes</h4>
           <div style={styles.recipeInputs}>
             <input id="userSearch" type="search" placeholder="Search Recipe" style={styles.searchBar}></input>
-            <button className="btn btn-danger" id="fetch-button" style={styles.searchBtn}>Search</button>
+            <button className="btn btn-outline-secondary" id="fetch-button" style={styles.searchBtn}><i class="large material-icons">search</i></button>
           </div>
           <div id="results"></div>
         </div>
@@ -81,8 +89,8 @@ export default function Nutrition() {
             <h4>Meal Plan</h4>
             <input className="add" id="addRecipe" type="text" placeholder="+ your recipe URL here"></input>
             <div style={styles.mealPlanBtns}>
-              <button className="add btn btn-danger" id="add" style={styles.addBtn}>Add</button>
-              <button className="btn btn-danger" id="clear-button" style={styles.clearBtn}>Clear</button>
+              <button className="add btn btn-outline-secondary" id="add" style={styles.addBtn}>Add</button>
+              <button className="btn btn-outline-secondary" id="clear-button" style={styles.clearBtn}>Clear</button>
             </div>
             <ul id="savedList"></ul>
 
