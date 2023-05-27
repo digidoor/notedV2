@@ -11,6 +11,8 @@ const styles = {
     // signup anchor
     signUpHere: {
         marginTop: '30px',
+        color: 'black',
+        textShadow: '0px 2px 0px #ef7c8e',
     }
 }
 
