@@ -1,4 +1,6 @@
 import React from "react";
+import { useQuery } from "@apollo/client";
+import { QUERY_NOTES } from "../utils/queries";
 
 const styles = {
     //Container that holds sidebar and stickynotes section

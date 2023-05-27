@@ -14,6 +14,7 @@ import Signup from './pages/Signup';
 import Home from './pages/Home';
 import CalendarPage from './pages/CalendarPage';
 import Nutrition from './pages/Nutrition';
+import Test from './pages/Test';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'rsuite/dist/rsuite.css'
 
@@ -65,6 +66,10 @@ const App = () => {
             <Route
               path="/"
               element={<Login />}
+            />
+            <Route 
+              path="/test" 
+              element={<Test />} 
             />
           </Routes>
         </Router>
