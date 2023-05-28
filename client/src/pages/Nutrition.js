@@ -16,8 +16,9 @@ const styles = {
     float: 'left',
     padding: '25px',
     width: '780px',
-    border: 'solid',
-    borderColor: 'black',
+    color: 'black',
+    // border: 'solid',
+    // borderColor: 'black',
   },
 
   // meal plan
@@ -28,7 +29,8 @@ const styles = {
     padding: '25px',
     width: '500px',
     border: 'solid',
-    borderColor: 'black',
+    borderColor: 'darkgrey',
+    color: 'black',
   },
 
   nutContainer: {
@@ -38,24 +40,41 @@ const styles = {
   // Recipe column
   searchBar: {
     width: '80%',
+    height: '35px',
   },
 
   searchBtn: {
     width: '15%',
     marginLeft: '10px',
+    backgroundColor: '#bbe8d9',
+    color: 'black',
+    fontWeight: 'bold',
+    boxShadow: '2px 2px 0px darkgrey', 
   },
 
   // meal plan column
-mealPlanBtns: {
-  marginTop: '8px',
-},
+  mealPlanBtns: {
+    marginTop: '8px',
+  },
   addBtn: {
     width: '40%',
+    backgroundColor: '#bbe8d9',
+    color: 'black',
+    width: '30%',
+    fontWeight: 'bold',
+    boxShadow: '2px 2px 0px darkgrey', 
   },
 
   clearBtn: {
     width: '40%',
     marginLeft: '15px',
+    backgroundColor: '#bbe8d9',
+    color: 'black',
+    fontWeight: 'bold',
+    boxShadow: '2px 2px 0px darkgrey', 
+  },
+  mealPBar: {
+    height: '35px',
   }
 
 }
@@ -68,8 +87,8 @@ export default function Nutrition() {
         <div className="card-one recipeUrl" id="recipe" style={styles.cardOne}>
           <h4>Recipes</h4>
           <div style={styles.recipeInputs}>
-          <input id="userSearch" type="search" placeholder="Search Recipe" style={styles.searchBar}></input>
-          <button className="btn btn-danger" id="fetch-button" style={styles.searchBtn}>Search</button>
+            <input id="userSearch" type="search" placeholder="Search Recipe" style={styles.searchBar}></input>
+            <button className="btn" id="fetch-button" style={styles.searchBtn}><i class="large material-icons">search</i></button>
           </div>
           <div id="results"></div>
         </div>
@@ -79,10 +98,10 @@ export default function Nutrition() {
         <div className="column-right" id="mealPlan" style={styles.columnRight}>
           <div className="card-two" style={styles.cardTwo}>
             <h4>Meal Plan</h4>
-            <input className="add" id="addRecipe" type="text" placeholder="+ your recipe URL here"></input>
+            <input className="add" id="addRecipe" type="text" placeholder="+ your recipe URL here" style={styles.mealPBar}></input>
             <div style={styles.mealPlanBtns}>
-            <button className="add btn btn-danger" id="add" style={styles.addBtn}>Add</button>
-            <button className="btn btn-danger" id="clear-button" style={styles.clearBtn}>Clear</button>
+              <button className="add btn " id="add" style={styles.addBtn}>Add</button>
+              <button className="btn " id="clear-button" style={styles.clearBtn}>Clear</button>
             </div>
             <ul id="savedList"></ul>
 

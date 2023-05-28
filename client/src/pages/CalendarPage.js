@@ -21,6 +21,29 @@ const styles = {
     backgroundColor: "white",
     borderRadius: "5px",
     marginBottom: "16px",
+  },
+  
+  addEventBtn: {
+    backgroundColor: '#bbe8d9',
+    color: 'black',
+    fontWeight: 'bold',
+    boxShadow: '2px 2px 0px darkgrey', 
+  },
+
+  cancelBtn: {
+    backgroundColor: '#bbe8d9',
+    color: 'black',
+    fontWeight: 'bold',
+    boxShadow: '2px 2px 0px darkgrey', 
+  },
+
+  confirmBtn: {
+    // width: '30%',
+    backgroundColor: '#bbe8d9',
+    color: 'black',
+    fontWeight: 'bold',
+    // marginTop: '6px',
+    boxShadow: '2px 2px 0px darkgrey', 
   }
 }
 
@@ -59,7 +82,7 @@ export default function CalendarPage() {
           justifyContent={"flex-start"}
         >
           <Calendar compact bordered renderCell={renderCell} onSelect={setCalState}/>{' '}
-          <Button appearance='primary' block onClick={() => setOpenWithHeader(true)}>Add Event</Button>
+          <Button appearance='primary' block onClick={() => setOpenWithHeader(true)} style={styles.addEventBtn}>Add Event</Button>
         </Stack>
       </Sidebar>
       <Content>
@@ -76,8 +99,8 @@ export default function CalendarPage() {
         <Drawer.Header>
           <Drawer.Title>Add New Event</Drawer.Title>
           <Drawer.Actions>
-            <Button onClick={() => setOpenWithHeader(false)}>Cancel</Button>
-            <Button onClick={() => setOpenWithHeader(false)} appearance="primary">
+            <Button onClick={() => setOpenWithHeader(false)} style={styles.cancelBtn}>Cancel</Button>
+            <Button onClick={() => setOpenWithHeader(false)} appearance="primary" style={styles.confirmBtn}>
               Confirm
             </Button>
           </Drawer.Actions>

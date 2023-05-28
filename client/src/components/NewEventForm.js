@@ -3,6 +3,21 @@ import { Form, ButtonToolbar, Button, Input } from 'rsuite';
 
 const Textarea = React.forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
 
+const styles = {
+    submitBtn: {
+        backgroundColor: '#bbe8d9',
+        color: 'black',
+        fontWeight: 'bold',
+        boxShadow: '2px 2px 0px darkgrey', 
+    },
+    cancelBtn: {
+        backgroundColor: '#bbe8d9',
+        color: 'black',
+        fontWeight: 'bold',
+        boxShadow: '2px 2px 0px darkgrey', 
+    }
+}
+
 export default function newEventForm() {
     return (
         <Form>
@@ -26,8 +41,8 @@ export default function newEventForm() {
         </Form.Group>
         <Form.Group>
             <ButtonToolbar>
-                <Button appearance="primary">Submit</Button>
-                <Button appearance="default">Cancel</Button>
+                <Button appearance="primary" style={styles.submitBtn}>Submit</Button>
+                <Button appearance="default" style={styles.cancelBtn}>Cancel</Button>
             </ButtonToolbar>
         </Form.Group>
     </Form>
