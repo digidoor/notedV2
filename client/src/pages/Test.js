@@ -17,22 +17,12 @@ const Test = () =>
     const [content, setContent] = useState("");
     async function handleFormSubmit(event)
     {
-        console.log("Entered submit handler");
         event.preventDefault();
         try
         {
-            console.log("Entered try block before attempting to addNote.");
-            console.log( "content:", content );
-            //const { data } = await addNote({variables: {content} });
-            const { data } = await addNote({
-                variables: { content },
-            });
-
+            const { data } = await addNote({ variables: { content }, });
             window.location.reload();
-        } catch (err)
-        {
-            console.error(err);
-        }
+        } catch (err) { console.error(err); }
     }
 
     return (
