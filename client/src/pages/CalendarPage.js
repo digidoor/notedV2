@@ -3,6 +3,8 @@ import { Container, Sidebar, Content, Header, Stack } from "rsuite";
 import { Calendar, Badge, Button, Drawer, } from 'rsuite';
 import { Form, ButtonToolbar, Input } from 'rsuite';
 import {SchemaModel, StringType, DateType, } from "schema-typed";
+import { useMutation } from '@apollo/client';
+import { ADD_EVENT } from '../utils/mutations';
 
 const styles = {
   dayContainer: {
@@ -48,7 +50,7 @@ const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref=
 
 const model = SchemaModel({
   title: StringType().isRequired("Title is Required"),
-  date: DateType().isRequired("Date is required"),
+  date: StringType().isRequired("Date is required"),
   time: StringType(),
   description: StringType(),
 })
@@ -65,32 +67,30 @@ export default function CalendarPage() {
   const [open, setOpen] = React.useState(false);
   const [calState, setCalState] = useState(today)
   const [newEvent, setNewEvent] = useState({ title: '', date: calState, time: '', description: ''});
+  const [addEvent, { error }] = useMutation(ADD_EVENT);
   const formRef = useRef();
   
   function renderCell(date) {
     const list = getTodoList(date);
-
+    //get list of events
     if (list.length) {
       return <Badge className="calendar-todo-item-badge" />;
     }
-
     return null;
   }
 
-  const handleInputChange = (event) => {
-    console.log(event);
-    const { name, value } = event.target;
-    setNewEvent({ ...newEvent, [name]: value });
-    console.log(newEvent);
-  };
-
   const submitNewEvent = async (event) => {
     event.preventDefault();
-    if(!formRef.current.check()) {
-      console.error("error");
-      return;
-    }
     console.log(newEvent)
+
+    try {
+      const { data } = await addEvent({
+        variables: { ...newEvent },  
+      });
+      console.log(data);
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   return (

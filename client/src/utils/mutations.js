@@ -36,3 +36,15 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const ADD_EVENT = gql`
+  mutation addEvent($title: String!, $date: String!, $time: String, $description: String) {
+    addEvent(title: $title, date: $date, time: $time, description: $description) {
+      _id
+      title
+      date
+      time
+      description
+    }
+  }
+  `;
