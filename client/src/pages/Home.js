@@ -1,5 +1,6 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
+import { useState, useEffect } from 'react';
+import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_NOTES } from "../utils/queries";
 
 const styles = {
