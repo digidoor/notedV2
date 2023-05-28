@@ -1,7 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Note, Recipe, Event } = require('../models');
 const { signToken } = require('../utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   // Date: new GraphQLScalarType({
@@ -25,8 +24,11 @@ const resolvers = {
     notes: async () => {
       return await Note.find();
     },
-    events: async () => {
-      return await Event.find();
+    events: async (parent, args, context) => {
+      if (context.user) {
+        return await Event.find();
+      }
+      throw new AuthenticationError('Not Logged in');
     },
     recipies: async (p) => {
       return await Recipe.find();
@@ -40,6 +42,12 @@ const resolvers = {
       }
       throw new AuthenticationError('Not logged in');
     },
+    event: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id)
+        return user.events.id(_id);
+      }
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -47,6 +55,15 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    addNote: async (parent, { content }, context) =>
+    {// do without associating with a user for now
+      //console.log(context);
+      //console.log(args);
+      //console.log(args.content);
+      console.log(content);
+      //const note = new Note({ content }); console.log(note);
+      return await Note.create({content});
     },
     // addNote: async (parent, { content }, context) => {
     //   console.log(context);
@@ -59,17 +76,16 @@ const resolvers = {
     //   }
     //   throw new AuthenticationError('Not logged in');
     // },
-    // addEvent: async (parent, { content }, context) => {
-    //   console.log(context);
-    //   if (context.user) {
-    //     const event = new Event({ content });
+    addEvent: async (parent,  content , context) => {
+      console.log(context);
+      if (context.user) {
+        const event = await Event.create( content );
+        await User.findByIdAndUpdate(context.user._id, { $push: { events: event } });
 
-    //     //await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
-
-    //     return event;
-    //   }
-    //   throw new AuthenticationError('Not logged in');
-    // },
+        return event;
+      }
+      throw new AuthenticationError('Not logged in');
+    },
     // addRecipe: async (parent, { content }, context) => {
     //   console.log(context);
     //   if (context.user) {
@@ -110,8 +126,8 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
-  }
-};
+    },
+  },
+}
 
 module.exports = resolvers;

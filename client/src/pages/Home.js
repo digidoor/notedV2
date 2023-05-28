@@ -45,7 +45,7 @@ const styles = {
 
     // textbox for zip code
     weatherInput: {
-        margin: '3px 3px 3px 3px',
+        margin: '8px 3px 3px 4px',
         width: '70%',
         color: 'black',
     },
@@ -55,6 +55,8 @@ const styles = {
         backgroundColor: '#bbe8d9',
         color: 'black',
         fontWeight: 'bold',
+        marginTop: '6px',
+        boxShadow: '2px 2px 0px darkgrey', 
     },
     // titles for each section (weather)
     h3: {
@@ -74,7 +76,9 @@ const styles = {
     },
     /* sticky notes */
     addNote: {
-        backgroundImage: `url("./notelanding.png")`,
+        backgroundImage: `url("assets/Post-it.png")`,
+        height: '150px',
+        backgroundRepeat: 'no-repeat',
         padding: '3rem',
     },
     /* Stickynote layout */
@@ -124,7 +128,7 @@ export default function Home() {
                             <h5 className="card-header" style={styles.cardTitle}>View Today's Weather</h5>
                             <div style={styles.viewWeather}>
                                 <input className="weatherInput" type="text" placeholder="Enter zip code here.." style={styles.weatherInput}></input>
-                                <button type="button" className="btn btn-outline-secondary seeWeather " id="fetch-button" style={styles.viewWeatherBtn}>
+                                <button type="button" className="btn seeWeather " id="fetch-button" style={styles.viewWeatherBtn}>
                                     <i className="material-icons" style={styles.btnIcon}>filter_drama</i>
                                 </button>
                             </div>
@@ -144,7 +148,7 @@ export default function Home() {
                 </div>
                 {/* ADDING NEW NOTES*/}
                 <div id="stickyNotes" className="stickyNotes" style={styles.stickyNotes}>
-                    <button type="button" className="btn btn-outline-secondary addNote" id="addNote" data-bs-toggle="modal"
+                    <button type="button" className="btn addNote" id="addNote" data-bs-toggle="modal"
                         data-bs-target="#myModal" style={styles.addNote}>
                         <div style={styles.btnTitle}>
                             <i class="large material-icons">add_circle_outline</i>

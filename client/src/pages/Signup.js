@@ -5,7 +5,9 @@ import SignupForm from '../components/SignupForm';
 const styles = {
     // login here anchor
     loginAnch: {
-        marginTop: '15px',
+        marginTop: '18px',
+            color: '#ef7c8e',
+            textShadow: '2px 2px 2px black',
     },
     signUpContainer: {
         marginTop: '30px',
@@ -25,7 +27,7 @@ const Signup = () => {
                 </div>
             </div>
             <a href='/login'>
-                <h3 style={styles.loginAnch}>Login Here</h3>
+                <h3 style={styles.loginAnch}>Existing Members Login Here</h3>
             </a>
         </div>
     );

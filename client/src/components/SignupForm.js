@@ -6,8 +6,18 @@ import Auth from '../utils/auth';
 const styles = {
 signUpBtn: {
     marginTop: '20px',
+        color: 'black',
+        backgroundColor: '#bbe8d9',
+        boxShadow: '2px 2px 0px darkgrey', 
+        fontWeight: 'bold',
+    },
+    signUpTitle: {
+        color: 'black',
+    },
+    signUpForm: {
+        paddingTop: '15px',
+    }
     
-}
 }
 
 
@@ -50,8 +60,8 @@ export default function SignupForm() {
     return (
         <div className="col">
             <div>
-                <h2>Sign-Up</h2>
-                <form onSubmit={handleFormSubmit}>
+                <h2 style={styles.signUpTitle}>Sign-Up</h2>
+                <form onSubmit={handleFormSubmit} style={styles.signUpForm}>
                     <div className="form-floating mb-3">
                         <input
                             className="form-control"
@@ -91,7 +101,7 @@ export default function SignupForm() {
                         <label for="floatingPassword">Password</label>
                     </div>
                     <div className="d-grid gap-2 col-6 mx-auto">
-                        <button className="btn btn-primary" type="submit" style={styles.signUpBtn}>Sign-Up!</button>
+                        <button className="btn" type="submit" style={styles.signUpBtn}>Sign-Up!</button>
                     </div>
                 </form>
             </div>
