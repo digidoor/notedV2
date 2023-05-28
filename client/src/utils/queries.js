@@ -8,6 +8,15 @@ export const QUERY_NOTES = gql`
     }
   }
 `
+export const QUERY_RECIPES = gql`
+  query allRecipes {
+    recipes {
+      _id
+      title
+      url
+    }
+  }
+`
 
 export const QUERY_USERS = gql`
   query allUsers {
