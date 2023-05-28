@@ -4,10 +4,8 @@ import { gql } from '@apollo/client';
 export const ADD_NOTE = gql`
   mutation addNote($content: String!) {
     addNote( content: $content ) {
-      note {
-        _id
-        content
-      }
+      _id
+      content
     }
   }
 `;
