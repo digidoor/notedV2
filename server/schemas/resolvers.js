@@ -76,11 +76,11 @@ const resolvers = {
     //   }
     //   throw new AuthenticationError('Not logged in');
     // },
-    addEvent: async (parent, { content }, context) => {
+    addEvent: async (parent,  content , context) => {
       console.log(context);
       if (context.user) {
-        const event = new Event({ content });
-        User.findByIdAndUpdate(context.user._id, { $push: { events: event } });
+        const event = await Event.create( content );
+        await User.findByIdAndUpdate(context.user._id, { $push: { events: event } });
 
         return event;
       }
