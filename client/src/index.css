@@ -3,9 +3,46 @@ body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color:black;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+    color:black;
+}
+/* home page */
+@media screen and (max-width: 1024px) {
+  body,
+  .header,
+  h1 {
+      flex-direction: column;
+      display: block;
+  }
+
+  /* The header is the blue bar */
+  .header {
+      height: 25vh;
+      width: auto;
+
+  }
+
+  /* Main website Title */
+  /* h1 {
+      text-align: center;
+  } */
+}
+
+@media screen and (max-width: 328px) {
+  .clearNotes {
+      justify-content: center;
+}
+.stickyNotes {
+  position:static;
+  margin:0;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  order:-2;
+}
 }
