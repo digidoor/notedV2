@@ -3,7 +3,7 @@ import { Container, Sidebar, Content, Header, Stack } from "rsuite";
 import { Calendar, Badge, Button, Drawer, } from 'rsuite';
 import { Form, ButtonToolbar, Input } from 'rsuite';
 import {SchemaModel, StringType, DateType, } from "schema-typed";
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { ADD_EVENT } from '../utils/mutations';
 import EventList from '../components/EventList';
 

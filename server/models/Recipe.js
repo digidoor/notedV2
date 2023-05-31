@@ -4,6 +4,11 @@ const { Schema } = mongoose;
 
 const recipeSchema = new Schema({
 // Recipe fields
+    title: {
+        type: String,
+        required: true,
+        trim: true
+    },
     url: {
         type: String,
         required: true,
