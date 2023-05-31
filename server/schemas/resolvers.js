@@ -26,7 +26,8 @@ const resolvers = {
     },
     events: async (parent, arg, context) => {
       if (context.user) {
-        const events = Event.find({createdBy: context.user._id}).sort(date);
+        console.log(context.user);
+        const events = await Event.find({createdBy: context.user._id}).sort({ date: 1 });
         return events ? events : [];
       }
       throw new AuthenticationError('Not Logged in');

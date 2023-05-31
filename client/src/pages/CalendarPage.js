@@ -111,6 +111,7 @@ export default function CalendarPage() {
         <div style={styles.dayContainer}>
           <Header style={styles.dayHeader}>{calState.toDateString()}</Header>
           <Content>
+            <h2>Events:</h2>
             <EventList date={calState}/>
           </Content>
         </div>
