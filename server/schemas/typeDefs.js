@@ -7,7 +7,8 @@ const typeDefs = gql`
     title: String!
     date: String!
     time: String
-    description: String 
+    description: String
+    createdBy: User! 
   }
 
   type Note {

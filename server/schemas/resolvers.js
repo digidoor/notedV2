@@ -24,9 +24,11 @@ const resolvers = {
     notes: async () => {
       return await Note.find();
     },
-    events: async (parent, args, context) => {
+    events: async (parent, arg, context) => {
       if (context.user) {
-        return await Event.find();
+        console.log(context.user);
+        const events = await Event.find({createdBy: context.user._id}).sort({ date: 1 });
+        return events ? events : [];
       }
       throw new AuthenticationError('Not Logged in');
     },
@@ -42,11 +44,11 @@ const resolvers = {
       }
       throw new AuthenticationError('Not logged in');
     },
-    event: async (parent, { _id }, context) => {
+    event: async (parent, { eventId }, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id)
-        return user.events.id(_id);
+        return Event.findOne({ _id: eventId });
       }
+      throw new AuthenticationError('Not Logged in');
     },
   },
   Mutation: {
@@ -63,7 +65,9 @@ const resolvers = {
       //console.log(args.content);
       console.log(content);
       //const note = new Note({ content }); console.log(note);
-      return await Note.create({content});
+      return await Note.create({
+        content,
+        createdBy: context.user._id});
     },
     // addNote: async (parent, { content }, context) => {
     //   console.log(context);
@@ -77,9 +81,13 @@ const resolvers = {
     //   throw new AuthenticationError('Not logged in');
     // },
     addEvent: async (parent,  content , context) => {
-      console.log(context);
+      console.log(context.user);
+      console.log({content});
       if (context.user) {
-        const event = await Event.create( content );
+        const event = await Event.create({
+          ...content,
+          createdBy: context.user._id 
+        });
         await User.findByIdAndUpdate(context.user._id, { $push: { events: event } });
 
         return event;
