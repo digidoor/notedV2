@@ -20,6 +20,24 @@ const userSchema = new Schema({
     required: true,
     minlength: 3 // change this back to something reasonable much later in development
   },
+  events: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Event'
+    }
+  ],
+  notes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Note'
+    }
+  ],
+  recipies: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Recipe'
+    }
+  ]
 // add more user fields -- this file was taken from an activity
 });
 

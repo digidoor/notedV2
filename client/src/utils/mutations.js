@@ -45,6 +45,9 @@ export const ADD_EVENT = gql`
       date
       time
       description
+      createdBy {
+        _id
+      }
     }
   }
   `;

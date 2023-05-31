@@ -7,7 +7,8 @@ const typeDefs = gql`
     title: String!
     date: String!
     time: String
-    description: String 
+    description: String
+    createdBy: User! 
   }
 
   type Note {
@@ -48,7 +49,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
-    addEvent(title: String!, date: String!, time: String, description: String) : Event
+    addEvent(title: String!, date: String!, time: String, description: String): Event
   }
 `;
 

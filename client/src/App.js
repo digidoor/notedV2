@@ -15,8 +15,7 @@ import Home from './pages/Home';
 import CalendarPage from './pages/CalendarPage';
 import Nutrition from './pages/Nutrition';
 import Test from './pages/Test';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'rsuite/dist/rsuite.css'
+import 'rsuite/dist/rsuite.css';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
