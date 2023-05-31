@@ -12,28 +12,28 @@ code {
     color:black;
 }
 /* home page */
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
   body,
   .header,
   h1 {
       flex-direction: column;
       display: block;
-  }
+  } */
 
   /* The header is the blue bar */
-  .header {
+  /* .header {
       height: 25vh;
       width: auto;
 
-  }
+  } */
 
   /* Main website Title */
   /* h1 {
       text-align: center;
   } */
-}
+/* } */
 
-@media screen and (max-width: 328px) {
+/* @media screen and (max-width: 328px) {
   .clearNotes {
       justify-content: center;
 }
@@ -45,4 +45,57 @@ code {
   flex-direction: column;
   order:-2;
 }
-}
+} */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  /* HEADER COMPONENT - HEADER STYLING  */
+  .header {
+      background-color: #bbe8d9;
+      height: 90px;
+      width: 100%;
+  }
+  /* MAIN TITLE STYLING */
+  .main {
+      color: black;
+      font-size: 123px;
+      text-shadow: 3px 2px 2px #ef7c8e;
+      font-weight: 500;
+      line-height: 140px;
+  }
+   /* NAVBAR */
+  .nav {
+      background-color: #feedaa;
+      width: 100%;
+      color: black;
+      height: 40px;
+      line-height: 2;
+      font-size: 20px;
+      box-shadow: 0px 2px 4px 0 grey;
+  }
+  
+  .nav-item {
+      color: black;
+      text-shadow: 3px 2px 2px #ef7c8e;
+  }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+  
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+  
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+  
+  }
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+  
+  }

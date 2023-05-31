@@ -3,8 +3,17 @@ import React from "react";
 const styles = {
     welcomeSection: {
         color: 'Black',
+        paddingTop:'5px',
+        // backgroundImage: `url("assets/PostIt500.png")`,
+        // backgroundSize: '650px 650px',
+        // backgroundPosition: 'center',
+        // backgroundRepeat: 'no-repeat',
     },
     welcomeBlurb: {
+        display:'flex',
+        justifyContent: 'center',
+        height:'650px',
+        width: '650px',
         fontSize: '18px',
         paddingTop: '15px',
     }
