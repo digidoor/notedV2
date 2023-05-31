@@ -77,8 +77,11 @@ const styles = {
     },
     /* sticky notes */
     addNote: {
-        backgroundImage: `url("assets/Post-it.png")`,
-        height: '150px',
+        backgroundImage: `url("assets/PostIt500.png")`,
+        backgroundSize: '200px 200px',
+        backgroundPosition: 'center',
+        height: '200px',
+        width: '200px',
         backgroundRepeat: 'no-repeat',
         padding: '3rem',
     },
@@ -110,8 +113,10 @@ const styles = {
         justifyContent: 'center',
     },
     btnTitle: {
+        // display:'flex',
+        // justifyContent: 'center',
         color: 'black',
-        fontSize: '12px',
+        fontSize: '10px',
     }
 
 }
@@ -152,7 +157,7 @@ export default function Home() {
                     <button type="button" className="btn addNote" id="addNote" data-bs-toggle="modal"
                         data-bs-target="#myModal" style={styles.addNote}>
                         <div style={styles.btnTitle}>
-                            <i class="large material-icons">add_circle_outline</i>
+                            <i className="large material-icons">add_circle_outline</i>
                             <h4>Add New Note</h4>
                         </div>
                     </button>
