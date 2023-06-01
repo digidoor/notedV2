@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { QUERY_RECIPES } from "../utils/queries"
 import { useMutation } from '@apollo/client';
 
+// var recipeTitle = data.results[i].title;
+// var sourceUrl = data.results[i].sourceUrl;
+// var recipeImage = data.results[i].image;
+
 
 const styles = {
   columnLeft: {
