@@ -98,10 +98,10 @@ const styles = {
     /* sticky notes */
     addNote: {
         backgroundImage: `url("assets/PostIt500.png")`,
-        backgroundSize: '200px 200px',
+        backgroundSize: '250px 250px',
         backgroundPosition: 'center',
-        height: '200px',
-        width: '200px',
+        height: '250px',
+        width: '250px',
         backgroundRepeat: 'no-repeat',
         padding: '3rem',
     },
@@ -113,7 +113,8 @@ const styles = {
         position: 'absolute',
         width: '75%',
         justifyContent: 'left',
-        marginLeft: '300px',
+        marginLeft:'18px',
+        marginTop: '18px',
     },
 
     /* Modal Styling */
@@ -182,13 +183,14 @@ export default function Home() {
                     </div>
                 </div>
             </div> */}
+            {/* clear notes button */}
             <div className="clearNotes" style={styles.clearNotes}>
             <button type="button" className="btn clearNotesBtn" id="clearNotesBtn" style={styles.clearNotesBtn}>
                 Clear Sticky Notes
             </button>
             </div>
-            <div className="container" style={styles.container}>
-                <div className="row align-items-start ">
+            {/* <div className="container" style={styles.container}> */}
+                {/* <div className="row align-items-start "> */}
                     {/* ADDING NEW NOTES*/}
                     <div id="stickyNotes" className="stickyNotes" style={styles.stickyNotes}>
                         <button type="button" className="btn addNote" id="addNote" data-bs-toggle="modal"
@@ -204,7 +206,7 @@ export default function Home() {
                             </Modal.Header>
                             <Modal.Body><Form>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                    <Form.Label>title</Form.Label>
+                                    <Form.Label>Note Title</Form.Label>
                                     <Form.Control
                                         type="text"
                                         autoFocus
@@ -214,7 +216,7 @@ export default function Home() {
                                     className="mb-3"
                                     controlId="exampleForm.ControlTextarea1"
                                 >
-                                    <Form.Label>Example textarea</Form.Label>
+                                    <Form.Label>Add your thoughts..</Form.Label>
                                     <Form.Control as="textarea" rows={3} />
                                 </Form.Group>
                             </Form></Modal.Body>
@@ -223,13 +225,13 @@ export default function Home() {
                                     Close
                                 </Button>
                                 <Button variant="primary" onClick={handleClose}>
-                                    Save Changes
+                                    Save Note
                                 </Button>
                             </Modal.Footer>
                         </Modal>
                     </div>
-                </div>
-            </div>
+                {/* </div> */}
+            {/* </div> */}
         </>
 
     )
