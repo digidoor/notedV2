@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { QUERY_RECIPES } from "../utils/queries"
 import { useMutation } from '@apollo/client';
-import { search } from '../components/RecipeList'
-
+import { search } from '../components/RecipeList';
+import SearchResultContainer from '../components/SearchResultContainer';
 
 const styles = {
   columnLeft: {
@@ -86,7 +86,7 @@ const styles = {
 }
 
 export default function Nutrition() {
-
+// TODO: Create useState variable called query and setQuery that is equal to the input value of the search
   return (
     <div className="container text-center" style={styles.nutContainer}>
       <div className="column-left" style={styles.columnLeft}>
@@ -96,7 +96,12 @@ export default function Nutrition() {
             <input id="userSearch" type="search" placeholder="Search Recipe" style={styles.searchBar}></input>
             <button className="btn" id="fetch-button" style={styles.searchBtn}><i class="large material-icons">search</i></button>
           </div>
-          <div id="results"></div>
+          <div>
+      {/* Pass our results to the ResultsList component to map over */}
+
+      // TODO: Only render this component if the query variable is truthy
+      <SearchResultContainer ? query={query}/>
+    </div>
         </div>
       </div>
 
