@@ -8,13 +8,13 @@ import Form from 'react-bootstrap/Form';
 
 const styles = {
     //Container that holds sidebar and stickynotes section
-    container: {
-        paddingTop: '28px',
-        marginLeft: '0',
-        fontSize: '18px',
-        display: 'flex',
-        justifyContent: 'left',
-    },
+    // container: {
+    //     paddingTop: '28px',
+    //     marginLeft: '0',
+    //     fontSize: '18px',
+    //     display: 'flex',
+    //     justifyContent: 'left',
+    // },
     // Weather Sidebar
     weather: {
         display: 'flex',
@@ -78,7 +78,7 @@ const styles = {
         fontSize: '18px',
         color: 'black',
     },
-
+    // The Div that holds the clear notes button
     clearNotes: {
         display: 'flex',
         justifyContent: 'end',
@@ -113,7 +113,7 @@ const styles = {
         position: 'absolute',
         width: '75%',
         justifyContent: 'left',
-        marginLeft:'18px',
+        marginLeft: '18px',
         marginTop: '18px',
     },
 
@@ -185,53 +185,49 @@ export default function Home() {
             </div> */}
             {/* clear notes button */}
             <div className="clearNotes" style={styles.clearNotes}>
-            <button type="button" className="btn clearNotesBtn" id="clearNotesBtn" style={styles.clearNotesBtn}>
-                Clear Sticky Notes
-            </button>
+                <button type="button" className="btn clearNotesBtn" id="clearNotesBtn" style={styles.clearNotesBtn}>
+                    Clear Sticky Notes
+                </button>
             </div>
-            {/* <div className="container" style={styles.container}> */}
-                {/* <div className="row align-items-start "> */}
-                    {/* ADDING NEW NOTES*/}
-                    <div id="stickyNotes" className="stickyNotes" style={styles.stickyNotes}>
-                        <button type="button" className="btn addNote" id="addNote" data-bs-toggle="modal"
-                            data-bs-target="#myModal" style={styles.addNote} onClick={handleOpen}>
-                            <div style={styles.btnTitle}>
-                                <i className="large material-icons">add_circle_outline</i>
-                                <h4>Add New Note</h4>
-                            </div>
-                        </button>
-                        <Modal show={show} onHide={handleClose}>
-                            <Modal.Header closeButton>
-                                <Modal.Title>What do you need Noted?</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body><Form>
-                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                    <Form.Label>Note Title</Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        autoFocus
-                                    />
-                                </Form.Group>
-                                <Form.Group
-                                    className="mb-3"
-                                    controlId="exampleForm.ControlTextarea1"
-                                >
-                                    <Form.Label>Add your thoughts..</Form.Label>
-                                    <Form.Control as="textarea" rows={3} />
-                                </Form.Group>
-                            </Form></Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>
-                                    Close
-                                </Button>
-                                <Button variant="primary" onClick={handleClose}>
-                                    Save Note
-                                </Button>
-                            </Modal.Footer>
-                        </Modal>
+            {/* ADDING NEW NOTES*/}
+            <div id="stickyNotes" className="stickyNotes" style={styles.stickyNotes}>
+                <button type="button" className="btn addNote" id="addNote" data-bs-toggle="modal"
+                    data-bs-target="#myModal" style={styles.addNote} onClick={handleOpen}>
+                    <div style={styles.btnTitle}>
+                        <i className="large material-icons">add_circle_outline</i>
+                        <h4>Add New Note</h4>
                     </div>
-                {/* </div> */}
-            {/* </div> */}
+                </button>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>What do you need Noted?</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body><Form>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Note Title</Form.Label>
+                            <Form.Control
+                                type="text"
+                                autoFocus
+                            />
+                        </Form.Group>
+                        <Form.Group
+                            className="mb-3"
+                            controlId="exampleForm.ControlTextarea1"
+                        >
+                            <Form.Label>Add your thoughts..</Form.Label>
+                            <Form.Control as="textarea" rows={3} />
+                        </Form.Group>
+                    </Form></Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="primary" onClick={handleClose}>
+                            Save Note
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            </div>
         </>
 
     )
