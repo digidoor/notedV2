@@ -1,7 +1,10 @@
-import React from "react";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_NOTES } from "../utils/queries";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 const styles = {
     //Container that holds sidebar and stickynotes section
@@ -57,7 +60,7 @@ const styles = {
         color: 'black',
         fontWeight: 'bold',
         marginTop: '6px',
-        boxShadow: '2px 2px 0px darkgrey', 
+        boxShadow: '2px 2px 0px darkgrey',
     },
     // titles for each section (weather)
     h3: {
@@ -124,65 +127,88 @@ const styles = {
 
 export default function Home() {
 
+    const [show, setShow] = useState(false);
+    const handleClose = () => {
+        setShow(false)
+    }
+    const handleOpen = () => {
+        setShow(true)
+    }
+
+
+
+
     return (
         // WEATHER SIDEBAR
-        <div className="container" style={styles.container}>
-            <div className="row align-items-start ">
-                <div className="weather" style={styles.weather}>
-                    <div className="card weatherCard" style={styles.weatherCard}>
-                        <div className="card-body" style={styles.cardBody}>
-                            <h5 className="card-header" style={styles.cardTitle}>View Today's Weather</h5>
-                            <div style={styles.viewWeather}>
-                                <input className="weatherInput" type="text" placeholder="Enter zip code here.." style={styles.weatherInput}></input>
-                                <button type="button" className="btn seeWeather " id="fetch-button" style={styles.viewWeatherBtn}>
-                                    <i className="material-icons" style={styles.btnIcon}>filter_drama</i>
-                                </button>
-                            </div>
-                            <h3 style={styles.h3}>Current Temperature</h3>
-                            <p className="weatherResults" id="temp" style={styles.weatherResults}></p>
-                            <h2 style={styles.h2}>Max-Temperature:</h2>
-                            <p className="weatherResults" id="maxtemp" style={styles.weatherResults}></p>
-                            <h2 style={styles.h2}>Min-Temperature:</h2>
-                            <p className="weatherResults" id="mintemp" style={styles.weatherResults}></p>
-                            <h3 style={styles.h3}>Humidity</h3>
-                            <p className="weatherResults" id="humidity" style={styles.weatherResults}></p>
-                            <h3 style={styles.h3}>Wind</h3>
-                            <h2 style={styles.h2}>Speed:</h2>
-                            <p className="weatherResults" id="windspeed" style={styles.weatherResults}></p>
+        <>
+            {/* <div className="weather" style={styles.weather}>
+                <div className="card weatherCard" style={styles.weatherCard}>
+                    <div className="card-body" style={styles.cardBody}>
+                        <h5 className="card-header" style={styles.cardTitle}>View Today's Weather</h5>
+                        <div style={styles.viewWeather}>
+                            <input className="weatherInput" type="text" placeholder="Enter zip code here.." style={styles.weatherInput}></input>
+                            <button type="button" className="btn seeWeather " id="fetch-button" style={styles.viewWeatherBtn}>
+                                <i className="material-icons" style={styles.btnIcon}>filter_drama</i>
+                            </button>
                         </div>
+                        <h3 style={styles.h3}>Current Temperature</h3>
+                        <p className="weatherResults" id="temp" style={styles.weatherResults}></p>
+                        <h2 style={styles.h2}>Max-Temperature:</h2>
+                        <p className="weatherResults" id="maxtemp" style={styles.weatherResults}></p>
+                        <h2 style={styles.h2}>Min-Temperature:</h2>
+                        <p className="weatherResults" id="mintemp" style={styles.weatherResults}></p>
+                        <h3 style={styles.h3}>Humidity</h3>
+                        <p className="weatherResults" id="humidity" style={styles.weatherResults}></p>
+                        <h3 style={styles.h3}>Wind</h3>
+                        <h2 style={styles.h2}>Speed:</h2>
+                        <p className="weatherResults" id="windspeed" style={styles.weatherResults}></p>
                     </div>
                 </div>
-                {/* ADDING NEW NOTES*/}
-                <div id="stickyNotes" className="stickyNotes" style={styles.stickyNotes}>
-                    <button type="button" className="btn addNote" id="addNote" data-bs-toggle="modal"
-                        data-bs-target="#myModal" style={styles.addNote}>
-                        <div style={styles.btnTitle}>
-                            <i className="large material-icons">add_circle_outline</i>
-                            <h4>Add New Note</h4>
-                        </div>
-                    </button>
-                    <div className="modal" id="myModal" tabindex="-1">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h1 className="modal-title">What do you need Noted?</h1>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div className="modal-body">
-                                    <input className="notebody" id="noteBody" type="text"
-                                        placeholder="Add your note here..."></input>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button id="saveNote" type="button" className="btn btn-primary">Save changes</button>
-                                </div>
+            </div> */}
+            <div className="container" style={styles.container}>
+                <div className="row align-items-start ">
+                    {/* ADDING NEW NOTES*/}
+                    <div id="stickyNotes" className="stickyNotes" style={styles.stickyNotes}>
+                        <button type="button" className="btn addNote" id="addNote" data-bs-toggle="modal"
+                            data-bs-target="#myModal" style={styles.addNote} onClick={handleOpen}>
+                            <div style={styles.btnTitle}>
+                                <i className="large material-icons">add_circle_outline</i>
+                                <h4>Add New Note</h4>
                             </div>
-                        </div>
+                        </button>
+                        <Modal show={show} onHide={handleClose}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>What do you need Noted?</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body><Form>
+                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                    <Form.Label>title</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        autoFocus
+                                    />
+                                </Form.Group>
+                                <Form.Group
+                                    className="mb-3"
+                                    controlId="exampleForm.ControlTextarea1"
+                                >
+                                    <Form.Label>Example textarea</Form.Label>
+                                    <Form.Control as="textarea" rows={3} />
+                                </Form.Group>
+                            </Form></Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>
+                                    Close
+                                </Button>
+                                <Button variant="primary" onClick={handleClose}>
+                                    Save Changes
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
 
     )
 }
