@@ -17,36 +17,26 @@ const Test = () =>
     const [content, setContent] = useState("");
     async function handleFormSubmit(event)
     {
-        console.log("Entered submit handler");
         event.preventDefault();
         try
         {
-            console.log("Entered try block before attempting to addNote.");
-            console.log( "content:", content );
-            //const { data } = await addNote({variables: {content} });
-            const { data } = await addNote({
-                variables: { content },
-            });
-
+            const { data } = await addNote({ variables: { content }, });
             window.location.reload();
-        } catch (err)
-        {
-            console.error(err);
-        }
+        } catch (err) { console.error(err); }
     }
 
     return (
         <main>
-            <div className="whatever">Notes
+            <div className="whatever"><h1>Notes</h1>
                 {loading ? (<div>Loading...</div>)
-                    : (notes.map( note => <div>{note.content}</div> ) )}
+                    : (notes.map( note => <div key={note._id}>{note.content}<p>{note._id}</p></div> ) )}
             </div>
-            <div className="whatever">Users
+            <div className="whatever"><h1>Users</h1>
                 {loading2 ? (<div>Loading...</div>)
-                    : (users.map( user => <div>{user.username} {user.email} {user.password}</div> ) )}
+                    : (users.map( user => <div key={user._id}>{user.username} {user.email} {user.password}</div> ) )}
             </div>
 
-            <div className="whatever">Pokeymans
+            <div className="whatever"><h1>Pokeymans</h1>
                 {isPending ? (<div>Loading...</div>)
                     : (<div>{pokedata.species.name}<img src={pokedata.sprites.front_default}></img></div>)}
             </div>
