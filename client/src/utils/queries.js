@@ -8,6 +8,15 @@ export const QUERY_NOTES = gql`
     }
   }
 `
+export const QUERY_RECIPES = gql`
+  query allRecipes {
+    recipes {
+      _id
+      title
+      url
+    }
+  }
+`
 
 export const QUERY_USERS = gql`
   query allUsers {
@@ -20,18 +29,24 @@ export const QUERY_USERS = gql`
   }
 `
 
-export const QUERY_PROFILES = gql`
-  query allProfiles {
-    profiles {
+export const GET_EVENTS = gql`
+  query getEvents {
+     events {
       _id
-      username
+      title
+      date
+      time
+      description
+      createdBy {
+        _id
+      }
     }
   }
 `;
 
-export const QUERY_SINGLE_PROFILE = gql`
-  query singleProfile($profileId: ID!) {
-    profile(profileId: $profileId) {
+export const GET_SINGLE_EVENT = gql`
+  query getSingleEvent($eventId: ID!) {
+    event(eventId: $eventId) {
       _id
       username
     }
