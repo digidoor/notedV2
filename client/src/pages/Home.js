@@ -78,6 +78,23 @@ const styles = {
         fontSize: '18px',
         color: 'black',
     },
+
+    clearNotes: {
+        display: 'flex',
+        justifyContent: 'end',
+        marginRight: '18px',
+        marginTop: '10px',
+    },
+
+    clearNotesBtn: {
+        width: '18%',
+        backgroundColor: '#bbe8d9',
+        color: 'black',
+        fontWeight: 'bold',
+        marginTop: '6px',
+        boxShadow: '2px 2px 0px darkgrey',
+    },
+
     /* sticky notes */
     addNote: {
         backgroundImage: `url("assets/PostIt500.png")`,
@@ -165,6 +182,11 @@ export default function Home() {
                     </div>
                 </div>
             </div> */}
+            <div className="clearNotes" style={styles.clearNotes}>
+            <button type="button" className="btn clearNotesBtn" id="clearNotesBtn" style={styles.clearNotesBtn}>
+                Clear Sticky Notes
+            </button>
+            </div>
             <div className="container" style={styles.container}>
                 <div className="row align-items-start ">
                     {/* ADDING NEW NOTES*/}
