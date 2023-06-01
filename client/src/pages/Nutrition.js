@@ -99,8 +99,8 @@ export default function Nutrition() {
           <div>
       {/* Pass our results to the ResultsList component to map over */}
 
-      // TODO: Only render this component if the query variable is truthy
-      <SearchResultContainer ? query={query}/>
+      {/* // TODO: Only render this component if the query variable is truthy
+      <SearchResultContainer ? query={query}/> */}
     </div>
         </div>
       </div>
