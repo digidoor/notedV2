@@ -52,8 +52,6 @@ const typeDefs = gql`
     updateUser(username: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
     addEvent(title: String!, date: String!, time: String, description: String): Event
-    addNote(title: String, content: String!): Note
-    addRecipe(url: String!): Recipe
   }
 `;
 
