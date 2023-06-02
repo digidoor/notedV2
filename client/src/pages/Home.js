@@ -17,68 +17,68 @@ const styles = {
     //     justifyContent: 'left',
     // },
     // Weather Sidebar
-    weather: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        flexDirection: 'row',
-        justifyContent: 'left',
-        width: '295px',
-        marginLeft: '15px',
-    },
-    weatherCard: {
-        width: '288px',
-        height: '600px',
-        borderRight: '2px solid darkgrey',
-        boxShadow: '0px 2px 0px lightgrey',
-    },
+    // weather: {
+    //     display: 'flex',
+    //     flexWrap: 'wrap',
+    //     flexDirection: 'row',
+    //     justifyContent: 'left',
+    //     width: '295px',
+    //     marginLeft: '15px',
+    // },
+    // weatherCard: {
+    //     width: '288px',
+    //     height: '600px',
+    //     borderRight: '2px solid darkgrey',
+    //     boxShadow: '0px 2px 0px lightgrey',
+    // },
     //content within the weather sidebar
-    cardBody: {
-        textAlign: 'center',
+    // cardBody: {
+    //     textAlign: 'center',
 
-    },
-    cardTitle: {
-        fontSize: '30px',
-        fontWeight: 'bold',
-        color: 'black',
-        // textShadow: '2px 2px 2px #ef7c8e',
-    },
+    // },
+    // cardTitle: {
+    //     fontSize: '30px',
+    //     fontWeight: 'bold',
+    //     color: 'black',
+    //     // textShadow: '2px 2px 2px #ef7c8e',
+    // },
 
-    viewWeather: {
-        display: 'flex',
-        marginTop: '5px',
-    },
+    // viewWeather: {
+    //     display: 'flex',
+    //     marginTop: '5px',
+    // },
 
-    // textbox for zip code
-    weatherInput: {
-        margin: '8px 3px 3px 4px',
-        width: '70%',
-        color: 'black',
-    },
-    // view weather button in sidebar
-    viewWeatherBtn: {
-        width: '30%',
-        backgroundColor: '#bbe8d9',
-        color: 'black',
-        fontWeight: 'bold',
-        marginTop: '6px',
-        boxShadow: '2px 2px 0px darkgrey',
-    },
+    // // textbox for zip code
+    // weatherInput: {
+    //     margin: '8px 3px 3px 4px',
+    //     width: '70%',
+    //     color: 'black',
+    // },
+    // // view weather button in sidebar
+    // viewWeatherBtn: {
+    //     width: '30%',
+    //     backgroundColor: '#bbe8d9',
+    //     color: 'black',
+    //     fontWeight: 'bold',
+    //     marginTop: '6px',
+    //     boxShadow: '2px 2px 0px darkgrey',
+    // },
     // titles for each section (weather)
-    h3: {
-        fontSize: '22px',
-        textDecoration: 'underline',
-        color: 'black',
-    },
+    // h3: {
+    //     fontSize: '22px',
+    //     textDecoration: 'underline',
+    //     color: 'black',
+    // },
     // sub-titles
-    h2: {
-        fontSize: '18px',
-        color: 'black',
-    },
+    // h2: {
+    //     fontSize: '18px',
+    //     color: 'black',
+    // },
     /* weather results from API */
-    weatherResults: {
-        fontSize: '18px',
-        color: 'black',
-    },
+    // weatherResults: {
+    //     fontSize: '18px',
+    //     color: 'black',
+    // },
     // The Div that holds the clear notes button
     clearNotes: {
         display: 'flex',
@@ -99,10 +99,10 @@ const styles = {
     /* sticky notes */
     addNote: {
         backgroundImage: `url("assets/PostIt500.png")`,
-        backgroundSize: '250px 250px',
+        backgroundSize: '300px 300px',
         backgroundPosition: 'center',
-        height: '250px',
-        width: '250px',
+        height: '300px',
+        width: '300px',
         backgroundRepeat: 'no-repeat',
         padding: '3rem',
     },
@@ -112,10 +112,10 @@ const styles = {
         flexWrap: 'wrap',
         flexDirection: 'row',
         position: 'absolute',
-        width: '75%',
+        width: '98%',
         justifyContent: 'left',
         marginLeft: '18px',
-        marginTop: '18px',
+        marginTop: '20px',
     },
 
     /* Modal Styling */
