@@ -25,17 +25,17 @@ const Note = (props) => {
             <div className="newNote" style={styles.newNote}> 
                 <header className="newNoteHeader">
                     <button className="closeBtn">
-                    <i class="large material-icons">close</i>
+                    <i className="large material-icons">close</i>
                     </button>
                 </header>
                 <h1>{note?.title}</h1>
                  <p>{note?.content}</p>
                 <footer className="footerBtn">
                     <button className="editBtn">
-                    <i class="large material-icons">edit</i>
+                    <i className="large material-icons">edit</i>
                     </button>
                     <button className="deleteBtn">
-                    <i class="large material-icons">delete_forever</i>
+                    <i className="large material-icons">delete_forever</i>
                     </button>
                 </footer>
             </div>
