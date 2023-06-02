@@ -16,6 +16,7 @@ import CalendarPage from './pages/CalendarPage';
 import Nutrition from './pages/Nutrition';
 import Test from './pages/Test';
 import 'rsuite/dist/rsuite.css';
+// import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -71,6 +72,7 @@ const App = () => {
               element={<Test />} 
             />
           </Routes>
+          {/* <Footer/> */}
         </Router>
       </ApolloProvider>
     );

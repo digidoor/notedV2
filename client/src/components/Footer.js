@@ -11,7 +11,7 @@ import {
 export default function Footer() {
   return (
     <MDBFooter className='bg-light text-center text-white'>
-      <MDBContainer className='p-4 pb-0'>
+      <MDBContainer className='p-4 pb-0' style={{ backgroundColor: '#feedaa', boxShadow: '4px 2px 0 0 grey' }}>
         <section className='mb-4'>
           <MDBBtn
             floating
