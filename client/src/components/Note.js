@@ -22,15 +22,23 @@ const styles = {
     },
     noteTitle: {
         textAlign: 'center',
+        fontSize: '22px',
+        marginBottom: '1px',
     },
     noteContents: {
         textAlign: 'left',
-        width:'250px',
-        height: '200px',
+        width:'298px',
+        height: '132px',
     },
     footerBtns: {
         display: 'flex',
         justifyContent: 'right',
+        width:'233px',
+    },
+    hr: {
+        borderTop: '1px solid',
+        borderBottom: 'none',
+        marginTop: '1px',
     }
 
 }
@@ -50,6 +58,7 @@ const Note = (props) => {
                     </button>
                 </header> */}
                 <h1 style={styles.noteTitle}>{note?.title}</h1>
+                <hr className="default" style={styles.hr}></hr>
                 <p style={styles.noteContents}>{note?.content}</p>
                 <footer className="footerBtns" style={styles.footerBtns}>
                     <button className="editBtn" style={styles.editBtn}>
