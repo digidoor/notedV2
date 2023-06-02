@@ -10,12 +10,33 @@ const styles = {
         width: '300px',
         backgroundRepeat: 'no-repeat',
         padding: '3rem',
-        fontSize: '12px',
+        fontSize: '18px',
+        fontWeight: 'bold',
+        color: 'black',
     },
+    editBtn: {
+        backgroundColor: 'transparent',
+    },
+    deleteBtn: {
+        backgroundColor: 'transparent',
+    },
+    noteTitle: {
+        textAlign: 'center',
+    },
+    noteContents: {
+        textAlign: 'left',
+        width:'250px',
+        height: '200px',
+    },
+    footerBtns: {
+        display: 'flex',
+        justifyContent: 'right',
+    }
+
 }
 
 const Note = (props) => {
-    const {note} = props;
+    const { note } = props;
 
 
     return (
@@ -23,19 +44,19 @@ const Note = (props) => {
             {console.log(note.title)}
             {console.log(note.content)}
             <div className="newNote" style={styles.newNote}> 
-                <header className="newNoteHeader">
+                {/* <header className="newNoteHeader">
                     <button className="closeBtn">
                     <i className="large material-icons">close</i>
                     </button>
-                </header>
-                <h1>{note?.title}</h1>
-                 <p>{note?.content}</p>
-                <footer className="footerBtn">
-                    <button className="editBtn">
-                    <i className="large material-icons">edit</i>
+                </header> */}
+                <h1 style={styles.noteTitle}>{note?.title}</h1>
+                <p style={styles.noteContents}>{note?.content}</p>
+                <footer className="footerBtns" style={styles.footerBtns}>
+                    <button className="editBtn" style={styles.editBtn}>
+                        <i class="medium material-icons">edit</i>
                     </button>
-                    <button className="deleteBtn">
-                    <i className="large material-icons">delete_forever</i>
+                    <button className="deleteBtn" style={styles.deleteBtn}>
+                        <i class="medium material-icons">delete_forever</i>
                     </button>
                 </footer>
             </div>
