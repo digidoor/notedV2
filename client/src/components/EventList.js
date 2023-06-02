@@ -1,60 +1,37 @@
-import { useQuery } from "@apollo/client";
 import React, { useState} from "react";
-import { List, Modal, Button, ButtonToolbar, Popover } from 'rsuite';
-import { GET_EVENTS, } from '../utils/queries';
+import { List, Modal, Button, ButtonToolbar, } from 'rsuite';
 import SingleEvent from "./SingleEvent";
+import moment from "moment/moment";
 
-const EventPopover = React.forwardRef(({ content, ...props }, ref) => {
-    return (
-      <Popover ref={ref} title="Title" {...props}>
-        <p>{content}</p>
-      </Popover>
-    );
-  });
-
-  const SingleEvent = ({ content, loading, children }) => (
-    <Whisper
-      trigger="hover"
-      placement="autoVertical"
-      controlId={`control-id-${content._id}`}
-      speaker={   
-            <Popover ref={ref} title={content.title}>
-                test
-            </Popover>
-      }
-    >
-    </Whisper>
-  );
-
-export default function EventList( date ) {
-    const { loading, data } = useQuery(GET_EVENTS);
-    const events = data?.events || [];
-    const day = date.date.toJSON().split('T')[0];
+export default function EventList( {date, events, loading} ) {
+    const day = moment(date).format("YYYY-MM-DD");
     const todayEvents = events.filter(event => event.date === day);
-    const [open, setOpen] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState("");
-    const eventClose = () => setOpen(false);
+
+    const getEvent = (id) => {
+        return events[events.findIndex((event) => id === event._id)];
+    }
 
     if (events.length > 0) {
         return (<>
             <List hover>
                 <ButtonToolbar>
                 {todayEvents.map(event => (         
-                    <Button block onClick={(e) => setSelectedEvent(e.target.id)} appearance="ghost" >
+                    <Button block key={event._id} onClick={(e) => setSelectedEvent(e.target.id)} appearance="ghost" >
                         <List.Item  key={event._id} id={event._id}>                
-                            {event.time ? event.time : ''}  {event.title}                            
+                            <h5>{event.time ? event.time : ''}  {event.title}</h5>                            
                         </List.Item>    
                     </Button>
                 ))}
                 </ButtonToolbar>
             </List>
-            <Modal open={!!selectedEvent} onClose={eventClose} >
-                <SingleEvent props={selectedEvent}/>    
+            <Modal open={!!selectedEvent} onClose={(e) => {setSelectedEvent("")}} >
+                <SingleEvent event={{...getEvent(selectedEvent)}}/>    
                 <Modal.Footer>
-                    <Button onClick={eventClose} appearance="primary">
+                    <Button onClick={(e) => {setSelectedEvent("")}} appearance="primary">
                         Ok
                     </Button>
-                    <Button onClick={eventClose} appearance="subtle">
+                    <Button onClick={(e) => {setSelectedEvent("")}} appearance="subtle">
                         Cancel
                     </Button>
                 </Modal.Footer>

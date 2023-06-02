@@ -5,6 +5,7 @@ import { Form, ButtonToolbar, Input } from 'rsuite';
 import {SchemaModel, StringType, DateType, } from "schema-typed";
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_EVENT } from '../utils/mutations';
+import { GET_EVENTS } from '../utils/queries';
 import EventList from '../components/EventList';
 
 const styles = {
@@ -69,7 +70,10 @@ export default function CalendarPage() {
   const [calState, setCalState] = useState(today)
   const [newEvent, setNewEvent] = useState({ title: '', date: calState, time: '', description: ''});
   const [addEvent, { error }] = useMutation(ADD_EVENT);
+  const { loading, data } = useQuery(GET_EVENTS);
+  const events = data?.events || [];
   const formRef = useRef();
+
   
   function renderCell(date) {
     const list = getTodoList(date);
@@ -112,7 +116,7 @@ export default function CalendarPage() {
           <Header style={styles.dayHeader}>{calState.toDateString()}</Header>
           <Content>
             <h2>Events:</h2>
-            <EventList date={calState}/>
+            <EventList date={calState} events={events} loading={loading}/>
           </Content>
         </div>
       </Content>
