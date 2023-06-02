@@ -63,6 +63,7 @@ const resolvers = {
       console.log(content);
       //const note = new Note({ content }); console.log(note);
       return await Note.create({
+        title,
         content,
         createdBy: context.user._id});
     },

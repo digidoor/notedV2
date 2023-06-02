@@ -5,6 +5,7 @@ export const ADD_NOTE = gql`
   mutation addNote($content: String!) {
     addNote( content: $content ) {
       _id
+      title
       content
     }
   }
