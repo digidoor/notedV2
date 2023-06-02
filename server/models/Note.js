@@ -4,6 +4,12 @@ const { Schema } = mongoose;
 
 const noteSchema = new Schema({
     // note fields
+    title: {
+        type: String,
+        required: false,
+        maxlength: 250
+    },
+    
     content: {
         type: String,
         required: true,

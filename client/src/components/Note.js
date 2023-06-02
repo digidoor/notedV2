@@ -20,6 +20,8 @@ const Note = (props) => {
 
     return (
         <>
+            {console.log(note.title)}
+            {console.log(note.content)}
             <div className="newNote" style={styles.newNote}> 
                 <header className="newNoteHeader">
                     <button className="closeBtn">
