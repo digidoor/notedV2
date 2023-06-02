@@ -58,10 +58,12 @@ const resolvers = {
 
       return { token, user };
     },
-    addNote: async (parent, { content }, context) =>
-    {// do without associating with a user for now
+    addNote: async (parent, { content, title }, context) =>
+    {
       console.log(content);
       //const note = new Note({ content }); console.log(note);
+      console.log("content: ", content);
+      console.log("title: ", title);
       return await Note.create({
         title,
         content,
