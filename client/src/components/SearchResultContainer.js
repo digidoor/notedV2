@@ -1,21 +1,32 @@
-import { useState, useEffect } from 'react';
-import RecipeList from './RecipeList';
+// import React from 'react';
 
-// Import our search method
-import search from '../utils/nutritionApi';
+// // In our return method, we use the map method to return a new array of `li` and `img` elements that are specific to each search result
+// export default function RecipeList(props) {
 
-const SearchResultContainer = (props) => {
+//   const objectValues = Object.values(props.results)
+//   const objectArray = Array.from(objectValues)
+//   console.log(objectArray)
+//   return (
+//     <ul className="list-group">
+//        {objectArray.map((result) => { 
+//         return (
+//           <li className="list-group-item"
+//             key={result.id}>
 
-  // We want to run this method when the component first loads so that we have images of kittens to display
-  // The second argument is the dependency array. This means that this method will only run when the component first loads
- 
+//             <a target='_blank' href={result.sourceUrl}>
+//               
+//             </a>
+//             <br />
 
-  return (
-    <div>
-      {/* Pass our results to the ResultsList component to map over */}
-      {props.query ? <RecipeList results={props.query} /> : null}
-    </div>
-  );
-};
+//             <img
+//                alt={result.title}
+//                className="img-fluid"
+//                src={result.image}
+//             />
 
-export default SearchResultContainer;
+//           </li>
+//         )})}
+
+//     </ul>
+//   );
+// }

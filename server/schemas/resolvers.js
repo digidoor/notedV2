@@ -94,15 +94,13 @@ const resolvers = {
       }
       throw new AuthenticationError('Not logged in');
     },
-    // addRecipe: async (parent, { content }, context) => {
-    //   console.log(context);
-    //   if (context.user) {
-    //     const recipe = new Recipe({ content });
-    //     //await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
-    //     return recipe;
-    //   }
-    //   throw new AuthenticationError('Not logged in');
-    // },
+    addRecipe: async (parent, { url }, context) => {
+     // if (context.user) {
+        return await Recipe.create({url});
+        //await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+     // }
+      //throw new AuthenticationError('Not logged in');
+    },
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
