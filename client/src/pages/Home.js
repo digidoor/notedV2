@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_NOTES } from "../utils/queries";
+import { ADD_NOTE } from "../utils/mutations";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Note from "../components/Note";
 
 
 const styles = {
@@ -142,8 +144,12 @@ const styles = {
 
 }
 
-
 export default function Home() {
+
+    const { loading, data } = useQuery(QUERY_NOTES);
+    const notes = data?.notes || [];
+    
+    const [addNote, {error}] = useMutation(ADD_NOTE);
 
     const [show, setShow] = useState(false);
     const handleClose = () => {
@@ -153,36 +159,35 @@ export default function Home() {
         setShow(true)
     }
 
+    const [noteData, setNoteData] = useState({
+        title: "",
+        content: ""
+    })
 
+    const handleChange = (event) => {
+        const { name, value } = event.target
+        setNoteData({...noteData, [name] : value })
+    }
 
+    const handleFormSubmit = async (event) => {
+        event.preventDefault()
+
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        try {
+            console.log(noteData);
+            const {data} = await addNote({ variables: {...noteData} });
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     return (
-        // WEATHER SIDEBAR
         <>
-            {/* <div className="weather" style={styles.weather}>
-                <div className="card weatherCard" style={styles.weatherCard}>
-                    <div className="card-body" style={styles.cardBody}>
-                        <h5 className="card-header" style={styles.cardTitle}>View Today's Weather</h5>
-                        <div style={styles.viewWeather}>
-                            <input className="weatherInput" type="text" placeholder="Enter zip code here.." style={styles.weatherInput}></input>
-                            <button type="button" className="btn seeWeather " id="fetch-button" style={styles.viewWeatherBtn}>
-                                <i className="material-icons" style={styles.btnIcon}>filter_drama</i>
-                            </button>
-                        </div>
-                        <h3 style={styles.h3}>Current Temperature</h3>
-                        <p className="weatherResults" id="temp" style={styles.weatherResults}></p>
-                        <h2 style={styles.h2}>Max-Temperature:</h2>
-                        <p className="weatherResults" id="maxtemp" style={styles.weatherResults}></p>
-                        <h2 style={styles.h2}>Min-Temperature:</h2>
-                        <p className="weatherResults" id="mintemp" style={styles.weatherResults}></p>
-                        <h3 style={styles.h3}>Humidity</h3>
-                        <p className="weatherResults" id="humidity" style={styles.weatherResults}></p>
-                        <h3 style={styles.h3}>Wind</h3>
-                        <h2 style={styles.h2}>Speed:</h2>
-                        <p className="weatherResults" id="windspeed" style={styles.weatherResults}></p>
-                    </div>
-                </div>
-            </div> */}
             {/* clear notes button */}
             <div className="clearNotes" style={styles.clearNotes}>
                 <button type="button" className="btn clearNotesBtn" id="clearNotesBtn" style={styles.clearNotesBtn}>
@@ -198,15 +203,24 @@ export default function Home() {
                         <h4>Add New Note</h4>
                     </div>
                 </button>
+                {notes ? notes.map((note) => {
+                    return (
+                        <Note note={note} />
+                    )
+                }) : null}
                 <Modal show={show} onHide={handleClose}>
+                <Form onSubmit={handleFormSubmit}>
                     <Modal.Header closeButton>
                         <Modal.Title>What do you need Noted?</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body><Form>
+                    <Modal.Body>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Note Title</Form.Label>
                             <Form.Control
                                 type="text"
+                                name="title"
+                                onChange={handleChange}
+                                value={noteData.title}
                                 autoFocus
                             />
                         </Form.Group>
@@ -215,17 +229,27 @@ export default function Home() {
                             controlId="exampleForm.ControlTextarea1"
                         >
                             <Form.Label>Add your thoughts..</Form.Label>
-                            <Form.Control as="textarea" rows={3} />
+                            <Form.Control as="textarea" rows={3} name="content"
+                                onChange={(e) => {
+                                    handleChange(e)
+                                    console.log(noteData)
+                                }}
+                                value={noteData.content} />
                         </Form.Group>
-                    </Form></Modal.Body>
+                    
+                    </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
+                        <Button variant="secondary" onClick={(e) => {
+                            e.preventDefault()
+                            handleClose(e)
+                        }}>
                             Close
                         </Button>
-                        <Button variant="primary" onClick={handleClose}>
+                        <Button variant="primary" type="submit" onClick={handleClose}>
                             Save Note
                         </Button>
                     </Modal.Footer>
+                    </Form>
                 </Modal>
             </div>
         </>

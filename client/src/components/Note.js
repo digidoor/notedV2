@@ -4,29 +4,32 @@ const styles = {
     /* sticky notes */
     newNote: {
         backgroundImage: `url("assets/PostIt500.png")`,
-        backgroundSize: '250px 250px',
+        backgroundSize: '300px 300px',
         backgroundPosition: 'center',
-        height: '250px',
-        width: '250px',
+        height: '300px',
+        width: '300px',
         backgroundRepeat: 'no-repeat',
         padding: '3rem',
+        fontSize: '12px',
     },
 }
 
-const Note = () => {
-
+const Note = (props) => {
+    const {note} = props;
 
 
     return (
         <>
-            <div className="newNote"> 
+            {console.log(note.title)}
+            {console.log(note.content)}
+            <div className="newNote" style={styles.newNote}> 
                 <header className="newNoteHeader">
                     <button className="closeBtn">
                     <i className="large material-icons">close</i>
                     </button>
                 </header>
-                <h1> This is where we need to add info pulled from database. (member input title)</h1>
-                <p>This is where the member typed note will show. need to add pulled info from database. </p>
+                <h1>{note?.title}</h1>
+                 <p>{note?.content}</p>
                 <footer className="footerBtn">
                     <button className="editBtn">
                     <i className="large material-icons">edit</i>
