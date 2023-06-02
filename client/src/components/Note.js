@@ -46,7 +46,7 @@ const Note = (props) => {
             <div className="newNote" style={styles.newNote}> 
                 {/* <header className="newNoteHeader">
                     <button className="closeBtn">
-                    <i class="large material-icons">close</i>
+                    <i className="large material-icons">close</i>
                     </button>
                 </header> */}
                 <h1 style={styles.noteTitle}>{note?.title}</h1>

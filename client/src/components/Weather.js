@@ -16,7 +16,7 @@ const Weather = () => {
 
     return (
         <>
-            <h1 class="weather">Weather</h1>
+            <h1 className="weather">Weather</h1>
             <div className="card-group">
                 <div className="card">
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" className="card-img-top"
@@ -112,7 +112,7 @@ const Weather = () => {
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" className="card-img-top"
                         alt="Palm Springs Road" />
                     <div className="card-body">
-                        <h5 class="card-title">Date from API</h5>
+                        <h5 className="card-title">Date from API</h5>
                         <h6>Temperature</h6>
                         <h7>Current</h7>
                         <p className="card-text">CurrentTemp</p>
