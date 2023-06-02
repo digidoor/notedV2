@@ -12,8 +12,8 @@ const styles = {
     welcomeBlurb: {
         display:'flex',
         justifyContent: 'center',
-        height:'650px',
-        width: '650px',
+        // height:'50%',
+        // width: '50%',
         fontSize: '18px',
         paddingTop: '15px',
     }

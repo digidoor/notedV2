@@ -41,7 +41,7 @@ const styles = {
         flexWrap: 'wrap',
         flexDirection: 'row',
         position: 'absolute',
-        width: '98%',
+        width: '99%',
         justifyContent: 'left',
         marginLeft: '18px',
         marginTop: '20px',
