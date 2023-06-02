@@ -4,6 +4,7 @@ export const QUERY_NOTES = gql`
   query allNotes {
     notes {
       _id
+      title
       content
     }
   }
