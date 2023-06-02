@@ -110,6 +110,8 @@ export default function Home() {
         try {
             console.log(noteData);
             const {data} = await addNote({ variables: {...noteData} });
+            console.log(data);
+            window.location.reload();
         } catch (err) {
             console.log(err)
         }

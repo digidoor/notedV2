@@ -11,15 +11,14 @@ export default function EventList( {date, events, loading} ) {
     const getEvent = (id) => {
         return events[events.findIndex((event) => id === event._id)];
     }
-
-    if (events.length > 0) {
         return (<>
+        
             <List hover>
                 <ButtonToolbar>
                 {todayEvents.map(event => (         
                     <Button block key={event._id} onClick={(e) => setSelectedEvent(e.target.id)} appearance="ghost" >
-                        <List.Item  key={event._id} id={event._id}>                
-                            <h5>{event.time ? event.time : ''}  {event.title}</h5>                            
+                        <List.Item  key={event._id} id={event._id} as="h4">                
+                            {event.time ? event.time : ''}  {event.title}                            
                         </List.Item>    
                     </Button>
                 ))}
@@ -38,11 +37,5 @@ export default function EventList( {date, events, loading} ) {
             </Modal>
 
             </>)
-    } else if ( !loading ) {
-        return (<List hover><List.Item>No Events Today</List.Item></List>)
-    } else {
-        return (<List hover><List.Item>Loading...</List.Item></List>)
-    }
-
 }
 
