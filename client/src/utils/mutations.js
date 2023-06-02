@@ -53,10 +53,9 @@ export const ADD_EVENT = gql`
   `;
 
   export const ADD_RECIPE = gql`
-  mutation addRecipe($title: String!, $url: String!) {
-    addRecipe(title: $title, url: $url) {
+  mutation addRecipe($url: String!) {
+    addRecipe(url: $url) {
       _id
-      title
       url
     }
   }
