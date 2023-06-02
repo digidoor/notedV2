@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_NOTES } from "../utils/queries";
+import { ADD_NOTE } from "../utils/mutations";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -76,6 +77,8 @@ export default function Home() {
 
     const { loading, data } = useQuery(QUERY_NOTES);
     const notes = data?.notes || [];
+    
+    const [addNote, {error}] = useMutation(ADD_NOTE);
 
     const [show, setShow] = useState(false);
     const handleClose = () => {
@@ -105,10 +108,8 @@ export default function Home() {
         }
 
         try {
-            console.log(noteData)
-            //         const {data} = await addNote({
-            //        variables: {...noteData}
-            //    })
+            console.log(noteData);
+            const {data} = await addNote({ variables: {...noteData} });
         } catch (err) {
             console.log(err)
         }

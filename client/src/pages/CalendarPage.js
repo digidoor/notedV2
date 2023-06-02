@@ -6,6 +6,7 @@ import {SchemaModel, StringType, DateType, } from "schema-typed";
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_EVENT } from '../utils/mutations';
 import EventList from '../components/EventList';
+import Weather from '../components/Weather';
 
 const styles = {
   dayContainer: {
@@ -95,6 +96,7 @@ export default function CalendarPage() {
   }
 
   return (
+    <>
     <Container>
       <Sidebar style={{ width: 280 }}>
         <Stack
@@ -168,5 +170,8 @@ export default function CalendarPage() {
         </Drawer.Body>
       </Drawer>
     </Container>
+
+    <Weather />
+    </>
   );
 }

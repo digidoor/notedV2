@@ -41,12 +41,14 @@ const Note = (props) => {
 
     return (
         <>
-            <div className="newNote" style={styles.newNote}>
-                {/* <header className="newNoteHeader"> */}
-                    {/* <button className="closeBtn" style={styles.closeBtn}>
+            {console.log(note.title)}
+            {console.log(note.content)}
+            <div className="newNote" style={styles.newNote}> 
+                {/* <header className="newNoteHeader">
+                    <button className="closeBtn">
                     <i class="large material-icons">close</i>
-                    </button> */}
-                {/* </header> */}
+                    </button>
+                </header> */}
                 <h1 style={styles.noteTitle}>{note?.title}</h1>
                 <p style={styles.noteContents}>{note?.content}</p>
                 <footer className="footerBtns" style={styles.footerBtns}>
