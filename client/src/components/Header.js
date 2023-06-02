@@ -74,7 +74,7 @@ function showNavigation() {
 function Header() {
     return (
         <>
-            <header style={styles.header}>
+            <header className ='header' style={styles.header}>
                 <h1 style={styles.main}>Noted</h1>
             </header>
             <nav>

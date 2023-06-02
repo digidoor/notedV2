@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { QUERY_RECIPES } from "../utils/queries"
 import { useMutation } from '@apollo/client';
-
+import search from '../utils/nutritionApi';
+import SearchResultContainer from '../components/SearchResultContainer';
 
 const styles = {
   columnLeft: {
@@ -84,42 +85,44 @@ const styles = {
 
 }
 
-const useFetch = (url) =>
-{
-    const [data, setData] = useState(null);
-    const [isPending, setIsPending] = useState(true);
-    const [error, setError] = useState(null);
-    useEffect( () =>
-    { 
-        fetch(url)
-            .then( response =>
-            {
-                if(!response.ok)
-                    throw Error("Fetch failed some odd reason.");
-                return response.json()
-            })
-            .then(data => {
-                setData(data);
-                setIsPending(false);
-                setError(null);
-            })
-            .catch(err => { setIsPending(false); setError(err.message); });
-    }, [url]);
-    return { data, isPending, error };
-}
+export default function Nutrition(props) {
+// TODO: Create useState variable called query and setQuery that is equal to the input value of the search
+const [query, setQuery] = useState({});
+const [userSearch, setUserSearch] = useState('') 
 
-export default function Nutrition() {
+// Method to get search query and set state
+const searchRecipe = async () => {
+  try {
+    const response = await search(userSearch);
+    console.log(response)
+    setQuery(response.data.results);
+  } catch (err) {
+    console.log(err)
+  }
 
-  return (
+};
+
+const handleUserSearchChange = (e) => {
+  setUserSearch(e.currentTarget.value)
+} 
+
+
+
+return (
     <div className="container text-center" style={styles.nutContainer}>
       <div className="column-left" style={styles.columnLeft}>
         <div className="card-one recipeUrl" id="recipe" style={styles.cardOne}>
           <h4>Recipes</h4>
           <div style={styles.recipeInputs}>
-            <input id="userSearch" type="search" placeholder="Search Recipe" style={styles.searchBar}></input>
-            <button className="btn" id="fetch-button" style={styles.searchBtn}><i class="large material-icons">search</i></button>
+          <input value={userSearch} onChange={handleUserSearchChange} id="userSearch" type="search" placeholder="Search Recipe" style={styles.searchBar}></input>
+            <button onClick={searchRecipe} className="btn" id="fetch-button" style={styles.searchBtn}><i className="large material-icons">search</i></button>
           </div>
-          <div id="results"></div>
+          <div>
+      {/* Pass our results to the ResultsList component to map over */}
+
+      {/* // TODO: Only render this component if the query variable is truthy*/}
+      {query ? <SearchResultContainer query={query} /> : null}
+    </div>
         </div>
       </div>
 
