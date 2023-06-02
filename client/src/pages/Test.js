@@ -14,7 +14,9 @@ const Test = () =>
     const { data: pokedata, isPending } = useFetch(url);
     const [addNote, {error} ] = useMutation(ADD_NOTE);
     console.log(addNote);
-    const [content, setContent] = useState("");
+    
+    
+    const [content, setContent] = useState(""); // stuff for the addNote form
     async function handleFormSubmit(event)
     {
         event.preventDefault();
