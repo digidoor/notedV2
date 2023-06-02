@@ -11,16 +11,19 @@ export default function RecipeList(props) {
        {objectArray.map((result) => { 
         return (
           <li className="list-group-item"
-            key={result.id}
-          >
-            <p>
-            {result.title}
-            </p>
+            key={result.id}>
+
+            <a target='_blank' href={result.sourceUrl}>
+              {result.title}
+            </a>
+            <br />
+
             <img
                alt={result.title}
                className="img-fluid"
                src={result.image}
             />
+
           </li>
         )})}
 
