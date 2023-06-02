@@ -28,12 +28,14 @@ const typeDefs = gql`
     email: String!
     password: String!
     events: [Event]
+    recipies: [Recipe]
   }
 
   type Auth {
     token: ID
     user: User
   }
+ 
 
   type Query {
     events: [Event]

@@ -5,7 +5,7 @@ import { QUERY_RECIPES } from "../utils/queries"
 import { useMutation } from '@apollo/client';
 import { ADD_RECIPE } from '../utils/mutations'
 import search from '../utils/nutritionApi';
-import SearchResultContainer from '../components/SearchResultContainer';
+import SavedRecipeList from '../components/SavedRecipeList';
 import RecipeList from '../components/RecipeList'
 
 const styles = {
@@ -146,9 +146,8 @@ export default function Nutrition(props) {
             <button onClick={searchRecipe} className="btn" id="fetch-button" style={styles.searchBtn}><i className="large material-icons">search</i></button>
           </div>
           <div>
+            {/*Only render this component if the query variable is truthy*/}
             {/* Pass our results to the ResultsList component to map over */}
-
-            {/* // TODO: Only render this component if the query variable is truthy*/}
             {query ? <RecipeList results={query} /> : null}
           </div>
         </div>
@@ -168,7 +167,9 @@ export default function Nutrition(props) {
                 }} className="btn " id="clear-button" style={styles.clearBtn}>Clear</button>
               </div>
             </form>
-            <ul id="savedList"></ul>
+            <div>
+              { <SavedRecipeList /> }
+            </div>
 
           </div>
         </div>
