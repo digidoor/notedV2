@@ -132,13 +132,6 @@ export default function Home() {
 
     return (
         <>
-            {/* clear notes button */}
-            <div className="clearNotes" style={styles.clearNotes}>
-                <button type="button" className="btn clearNotesBtn" id="clearNotesBtn" style={styles.clearNotesBtn}
-                    onClick={handleNotesRemoval}>
-                    Clear Sticky Notes
-                </button>
-            </div>
             {/* ADDING NEW NOTES*/}
             <div id="stickyNotes" className="stickyNotes" style={styles.stickyNotes}>
                 <button type="button" className="btn addNote" id="addNote" data-bs-toggle="modal"
