@@ -20,6 +20,8 @@ const resolvers = {
       throw new AuthenticationError('Not Logged in');
     },
     recipies: async (p) => {
+
+      //Recipes where only the user that's logged in has saved
       return await Recipe.find();
     },
     users: async () => {
@@ -70,8 +72,8 @@ const resolvers = {
     },
     addRecipe: async (parent, { url }, context) => {
      // if (context.user) {
-        return await Recipe.create({url});
-        //await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+        var recipe = await Recipe.create({url});
+        return await User.findByIdAndUpdate(context.user._id, { $addToSet: { recipies: recipe } });
      // }
       //throw new AuthenticationError('Not logged in');
     },
