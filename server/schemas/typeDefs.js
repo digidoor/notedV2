@@ -48,6 +48,7 @@ const typeDefs = gql`
 
   type Mutation {
     addRecipe(url: String!): Recipe
+    removeRecipe(url: String!): Recipe
     addNote(title: String, content: String!): Note
     removeUser: User
     removeEvent(_id: ID!): Event

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { QUERY_RECIPES } from "../utils/queries"
 import { useMutation } from '@apollo/client';
-import { ADD_RECIPE } from '../utils/mutations'
+import { ADD_RECIPE, REMOVE_RECIPE  } from '../utils/mutations'
 import search from '../utils/nutritionApi';
 import SavedRecipeList from '../components/SavedRecipeList';
 import RecipeList from '../components/RecipeList'
