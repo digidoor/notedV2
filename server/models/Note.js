@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const User = require('./User');
 
 const { Schema } = mongoose;
 
@@ -15,10 +16,11 @@ const noteSchema = new Schema({
         required: true,
         maxlength: 250
     },
-    // created_at: {
-    //     type: Date,
-    //     default: Date.now
-    // }
+    createdBy: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: User,
+    }
 });
 
 const Note = mongoose.model('Note', noteSchema);
