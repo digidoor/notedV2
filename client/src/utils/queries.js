@@ -6,6 +6,9 @@ export const QUERY_NOTES = gql`
       _id
       title
       content
+      createdBy {
+        _id
+      }
     }
   }
 `

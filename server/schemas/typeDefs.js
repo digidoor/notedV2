@@ -1,6 +1,5 @@
 const { gql } = require('apollo-server-express');
 
-// this file was taken from an activity -- we need to change the info
 const typeDefs = gql`
   type Event {
     _id: ID
@@ -15,6 +14,7 @@ const typeDefs = gql`
     _id: ID
     title: String
     content: String!
+    createdBy: User!
   }
 
   type Recipe {
@@ -48,8 +48,12 @@ const typeDefs = gql`
 
   type Mutation {
     addRecipe(url: String!): Recipe
+    removeRecipe(url: String!): Recipe
     addNote(title: String, content: String!): Note
     removeUser: User
+    removeEvent(_id: ID!): Event
+    removeNote(_id: ID!): Note
+    removeAllNotes: User
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
     login(email: String!, password: String!): Auth

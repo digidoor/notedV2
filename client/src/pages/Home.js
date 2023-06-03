@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_NOTES } from "../utils/queries";
-import { ADD_NOTE } from "../utils/mutations";
+import { ADD_NOTE, REMOVE_NOTE, REMOVE_ALL_NOTES } from "../utils/mutations";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -80,6 +80,8 @@ export default function Home() {
     const notes = data?.notes || [];
     
     const [addNote, {error}] = useMutation(ADD_NOTE);
+ 
+    const [removeAllNotes, {er}] = useMutation(REMOVE_ALL_NOTES);
 
     const [show, setShow] = useState(false);
     const handleClose = () => {
@@ -110,19 +112,30 @@ export default function Home() {
 
         try {
             console.log(noteData);
-            const {data} = await addNote({ variables: {...noteData} });
+            const { data } = await addNote({ variables: {...noteData} });
             console.log(data);
-            window.location.reload();
         } catch (err) {
-            console.log(err)
+            console.error(err)
         }
+        window.location.reload();
+    }
+
+    const handleNotesRemoval = async (event) => {
+        event.preventDefault();
+        try{
+            await removeAllNotes();
+        } catch (e) {
+            console.error(e);
+        }
+        window.location.reload();
     }
 
     return (
         <>
             {/* clear notes button */}
             <div className="clearNotes" style={styles.clearNotes}>
-                <button type="button" className="btn clearNotesBtn" id="clearNotesBtn" style={styles.clearNotesBtn}>
+                <button type="button" className="btn clearNotesBtn" id="clearNotesBtn" style={styles.clearNotesBtn}
+                    onClick={handleNotesRemoval}>
                     Clear Sticky Notes
                 </button>
             </div>
@@ -162,10 +175,7 @@ export default function Home() {
                         >
                             <Form.Label>Add your thoughts..</Form.Label>
                             <Form.Control as="textarea" rows={3} name="content"
-                                onChange={(e) => {
-                                    handleChange(e)
-                                    console.log(noteData)
-                                }}
+                                onChange={handleChange}
                                 value={noteData.content} />
                         </Form.Group>
                     

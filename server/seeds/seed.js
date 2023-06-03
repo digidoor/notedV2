@@ -6,10 +6,10 @@ const userSeeds = require('./userSeeds.json');
 db.once('open', async () => {
   try {
     await Note.deleteMany({});
-    await Note.create(noteSeeds);
+    // await Note.create(noteSeeds);
     
-    await User.deleteMany({});
-    await User.create(userSeeds);
+    // await User.deleteMany({});
+    // await User.create(userSeeds);
 
     console.log('all done!');
     process.exit(0);

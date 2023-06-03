@@ -7,9 +7,36 @@ export const ADD_NOTE = gql`
       _id
       title
       content
+      createdBy {
+        _id
+      }
     }
   }
 `;
+
+export const REMOVE_NOTE = gql`
+  mutation removeNote($_id: ID!) {
+    removeNote( _id: $_id) {
+      _id
+      title
+      content
+      createdBy {
+        _id
+      }
+    }
+  }`
+
+export const REMOVE_ALL_NOTES = gql`
+  mutation removeAllNotes {
+    removeAllNotes {
+      _id
+      title
+      content
+      createdBy {
+        _id
+      }
+    }
+  }`
 
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
@@ -61,3 +88,11 @@ export const ADD_EVENT = gql`
     }
   }
 `;
+
+export const REMOVE_RECIPE = gql`
+mutation removeRecipe($url: String!) {
+  removeRecipe(url: $url){
+    _id
+    url
+  }
+}`

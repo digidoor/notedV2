@@ -3,26 +3,13 @@ const { User, Note, Recipe, Event } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
-  // Date: new GraphQLScalarType({
-  //   name: 'Date',
-  //   description: 'Date custom scalar type',
-  //   parseValue(value) {
-  //       return new Date(value); // value from the client
-  //   },
-  //   serialize(value) {
-  //       return value.getTime(); // value sent to the client
-  //   },
-  //   parseLiteral(ast) {
-  //       if (ast.kind === Kind.INT) {
-  //       return parseInt(ast.value, 10); // ast value is always in string format
-  //       }
-  //       return null;
-  //   },
-  // }),
-
   Query: {
-    notes: async () => {
-      return await Note.find();
+    notes: async (parent, arg, context) => {
+      if (context.user) {
+        const notes = await Note.find({createdBy: context.user._id}).sort({ date: 1 });
+        return notes ? notes : [];
+      }
+      throw new AuthenticationError('Not Logged in');
     },
     events: async (parent, arg, context) => {
       if (context.user) {
@@ -60,31 +47,18 @@ const resolvers = {
 
       return { token, user };
     },
-    addNote: async (parent, { content, title }, context) =>
-    {
-      console.log(content);
-      //const note = new Note({ content }); console.log(note);
-      console.log("content: ", content);
-      console.log("title: ", title);
-      return await Note.create({
-        title,
-        content,
-        createdBy: context.user._id});
+    addNote: async (parent, content,  context) => {
+      if (context.user) {
+        const note = await Note.create({
+          ...content,
+          createdBy: context.user._id});
+        await User.findByIdAndUpdate(context.user._id, { $push: { notes: note } });
+        
+        return note;
+      }
+      throw new AuthenticationError('Not Logged in');
     },
-    // addNote: async (parent, { content }, context) => {
-    //   console.log(context);
-    //   if (context.user) {
-    //     const note = new Note({ content });
-
-    //     //await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
-
-    //     return note;
-    //   }
-    //   throw new AuthenticationError('Not logged in');
-    // },
     addEvent: async (parent,  content , context) => {
-      console.log(context.user);
-      console.log({content});
       if (context.user) {
         const event = await Event.create({
           ...content,
@@ -103,6 +77,12 @@ const resolvers = {
      // }
       //throw new AuthenticationError('Not logged in');
     },
+    // removeRecipe: async (parent, { url }, context) => {
+    //   if (connect.user) {
+    //     const recipe = await Recipe.findOneAndDelete({ _id: id._id });
+    //   }
+    //   throw new AuthenticationError('Not Logged In');
+    // },
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
@@ -116,6 +96,24 @@ const resolvers = {
         return User.findOneAndDelete({ _id: context.user._id });
       }
       throw new AuthenticationError('Not logged in');
+    },
+    removeNote: async (parent, id , context) => {
+      console.log(id);
+      if (context.user) {
+        const note = await Note.findOneAndDelete({ _id: id._id });
+        await User.findByIdAndUpdate(context.user._id, { $pull: { notes: note._id}});
+        return note;
+      }
+      throw new AuthenticationError('Not Logged in');
+    },
+    removeAllNotes: async (parent, args, context) => {
+      if (context.user) {
+        const note = await Note.deleteMany({createdBy: context.user._id});
+        console.log(note);
+        const user = await User.findByIdAndUpdate(context.user._id, { notes: []})
+        return user;
+      }
+      throw new AuthenticationError('Not Logged in');
     },
 
     login: async (parent, { email, password }) => {
