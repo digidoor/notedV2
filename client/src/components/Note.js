@@ -24,10 +24,11 @@ const styles = {
         textAlign: 'center',
         fontSize: '22px',
         marginBottom: '1px',
+        width:'210px',
     },
     noteContents: {
         textAlign: 'left',
-        width:'298px',
+        width:'210px',
         height: '132px',
     },
     footerBtns: {
