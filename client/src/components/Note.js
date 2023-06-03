@@ -1,4 +1,6 @@
 import React from "react"
+import { useMutation } from "@apollo/client";
+import { REMOVE_NOTE } from "../utils/mutations";
 
 const styles = {
     /* sticky notes */
@@ -45,12 +47,22 @@ const styles = {
 
 const Note = (props) => {
     const { note } = props;
+    const [removeNote, {error}] = useMutation(REMOVE_NOTE);
 
+    const handleNoteDelete = async (event) => {
+        event.preventDefault();
+        const id = event.target.id;
+        try {
+            const { data } = await removeNote({ variables: { _id: id } });
+            console.log(data);
+        } catch (e) {
+            console.error(e);
+        }
+        window.location.reload();
+    }
 
     return (
         <>
-            {console.log(note.title)}
-            {console.log(note.content)}
             <div className="newNote" style={styles.newNote}> 
                 {/* <header className="newNoteHeader">
                     <button className="closeBtn">
@@ -64,8 +76,8 @@ const Note = (props) => {
                     <button className="editBtn" style={styles.editBtn}>
                         <i class="medium material-icons">edit</i>
                     </button>
-                    <button className="deleteBtn" style={styles.deleteBtn}>
-                        <i class="medium material-icons">delete_forever</i>
+                    <button className="deleteBtn" style={styles.deleteBtn} >
+                        <i class="medium material-icons" onClick={handleNoteDelete} id={note?._id}>delete_forever</i>
                     </button>
                 </footer>
             </div>
