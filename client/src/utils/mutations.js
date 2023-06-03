@@ -88,3 +88,11 @@ export const ADD_EVENT = gql`
     }
   }
 `;
+
+export const REMOVE_RECIPE = gql`
+mutation removeRecipe($url: String!) {
+  removeRecipe(url: $url){
+    _id
+    url
+  }
+}`

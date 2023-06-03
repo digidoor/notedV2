@@ -77,6 +77,12 @@ const resolvers = {
      // }
       //throw new AuthenticationError('Not logged in');
     },
+    // removeRecipe: async (parent, { url }, context) => {
+    //   if (connect.user) {
+    //     const recipe = await Recipe.findOneAndDelete({ _id: id._id });
+    //   }
+    //   throw new AuthenticationError('Not Logged In');
+    // },
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
