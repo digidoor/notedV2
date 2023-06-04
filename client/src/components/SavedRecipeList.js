@@ -7,7 +7,7 @@ export default function RecipeList(props) {
 //   const objectArray = Array.from(objectValues)
 //   console.log(objectArray)
   return (
-    <ul className="list-group"> Recipe List
+    <ul className="list-group"> 
        {/* {objectArray.map((result) => { 
         return (
           <li className="list-group-item"

@@ -35,7 +35,7 @@ const styles = {
     display: 'flex',
     float: 'right',
     padding: '25px',
-    width: '500px',
+    width: '450px',
     border: 'solid',
     borderColor: 'darkgrey',
     color: 'black',
@@ -65,16 +65,15 @@ const styles = {
     marginTop: '8px',
   },
   addBtn: {
-    width: '40%',
     backgroundColor: '#bbe8d9',
     color: 'black',
-    width: '30%',
+    width: '25%',
     fontWeight: 'bold',
     boxShadow: '2px 2px 0px darkgrey',
   },
 
   clearBtn: {
-    width: '40%',
+    width: '25%',
     marginLeft: '15px',
     backgroundColor: '#bbe8d9',
     color: 'black',
@@ -83,6 +82,7 @@ const styles = {
   },
   mealPBar: {
     height: '35px',
+    width: '90%',
   }
 
 }
@@ -168,8 +168,23 @@ export default function Nutrition(props) {
               </div>
             </form>
             <div>
-              { <SavedRecipeList /> }
+              {<SavedRecipeList />}
             </div>
+            {/* Drawer component. has a error that im trying to figure out to make it work. */}
+            {/* <div>
+              {(['left', 'right', 'top', 'bottom'] as const).map((anchor) => (
+                <React.Fragment key={anchor}>
+                  <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+                  <Drawer
+                    anchor={anchor}
+                    open={state[anchor]}
+                    onClose={toggleDrawer(anchor, false)}
+                  >
+                    {<SavedRecipeList />}
+                  </Drawer>
+                </React.Fragment>
+              ))}
+            </div> */}
 
           </div>
         </div>

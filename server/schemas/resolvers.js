@@ -58,6 +58,14 @@ const resolvers = {
       }
       throw new AuthenticationError('Not Logged in');
     },
+    editNote: async (parent, content, context) => {
+      if (context.user) {
+        const note = await Note.findByIdAndUpdate(content._id, 
+          { title: content.title, content: content.content});
+        return note;
+      }
+      throw new AuthenticationError('Not Logged in');
+    },
     addEvent: async (parent,  content , context) => {
       if (context.user) {
         const event = await Event.create({
@@ -106,16 +114,6 @@ const resolvers = {
       }
       throw new AuthenticationError('Not Logged in');
     },
-    removeAllNotes: async (parent, args, context) => {
-      if (context.user) {
-        const note = await Note.deleteMany({createdBy: context.user._id});
-        console.log(note);
-        const user = await User.findByIdAndUpdate(context.user._id, { notes: []})
-        return user;
-      }
-      throw new AuthenticationError('Not Logged in');
-    },
-
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
