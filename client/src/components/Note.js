@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import { useMutation } from "@apollo/client";
-import { REMOVE_NOTE } from "../utils/mutations";
+import { REMOVE_NOTE, EDIT_NOTE } from "../utils/mutations";
+import { Modal, Button, Form } from 'react-bootstrap';
 
 const styles = {
     /* sticky notes */
@@ -61,6 +62,47 @@ const Note = (props) => {
         window.location.reload();
     }
 
+    const [editNote, {err}] = useMutation(EDIT_NOTE);
+    const [show, setShow] = useState(false);
+    const handleClose = () => {
+        setShow(false)
+        //discard any changes in the noteData in case it's opened again.
+        setNoteData({ title: note.title, content: note.content, _id: note._id})
+    }
+    const handleOpen = () => {
+        setShow(true)
+    }
+
+    const [noteData, setNoteData] = useState({
+        title: note.title,
+        content: note.content,
+        _id: note._id
+    })
+
+    const handleChange = (event) => {
+        const { name, value } = event.target
+        setNoteData({...noteData, [name] : value })
+    }
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault()
+
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        try {
+            console.log(noteData);
+            const { data } = await editNote({ variables: {...noteData} });
+            console.log(data);
+        } catch (err) {
+            console.error(err)
+        }
+        window.location.reload();
+    }
+
     return (
         <>
             <div className="newNote" style={styles.newNote}> 
@@ -74,13 +116,54 @@ const Note = (props) => {
                 <p style={styles.noteContents}>{note?.content}</p>
                 <footer className="footerBtns" style={styles.footerBtns}>
                     <button className="editBtn" style={styles.editBtn}>
-                        <i class="medium material-icons">edit</i>
+                        <i className="medium material-icons" onClick={handleOpen}>edit</i>
                     </button>
                     <button className="deleteBtn" style={styles.deleteBtn} >
-                        <i class="medium material-icons" onClick={handleNoteDelete} id={note?._id}>delete_forever</i>
+                        <i className="medium material-icons" onClick={handleNoteDelete} id={note?._id}>delete_forever</i>
                     </button>
                 </footer>
             </div>
+            <Modal show={show} onHide={handleClose}>
+                <Form onSubmit={handleFormSubmit}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>What do you need Noted?</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Note Title</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="title"
+                                onChange={handleChange}
+                                value={noteData.title}
+                                autoFocus
+                            />
+                        </Form.Group>
+                        <Form.Group
+                            className="mb-3"
+                            controlId="exampleForm.ControlTextarea1"
+                        >
+                            <Form.Label>Add your thoughts..</Form.Label>
+                            <Form.Control as="textarea" rows={3} name="content"
+                                onChange={handleChange}
+                                value={noteData.content} />
+                        </Form.Group>
+                    
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={(e) => {
+                            e.preventDefault()
+                            handleClose(e)
+                        }}>
+                            Discard Edits
+                        </Button>
+                        <Button variant="primary" type="submit" onClick={handleClose}>
+                            Save Edits
+                        </Button>
+                    </Modal.Footer>
+                </Form>
+            </Modal>
+
         </>
     )
 }

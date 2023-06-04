@@ -12,7 +12,7 @@ export default function EventList( {date, events, loading} ) {
         return events[events.findIndex((event) => id === event._id)];
     }
         return (<>
-        
+
             <List hover>
                 <ButtonToolbar>
                 {todayEvents.map(event => (         

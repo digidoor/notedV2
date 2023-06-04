@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_NOTES } from "../utils/queries";
-import { ADD_NOTE, REMOVE_NOTE, REMOVE_ALL_NOTES } from "../utils/mutations";
+import { ADD_NOTE } from "../utils/mutations";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -79,8 +79,7 @@ export default function Home() {
     const notes = data?.notes || [];
     
     const [addNote, {error}] = useMutation(ADD_NOTE);
- 
-    const [removeAllNotes, {er}] = useMutation(REMOVE_ALL_NOTES);
+
 
     const [show, setShow] = useState(false);
     const handleClose = () => {
@@ -119,25 +118,9 @@ export default function Home() {
         window.location.reload();
     }
 
-    const handleNotesRemoval = async (event) => {
-        event.preventDefault();
-        try{
-            await removeAllNotes();
-        } catch (e) {
-            console.error(e);
-        }
-        window.location.reload();
-    }
-
+   
     return (
         <>
-            {/* clear notes button */}
-            <div className="clearNotes" style={styles.clearNotes}>
-                <button type="button" className="btn clearNotesBtn" id="clearNotesBtn" style={styles.clearNotesBtn}
-                    onClick={handleNotesRemoval}>
-                    Clear Sticky Notes
-                </button>
-            </div>
             {/* ADDING NEW NOTES*/}
             <div id="stickyNotes" className="stickyNotes" style={styles.stickyNotes}>
                 <button type="button" className="btn addNote" id="addNote" data-bs-toggle="modal"

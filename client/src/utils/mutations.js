@@ -24,19 +24,20 @@ export const REMOVE_NOTE = gql`
         _id
       }
     }
-  }`
+  }`;
 
-export const REMOVE_ALL_NOTES = gql`
-  mutation removeAllNotes {
-    removeAllNotes {
-      _id
-      title
-      content
-      createdBy {
+  export const EDIT_NOTE = gql`
+    mutation editNote($_id: ID! $title: String, $content: String!) {
+      editNote(_id: $_id, title: $title, content: $content) {
         _id
+        title
+        content
+        createdBy {
+          _id
+        }
       }
-    }
-  }`
+    }`
+
 
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {

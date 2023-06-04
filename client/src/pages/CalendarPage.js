@@ -97,6 +97,7 @@ export default function CalendarPage() {
     } catch (e) {
       console.error(e);
     }
+    window.location.reload();
   }
 
   return (
