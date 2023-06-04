@@ -4,8 +4,33 @@ import React from 'react';
 
 
 const styles = {
+    weatherTitle: {
+        textAlign: 'center',
+        marginTop: '30px',
+        marginBottom: '25px',
+    },
 
+  searchBar: {
+    width: '30%',
+    height: '35px',
+  },
 
+  searchCityBtn: {
+    width: '7%',
+    height: '35px',
+    marginLeft: '10px',
+    backgroundColor: '#bbe8d9',
+    color: 'black',
+    fontWeight: 'bold',
+    boxShadow: '2px 2px 0px darkgrey',
+  },
+  searchContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: '10px',
+    // width: '600px',
+
+},
 
 
 
@@ -16,7 +41,11 @@ const Weather = () => {
 
     return (
         <>
-            <h1 className="weather">Weather</h1>
+            <h1 className="weather" style={styles.weatherTitle}>Weather</h1>
+          <div style={styles.searchContainer}>
+            <input style={styles.searchBar} placeholder="Enter City Name"></input>
+            <button className="btn" style={styles.searchCityBtn}><i className="large material-icons">search</i></button>
+          </div>
             <div className="card-group">
                 <div className="card">
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" className="card-img-top"
