@@ -8,6 +8,7 @@ import Form from 'react-bootstrap/Form';
 import Note from "../components/Note";
 
 
+
 const styles = {
     // The Div that holds the clear notes button
     clearNotes: {
@@ -69,7 +70,7 @@ const styles = {
         // justifyContent: 'center',
         color: 'black',
         fontSize: '10px',
-    }
+    },
 
 }
 

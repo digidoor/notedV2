@@ -4,9 +4,40 @@ import React from 'react';
 
 
 const styles = {
-
-
-
+    // decorative divider line
+    hr: {
+        borderTop: '1px solid Black',
+        borderBottom: 'none',
+        marginTop: '50px',
+    },
+    // title
+    weatherTitle: {
+        textAlign: 'center',
+        marginTop: '25px',
+        marginBottom: '15px',
+        color: 'black',
+    },
+    // Container that holds the search bar and button for city input
+    searchContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        marginBottom: '10px',
+    },
+    // city input
+    searchBar: {
+        width: '30%',
+        height: '35px',
+    },
+    // search button
+    searchCityBtn: {
+        width: '7%',
+        height: '35px',
+        marginLeft: '10px',
+        backgroundColor: '#bbe8d9',
+        color: 'black',
+        fontWeight: 'bold',
+        boxShadow: '2px 2px 0px darkgrey',
+    },
 
 
 }
@@ -16,7 +47,12 @@ const Weather = () => {
 
     return (
         <>
-            <h1 className="weather">Weather</h1>
+        <hr className="default" style={styles.hr}></hr>
+            <h1 className="weather" style={styles.weatherTitle}>Weather</h1>
+            <div style={styles.searchContainer}>
+                <input style={styles.searchBar} placeholder="Enter City Name"></input>
+                <button className="btn" style={styles.searchCityBtn}><i className="large material-icons">search</i></button>
+            </div>
             <div className="card-group">
                 <div className="card">
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" className="card-img-top"
