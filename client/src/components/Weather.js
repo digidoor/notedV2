@@ -46,7 +46,7 @@ const styles = {
 
 const Weather = () => {
     const [query, setQuery] = useState("");
-    const [weatherObj, setWeatherObj] = useState({});
+    const [weatherObj, setWeatherObj] = useState(null);
     
     async function handleWeatherFormSubmit(event)
     {
@@ -65,14 +65,14 @@ const Weather = () => {
             console.log("weatherBox.data.list[0].weather: ", weatherBox.data.list[0].weather);
             console.log("weatherBox.data.list[0].weather[0]: ", weatherBox.data.list[0].weather[0]);
             console.log("weatherBox.data.list[0].weather[0].description: ", weatherBox.data.list[0].weather[0].description);
-            temp.day1 = weatherBox.data.list[0].weather[0].description;
-            for(let i = 8; i < 41; i=i+8)
-                temp[`day${Math.floor(i/8) + 1}`] = weatherBox.data.list[i].weather[0].description;
+            //temp.day1 = weatherBox.data.list[0];//.weather[0].description;
+            for(let i = 0; i < 40; i=i+8)
+                temp[`day${Math.floor(i/8) + 1}`] = weatherBox.data.list[i];//.weather[0].description;
         } catch (err) { console.error(err); }
-        console.log("weatherObj: ", temp);
+        console.log("temp: ", temp);
         setQuery("");
         setWeatherObj({...temp});
-        console.log("weatherObj.day1: ", weatherObj.day1);
+        console.log("weatherObj: ", weatherObj);
         return weatherObj;
     }
 
@@ -93,16 +93,16 @@ const Weather = () => {
                     <div className="card-body">
                         <h5 className="card-title">Date from API</h5>
                         <h6>Temperature</h6>
-                        <h7>Current:{weatherObj.day1}</h7>
+                        <h7>Current: {weatherObj ? `${weatherObj.day1.main.temp}F` : ""}</h7>
                         <p className="card-text">CurrTemp</p>
                         <h7>High</h7>
                         <p className="card-text">HighTemp</p>
                         <h7>Low</h7>
                         <p className="card-text">LowTemp</p>
                         <h6>Humidity</h6>
-                        <p className="card-text">HumidRes</p>
+                        <p className="card-text">{weatherObj ? `${weatherObj.day1.main.humidity}%` : ""}</p>
                         <h6>Wind</h6>
-                        <p className="card-text">WindRes</p>
+                        <p className="card-text">{weatherObj ? `${weatherObj.day1.wind.speed} MPH` : ""}</p>
                     </div>
                 </div>
                 <div className="card">
