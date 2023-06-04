@@ -44,6 +44,20 @@ const styles = {
     cardTitle: {
         textAlign: 'center',
     },
+    resGroup: {
+        display: 'inline-flex',
+        textAlign: 'center',
+    },
+    weatherResults: {
+        marginLeft: '3px',
+
+    },
+    test: {
+        display: 'inline-block',
+    },
+    cards: {
+        textAlign: 'center',
+    }
 
 
 }
@@ -53,137 +67,193 @@ const Weather = () => {
 
     return (
         <>
-        <hr className="default" style={styles.hr}></hr>
+            <hr className="default" style={styles.hr}></hr>
             <h1 className="weather" style={styles.weatherTitle}>Weather</h1>
             <div style={styles.searchContainer}>
                 <input style={styles.searchBar} placeholder="Enter City Name"></input>
                 <button className="btn" style={styles.searchCityBtn}><i className="large material-icons">search</i></button>
             </div>
-            <div className="card-group"style={styles.cards}>
+            <div className="card-group" style={styles.cards}>
                 <div className="card">
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" className="card-img-top"
                         alt="Hollywood Sign on The Hill" />
                     <div className="card-body">
-                        <h5 className="card-title" style={styles.cardDate}>Date from API</h5>
-                        <h6 style={styles.cardTitle}>Temperature</h6>
-                        <h7>Current:</h7>
-                        <p className="card-text">CurrTemp</p>
-                        <h7>High</h7>
-                        <p className="card-text">HighTemp</p>
-                        <h7>Low</h7>
-                        <p className="card-text">LowTemp</p>
-                        <h6>Humidity</h6>
-                        <p className="card-text">HumidRes</p>
-                        <h6>Wind</h6>
-                        <p className="card-text">WindRes</p>
+                        <div style={styles.test}>
+                            <h5 className="card-title" style={styles.cardDate}>Date from API</h5>
+                            <h6 style={styles.cardTitle}>Temperature</h6>
+                            <div style={styles.resGroup}>
+                                <h7>Current: </h7>
+                                <p className="card-text" style={styles.weatherResults}>CurrTemp</p>
+                            </div>
+                            <div style={styles.resGroup}>
+                                <h7>High: </h7>
+                                <p className="card-text" style={styles.weatherResults}>HighTemp</p>
+                            </div>
+                            <div style={styles.resGroup}>
+                                <h7>Low: </h7>
+                                <p className="card-text" style={styles.weatherResults}>LowTemp</p>
+                            </div>
+                            <h6>Humidity </h6>
+                            <p className="card-text" style={styles.weatherResults}>HumidRes</p>
+                            <h6>Wind </h6>
+                            <p className="card-text" style={styles.weatherResults}>WindRes</p>
+                        </div>
                     </div>
                 </div>
                 <div className="card">
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" className="card-img-top"
                         alt="Palm Springs Road" />
                     <div className="card-body">
-                        <h5 className="card-title">Date from API</h5>
-                        <h6>Temperature</h6>
-                        <h7>Current</h7>
-                        <p className="card-text">CurrentTemp</p>
-                        <h7>High</h7>
-                        <p className="card-text">HighTemp</p>
-                        <h7>Low</h7>
-                        <p className="card-text">LowTemp</p>
-                        <h6>Humidity</h6>
-                        <p className="card-text">HumidRes</p>
-                        <h6>Wind</h6>
-                        <p className="card-text">WindRes</p>
+                    <div style={styles.test}>
+                            <h5 className="card-title" style={styles.cardDate}>Date from API</h5>
+                            <h6 style={styles.cardTitle}>Temperature</h6>
+                            <div style={styles.resGroup}>
+                                <h7>Current: </h7>
+                                <p className="card-text" style={styles.weatherResults}>CurrTemp</p>
+                            </div>
+                            <div style={styles.resGroup}>
+                                <h7>High: </h7>
+                                <p className="card-text" style={styles.weatherResults}>HighTemp</p>
+                            </div>
+                            <div style={styles.resGroup}>
+                                <h7>Low: </h7>
+                                <p className="card-text" style={styles.weatherResults}>LowTemp</p>
+                            </div>
+                            <h6>Humidity </h6>
+                            <p className="card-text" style={styles.weatherResults}>HumidRes</p>
+                            <h6>Wind </h6>
+                            <p className="card-text" style={styles.weatherResults}>WindRes</p>
+                        </div>
                     </div>
                 </div>
                 <div className="card">
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" className="card-img-top"
                         alt="Palm Springs Road" />
                     <div className="card-body">
-                        <h5 className="card-title">Date from API</h5>
-                        <h6>Temperature</h6>
-                        <h7>Current</h7>
-                        <p className="card-text">CurrentTemp</p>
-                        <h7>High</h7>
-                        <p className="card-text">HighTemp</p>
-                        <h7>Low</h7>
-                        <p className="card-text">LowTemp</p>
-                        <h6>Humidity</h6>
-                        <p className="card-text">HumidRes</p>
-                        <h6>Wind</h6>
-                        <p className="card-text">WindRes</p>
+                    <div style={styles.test}>
+                            <h5 className="card-title" style={styles.cardDate}>Date from API</h5>
+                            <h6 style={styles.cardTitle}>Temperature</h6>
+                            <div style={styles.resGroup}>
+                                <h7>Current: </h7>
+                                <p className="card-text" style={styles.weatherResults}>CurrTemp</p>
+                            </div>
+                            <div style={styles.resGroup}>
+                                <h7>High: </h7>
+                                <p className="card-text" style={styles.weatherResults}>HighTemp</p>
+                            </div>
+                            <div style={styles.resGroup}>
+                                <h7>Low: </h7>
+                                <p className="card-text" style={styles.weatherResults}>LowTemp</p>
+                            </div>
+                            <h6>Humidity </h6>
+                            <p className="card-text" style={styles.weatherResults}>HumidRes</p>
+                            <h6>Wind </h6>
+                            <p className="card-text" style={styles.weatherResults}>WindRes</p>
+                        </div>
                     </div>
                 </div>
                 <div className="card">
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" className="card-img-top"
                         alt="Palm Springs Road" />
                     <div className="card-body">
-                        <h5 className="card-title">Date from API</h5>
-                        <h6>Temperature</h6>
-                        <h7>Current</h7>
-                        <p className="card-text">CurrentTemp</p>
-                        <h7>High</h7>
-                        <p className="card-text">HighTemp</p>
-                        <h7>Low</h7>
-                        <p className="card-text">LowTemp</p>
-                        <h6>Humidity</h6>
-                        <p className="card-text">HumidRes</p>
-                        <h6>Wind</h6>
-                        <p className="card-text">WindRes</p>
+                    <div style={styles.test}>
+                            <h5 className="card-title" style={styles.cardDate}>Date from API</h5>
+                            <h6 style={styles.cardTitle}>Temperature</h6>
+                            <div style={styles.resGroup}>
+                                <h7>Current: </h7>
+                                <p className="card-text" style={styles.weatherResults}>CurrTemp</p>
+                            </div>
+                            <div style={styles.resGroup}>
+                                <h7>High: </h7>
+                                <p className="card-text" style={styles.weatherResults}>HighTemp</p>
+                            </div>
+                            <div style={styles.resGroup}>
+                                <h7>Low: </h7>
+                                <p className="card-text" style={styles.weatherResults}>LowTemp</p>
+                            </div>
+                            <h6>Humidity </h6>
+                            <p className="card-text" style={styles.weatherResults}>HumidRes</p>
+                            <h6>Wind </h6>
+                            <p className="card-text" style={styles.weatherResults}>WindRes</p>
+                        </div>
                     </div>
                 </div>
                 <div className="card">
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" className="card-img-top"
                         alt="Palm Springs Road" />
                     <div className="card-body">
-                        <h5 className="card-title">Date from API</h5>
-                        <h6>Temperature</h6>
-                        <h7>Current</h7>
-                        <p className="card-text">CurrentTemp</p>
-                        <h7>High</h7>
-                        <p className="card-text">HighTemp</p>
-                        <h7>Low</h7>
-                        <p className="card-text">LowTemp</p>
-                        <h6>Humidity</h6>
-                        <p className="card-text">HumidRes</p>
-                        <h6>Wind</h6>
-                        <p className="card-text">WindRes</p>
+                    <div style={styles.test}>
+                            <h5 className="card-title" style={styles.cardDate}>Date from API</h5>
+                            <h6 style={styles.cardTitle}>Temperature</h6>
+                            <div style={styles.resGroup}>
+                                <h7>Current: </h7>
+                                <p className="card-text" style={styles.weatherResults}>CurrTemp</p>
+                            </div>
+                            <div style={styles.resGroup}>
+                                <h7>High: </h7>
+                                <p className="card-text" style={styles.weatherResults}>HighTemp</p>
+                            </div>
+                            <div style={styles.resGroup}>
+                                <h7>Low: </h7>
+                                <p className="card-text" style={styles.weatherResults}>LowTemp</p>
+                            </div>
+                            <h6>Humidity </h6>
+                            <p className="card-text" style={styles.weatherResults}>HumidRes</p>
+                            <h6>Wind </h6>
+                            <p className="card-text" style={styles.weatherResults}>WindRes</p>
+                        </div>
                     </div>
                 </div>
                 <div className="card">
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" className="card-img-top"
                         alt="Palm Springs Road" />
                     <div className="card-body">
-                        <h5 className="card-title">Date from API</h5>
-                        <h6>Temperature</h6>
-                        <h7>Current</h7>
-                        <p className="card-text">CurrentTemp</p>
-                        <h7>High</h7>
-                        <p className="card-text">HighTemp</p>
-                        <h7>Low</h7>
-                        <p className="card-text">LowTemp</p>
-                        <h6>Humidity</h6>
-                        <p className="card-text">HumidRes</p>
-                        <h6>Wind</h6>
-                        <p className="card-text">WindRes</p>
+                    <div style={styles.test}>
+                            <h5 className="card-title" style={styles.cardDate}>Date from API</h5>
+                            <h6 style={styles.cardTitle}>Temperature</h6>
+                            <div style={styles.resGroup}>
+                                <h7>Current: </h7>
+                                <p className="card-text" style={styles.weatherResults}>CurrTemp</p>
+                            </div>
+                            <div style={styles.resGroup}>
+                                <h7>High: </h7>
+                                <p className="card-text" style={styles.weatherResults}>HighTemp</p>
+                            </div>
+                            <div style={styles.resGroup}>
+                                <h7>Low: </h7>
+                                <p className="card-text" style={styles.weatherResults}>LowTemp</p>
+                            </div>
+                            <h6>Humidity </h6>
+                            <p className="card-text" style={styles.weatherResults}>HumidRes</p>
+                            <h6>Wind </h6>
+                            <p className="card-text" style={styles.weatherResults}>WindRes</p>
+                        </div>
                     </div>
                 </div>
                 <div className="card">
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" className="card-img-top"
                         alt="Los Angeles Skyscrapers" />
                     <div className="card-body">
-                        <h5 className="card-title">Date from API</h5>
-                        <h6>Temperature</h6>
-                        <h7>Current</h7>
-                        <p className="card-text">CurrentTemp</p>
-                        <h7>High</h7>
-                        <p className="card-text">HighTemp</p>
-                        <h7>Low</h7>
-                        <p className="card-text">LowTemp</p>
-                        <h6>Humidity</h6>
-                        <p className="card-text">HumidRes</p>
-                        <h6>Wind</h6>
-                        <p className="card-text">WindRes</p>
+                    <div style={styles.test}>
+                            <h5 className="card-title" style={styles.cardDate}>Date from API</h5>
+                            <h6 style={styles.cardTitle}>Temperature</h6>
+                            <div style={styles.resGroup}>
+                                <h7>Current: </h7>
+                                <p className="card-text" style={styles.weatherResults}>CurrTemp</p>
+                            </div>
+                            <div style={styles.resGroup}>
+                                <h7>High: </h7>
+                                <p className="card-text" style={styles.weatherResults}>HighTemp</p>
+                            </div>
+                            <div style={styles.resGroup}>
+                                <h7>Low: </h7>
+                                <p className="card-text" style={styles.weatherResults}>LowTemp</p>
+                            </div>
+                            <h6>Humidity </h6>
+                            <p className="card-text" style={styles.weatherResults}>HumidRes</p>
+                            <h6>Wind </h6>
+                            <p className="card-text" style={styles.weatherResults}>WindRes</p>
+                        </div>
                     </div>
                 </div>
             </div>
