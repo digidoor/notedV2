@@ -63,7 +63,7 @@ const Note = (props) => {
 
     return (
         <>
-            <div className="newNote" style={styles.newNote}> 
+            <div className="newNote" style={styles.newNote} key={note._id}> 
                 {/* <header className="newNoteHeader">
                     <button className="closeBtn">
                     <i className="large material-icons">close</i>
