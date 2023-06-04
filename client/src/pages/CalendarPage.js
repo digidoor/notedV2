@@ -110,7 +110,6 @@ export default function CalendarPage() {
           direction={"column"}
           alignItems={"center"}
           justifyContent={"flex-start"}
-          // color={"black"}
         >
           <Calendar compact bordered renderCell={renderCell} onSelect={setCalState} />{' '}
           <Button appearance='primary' block onClick={() => setOpen(true)} style={styles.addEventBtn}>Add Event</Button>

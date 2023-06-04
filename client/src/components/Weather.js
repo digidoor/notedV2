@@ -38,6 +38,12 @@ const styles = {
         fontWeight: 'bold',
         boxShadow: '2px 2px 0px darkgrey',
     },
+    cardDate: {
+        textAlign: 'center',
+    },
+    cardTitle: {
+        textAlign: 'center',
+    },
 
 
 }
@@ -53,13 +59,13 @@ const Weather = () => {
                 <input style={styles.searchBar} placeholder="Enter City Name"></input>
                 <button className="btn" style={styles.searchCityBtn}><i className="large material-icons">search</i></button>
             </div>
-            <div className="card-group">
+            <div className="card-group"style={styles.cards}>
                 <div className="card">
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" className="card-img-top"
                         alt="Hollywood Sign on The Hill" />
                     <div className="card-body">
-                        <h5 className="card-title">Date from API</h5>
-                        <h6>Temperature</h6>
+                        <h5 className="card-title" style={styles.cardDate}>Date from API</h5>
+                        <h6 style={styles.cardTitle}>Temperature</h6>
                         <h7>Current:</h7>
                         <p className="card-text">CurrTemp</p>
                         <h7>High</h7>
