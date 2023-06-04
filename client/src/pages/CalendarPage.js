@@ -18,8 +18,10 @@ const styles = {
     border: "2px solid",
     borderRadius: "5px",
     padding: "8px",
+    color: 'black',
   },
   dayHeader: {
+    color: 'black',
     height: "36px",
     textAlign: "center",
     fontSize: "24px",
@@ -102,12 +104,13 @@ export default function CalendarPage() {
   return (
     <>
     <Container>
-      <Sidebar style={{ width: 280 }}>
+      <Sidebar style={{ width: '280', color: 'black', }}>
         <Stack
           spacing={6}
           direction={"column"}
           alignItems={"center"}
           justifyContent={"flex-start"}
+          // color={"black"}
         >
           <Calendar compact bordered renderCell={renderCell} onSelect={setCalState} />{' '}
           <Button appearance='primary' block onClick={() => setOpen(true)} style={styles.addEventBtn}>Add Event</Button>
