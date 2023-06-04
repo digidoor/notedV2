@@ -47,6 +47,11 @@ function showNavigation() {
                     </Link>
                 </li>
                 <li className="mx-1 nav-item">
+                    <Link to="/calendar" style={styles.navItem}>
+                    <i className="large material-icons">cloud</i>
+                    </Link>
+                </li>
+                <li className="mx-1 nav-item">
                     <Link to="/nutrition" style={styles.navItem}>
                     <i className="large material-icons">restaurant_menu</i>
                     </Link>
