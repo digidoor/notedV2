@@ -1,5 +1,3 @@
-// this file was taken from an activity -- I think we can keep all of it?
-
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
