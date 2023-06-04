@@ -18,6 +18,7 @@ import Nutrition from './pages/Nutrition';
 import Test from './pages/Test';
 import Test2 from './pages/Test2';
 import 'rsuite/dist/rsuite.css';
+import Weather from './components/Weather';
 // import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
@@ -64,6 +65,10 @@ const App = () => {
             <Route 
               path="/calendar" 
               element={<CalendarPage />} 
+            />
+            <Route 
+              path="/calendar" 
+              element={<Weather />} 
             />
             <Route
               path="/"
