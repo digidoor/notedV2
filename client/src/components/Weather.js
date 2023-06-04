@@ -115,21 +115,21 @@ const Weather = () => {
                             <h5 className="card-title" style={styles.cardDate}>Date from API</h5>
                             <h6 style={styles.cardTitle}>Temperature</h6>
                             <div style={styles.resGroup}>
-                                <h7>Current: </h7>
-                                <p className="card-text" style={styles.weatherResults}>CurrTemp</p>
+                                <h7>Current:</h7>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.main.temp}F` : ""}</p>
                             </div>
                             <div style={styles.resGroup}>
                                 <h7>High: </h7>
-                                <p className="card-text" style={styles.weatherResults}>HighTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.main.temp_max}F` : ""}</p>
                             </div>
                             <div style={styles.resGroup}>
                                 <h7>Low: </h7>
-                                <p className="card-text" style={styles.weatherResults}>LowTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.main.temp_min}F` : ""}</p>
                             </div>
                             <h6>Humidity </h6>
-                            <p className="card-text" style={styles.weatherResults}>HumidRes</p>
+                            <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.main.humidity}%` : ""}</p>
                             <h6>Wind </h6>
-                            <p className="card-text" style={styles.weatherResults}>WindRes</p>
+                            <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.wind.speed} MPH` : ""}</p>
                         </div>
                     </div>
                 </div>
@@ -142,20 +142,20 @@ const Weather = () => {
                             <h6 style={styles.cardTitle}>Temperature</h6>
                             <div style={styles.resGroup}>
                                 <h7>Current: </h7>
-                                <p className="card-text" style={styles.weatherResults}>CurrTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day2.main.temp}F` : ""}</p>
                             </div>
                             <div style={styles.resGroup}>
                                 <h7>High: </h7>
-                                <p className="card-text" style={styles.weatherResults}>HighTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day2.main.temp_max}F` : ""}</p>
                             </div>
                             <div style={styles.resGroup}>
                                 <h7>Low: </h7>
-                                <p className="card-text" style={styles.weatherResults}>LowTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day2.main.temp_min}F` : ""}</p>
                             </div>
                             <h6>Humidity </h6>
-                            <p className="card-text" style={styles.weatherResults}>HumidRes</p>
+                            <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day2.main.humidity}%` : ""}</p>
                             <h6>Wind </h6>
-                            <p className="card-text" style={styles.weatherResults}>WindRes</p>
+                            <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day2.wind.speed} MPH` : ""}</p>
                         </div>
                     </div>
                 </div>
@@ -168,20 +168,20 @@ const Weather = () => {
                             <h6 style={styles.cardTitle}>Temperature</h6>
                             <div style={styles.resGroup}>
                                 <h7>Current: </h7>
-                                <p className="card-text" style={styles.weatherResults}>CurrTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day3.main.temp}F` : ""}</p>
                             </div>
                             <div style={styles.resGroup}>
                                 <h7>High: </h7>
-                                <p className="card-text" style={styles.weatherResults}>HighTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day3.main.temp_max}F` : ""}</p>
                             </div>
                             <div style={styles.resGroup}>
                                 <h7>Low: </h7>
-                                <p className="card-text" style={styles.weatherResults}>LowTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day3.main.temp_min}F` : ""}</p>
                             </div>
                             <h6>Humidity </h6>
-                            <p className="card-text" style={styles.weatherResults}>HumidRes</p>
+                            <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day3.main.humidity}%` : ""}</p>
                             <h6>Wind </h6>
-                            <p className="card-text" style={styles.weatherResults}>WindRes</p>
+                            <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day3.wind.speed} MPH` : ""}</p>
                         </div>
                     </div>
                 </div>
@@ -194,20 +194,20 @@ const Weather = () => {
                             <h6 style={styles.cardTitle}>Temperature</h6>
                             <div style={styles.resGroup}>
                                 <h7>Current: </h7>
-                                <p className="card-text" style={styles.weatherResults}>CurrTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day4.main.temp}F` : ""}</p>
                             </div>
                             <div style={styles.resGroup}>
                                 <h7>High: </h7>
-                                <p className="card-text" style={styles.weatherResults}>HighTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day4.main.temp_max}F` : ""}</p>
                             </div>
                             <div style={styles.resGroup}>
                                 <h7>Low: </h7>
-                                <p className="card-text" style={styles.weatherResults}>LowTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day4.main.temp_min}F` : ""}</p>
                             </div>
                             <h6>Humidity </h6>
-                            <p className="card-text" style={styles.weatherResults}>HumidRes</p>
+                            <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day4.main.humidity}%` : ""}</p>
                             <h6>Wind </h6>
-                            <p className="card-text" style={styles.weatherResults}>WindRes</p>
+                            <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day4.wind.speed} MPH` : ""}</p>
                         </div>
                     </div>
                 </div>
@@ -220,20 +220,20 @@ const Weather = () => {
                             <h6 style={styles.cardTitle}>Temperature</h6>
                             <div style={styles.resGroup}>
                                 <h7>Current: </h7>
-                                <p className="card-text" style={styles.weatherResults}>CurrTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day5.main.temp}F` : ""}</p>
                             </div>
                             <div style={styles.resGroup}>
                                 <h7>High: </h7>
-                                <p className="card-text" style={styles.weatherResults}>HighTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day5.main.temp_max}F` : ""}</p>
                             </div>
                             <div style={styles.resGroup}>
                                 <h7>Low: </h7>
-                                <p className="card-text" style={styles.weatherResults}>LowTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day5.main.temp_min}F` : ""}</p>
                             </div>
                             <h6>Humidity </h6>
-                            <p className="card-text" style={styles.weatherResults}>HumidRes</p>
+                            <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day5.main.humidity}%` : ""}</p>
                             <h6>Wind </h6>
-                            <p className="card-text" style={styles.weatherResults}>WindRes</p>
+                            <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day5.wind.speed} MPH` : ""}</p>
                         </div>
                     </div>
                 </div>
@@ -246,20 +246,20 @@ const Weather = () => {
                             <h6 style={styles.cardTitle}>Temperature</h6>
                             <div style={styles.resGroup}>
                                 <h7>Current: </h7>
-                                <p className="card-text" style={styles.weatherResults}>CurrTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.main.temp}F` : ""}</p>
                             </div>
                             <div style={styles.resGroup}>
                                 <h7>High: </h7>
-                                <p className="card-text" style={styles.weatherResults}>HighTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.main.temp_max}F` : ""}</p>
                             </div>
                             <div style={styles.resGroup}>
                                 <h7>Low: </h7>
-                                <p className="card-text" style={styles.weatherResults}>LowTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.main.temp_min}F` : ""}</p>
                             </div>
                             <h6>Humidity </h6>
-                            <p className="card-text" style={styles.weatherResults}>HumidRes</p>
+                            <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.main.humidity}%` : ""}</p>
                             <h6>Wind </h6>
-                            <p className="card-text" style={styles.weatherResults}>WindRes</p>
+                            <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.wind.speed} MPH` : ""}</p>
                         </div>
                     </div>
                 </div>
@@ -272,20 +272,20 @@ const Weather = () => {
                             <h6 style={styles.cardTitle}>Temperature</h6>
                             <div style={styles.resGroup}>
                                 <h7>Current: </h7>
-                                <p className="card-text" style={styles.weatherResults}>CurrTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.main.temp}F` : ""}</p>
                             </div>
                             <div style={styles.resGroup}>
                                 <h7>High: </h7>
-                                <p className="card-text" style={styles.weatherResults}>HighTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.main.temp_max}F` : ""}</p>
                             </div>
                             <div style={styles.resGroup}>
                                 <h7>Low: </h7>
-                                <p className="card-text" style={styles.weatherResults}>LowTemp</p>
+                                <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.main.temp_min}F` : ""}</p>
                             </div>
                             <h6>Humidity </h6>
-                            <p className="card-text" style={styles.weatherResults}>HumidRes</p>
+                            <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.main.humidity}%` : ""}</p>
                             <h6>Wind </h6>
-                            <p className="card-text" style={styles.weatherResults}>WindRes</p>
+                            <p className="card-text" style={styles.weatherResults}>{weatherObj ? `${weatherObj.day1.wind.speed} MPH` : ""}</p>
                         </div>
                     </div>
                 </div>
