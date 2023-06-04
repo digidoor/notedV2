@@ -46,6 +46,7 @@ function showNavigation() {
                     <i className="large material-icons">date_range</i>
                     </Link>
                 </li>
+                {/* still needs to be set up to navigate to the weather section on the calendar page */}
                 <li className="mx-1 nav-item">
                     <Link to="/calendar" style={styles.navItem}>
                     <i className="large material-icons">cloud</i>
