@@ -1,4 +1,4 @@
-import React, { Header } from 'react';
+/* import React, { Header } from 'react'; */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -21,5 +21,5 @@ import React, { Header } from 'react';
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-    
+
 }
