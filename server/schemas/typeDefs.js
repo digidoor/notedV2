@@ -50,10 +50,10 @@ const typeDefs = gql`
     addRecipe(url: String!): Recipe
     removeRecipe(url: String!): Recipe
     addNote(title: String, content: String!): Note
+    editNote(_id: ID!, title: String, content: String!): Note
     removeUser: User
     removeEvent(_id: ID!): Event
     removeNote(_id: ID!): Note
-    removeAllNotes: User
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
