@@ -57,7 +57,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     removeUser: User
     addEvent(title: String!, date: String!, time: String, description: String): Event
-    editEvent(title: String!, date: String!, time: String, description: String): Event
+    editEvent(_id: ID! title: String!, date: String!, time: String, description: String): Event
     removeEvent(_id: ID!): Event
     
   }

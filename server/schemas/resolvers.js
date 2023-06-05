@@ -79,9 +79,11 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     editEvent: async (parent, content, context) => {
+      console.log(content);
       if (context.user) {
         const event = await Event.findByIdAndUpdate(content._id,
           { ...content });
+        return event;
       }
       throw new AuthenticationError('Not logged in');
     },
@@ -121,8 +123,9 @@ const resolvers = {
       throw new AuthenticationError('Not Logged in');
     },
     removeEvent: async (parent, id, context) => {
+      console.log(id);
       if (context.user) {
-        const event = await Event.findOneAndDelete({ _id: id._id });
+        const event = await Event.findOneAndDelete({ _id: id });
         await User.findByIdAndUpdate(context.user._id, { $pull: { events: event._id}});
         return event;
       }

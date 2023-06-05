@@ -44,7 +44,10 @@ const styles = {
       color: 'black',
       fontWeight: 'bold',
       boxShadow: '2px 2px 0px darkgrey', 
-  }
+    },
+    hiddenID: {
+        display: 'none'
+    },
   }
 
 const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
@@ -62,7 +65,7 @@ export default function EventList( {date, events, loading} ) {
     const todayEvents = events.filter(event => event.date === day);
     const [selectedEvent, setSelectedEvent] = useState("");
     const [open, setOpen] = useState(false);
-    const [formData, setFormData] = useState({ title: '', date: '', time: '', description: ''});
+    const [formData, setFormData] = useState({ title: '', date: '', time: '', description: '', _id: ''});
     const formRef = useRef();
     const [editEvent, { error }] = useMutation(EDIT_EVENT);
     const [removeEvent, {err}] = useMutation(REMOVE_EVENT);
@@ -74,10 +77,10 @@ export default function EventList( {date, events, loading} ) {
     const submitEditEvent = async (event) => {
         event.preventDefault();
         setOpen(false);
-    
+        console.log(formData);
         try {
             const { data } = await editEvent({
-            variables: {...formData, _id: formData._id}  
+            variables: { ...formData }  
             });
             console.log(data);
         } catch (e) {
@@ -88,11 +91,11 @@ export default function EventList( {date, events, loading} ) {
 
     const handleEditButton = () => {
         const event = getEvent(selectedEvent);
+        console.log(event);
         setSelectedEvent("");
         setFormData({...event});
         console.log(formData);
         setOpen(true);
-        window.location.reload();
     }
 
     const handleDeleteButton = async (event) => {
@@ -147,6 +150,7 @@ export default function EventList( {date, events, loading} ) {
                     formValue={formData}
                     onChange={setFormData}
                     onSubmit={submitEditEvent}>
+                    <Form.Group controlid="_id" style={styles.hiddenID}><Form.Control name="_id"></Form.Control></Form.Group>
                     <Form.Group controlId="title">
                     <Form.ControlLabel>Title</Form.ControlLabel>
                     <Form.Control name="title"/>
