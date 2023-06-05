@@ -72,7 +72,7 @@ const styles = {
         fontSize: '10px',
     },
 
-}
+};
 
 export default function Home() {
 
@@ -83,24 +83,24 @@ export default function Home() {
 
     const [show, setShow] = useState(false);
     const handleClose = () => {
-        setShow(false)
-    }
+        setShow(false);
+    };
     const handleOpen = () => {
-        setShow(true)
-    }
+        setShow(true);
+    };
 
     const [noteData, setNoteData] = useState({
         title: "",
-        content: ""
-    })
+        content: "",
+    });
 
     const handleChange = (event) => {
-        const { name, value } = event.target
-        setNoteData({ ...noteData, [name]: value })
-    }
+        const { name, value } = event.target;
+        setNoteData({ ...noteData, [name]: value });
+    };
 
     const handleFormSubmit = async (event) => {
-        event.preventDefault()
+        event.preventDefault();
 
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
@@ -113,10 +113,10 @@ export default function Home() {
             const { data } = await addNote({ variables: { ...noteData } });
             console.log(data);
         } catch (err) {
-            console.error(err)
+            console.error(err);
         }
         window.location.reload();
-    }
+    };
 
 
     return (
@@ -133,7 +133,7 @@ export default function Home() {
                 {notes ? notes.map((note) => {
                     return (
                         <Note key={note._id} note={note} />
-                    )
+                    );
                 }) : null}
                 <Modal show={show} onHide={handleClose}>
                     <Form onSubmit={handleFormSubmit}>
@@ -164,8 +164,8 @@ export default function Home() {
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={(e) => {
-                                e.preventDefault()
-                                handleClose(e)
+                                e.preventDefault();
+                                handleClose(e);
                             }}>
                                 Close
                             </Button>
@@ -178,5 +178,5 @@ export default function Home() {
             </div>
         </>
 
-    )
+    );
 }

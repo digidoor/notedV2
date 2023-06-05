@@ -16,9 +16,9 @@ const styles = {
         // width: '50%',
         fontSize: '18px',
         paddingTop: '15px',
-    }
+    },
 
-}
+};
 
 export default function Welcome() {
     return (
@@ -33,5 +33,5 @@ export default function Welcome() {
                 with jam-packed schedules and the Noted app is the perfect tool to help organize your thoughts and ease your mind.
             </p>
         </div>
-    )
+    );
 }

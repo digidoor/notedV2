@@ -55,6 +55,6 @@ const Test2 = () =>
 
         </main>
     );
-}
+};
 
 export default Test2;
