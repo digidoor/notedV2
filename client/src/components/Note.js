@@ -1,7 +1,7 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { REMOVE_NOTE, EDIT_NOTE } from "../utils/mutations";
-import { Modal, Button, Form } from 'react-bootstrap';
+import { EDIT_NOTE, REMOVE_NOTE  } from "../utils/mutations";
+import { Button, Form, Modal } from 'react-bootstrap';
 
 const styles = {
     /* sticky notes */
@@ -43,9 +43,9 @@ const styles = {
         borderTop: '1px solid',
         borderBottom: 'none',
         marginTop: '1px',
-    }
+    },
 
-}
+};
 
 const Note = (props) => {
     const { note } = props;
@@ -55,46 +55,45 @@ const Note = (props) => {
         event.preventDefault();
         const id = event.target.id;
         try {
-            const { data } = await removeNote({ variables: { _id: id } });
-            console.log(data);
+            await removeNote({ variables: { _id: id } });
         } catch (e) {
             console.error(e);
         }
         window.location.reload();
-    }
+    };
 
     const [editNote, {err}] = useMutation(EDIT_NOTE);
     const [show, setShow] = useState(false);
     const handleClose = () => {
-        setShow(false)
+        setShow(false);
         //discard any changes in the noteData in case it's opened again.
-        setNoteData({ title: note.title, content: note.content, _id: note._id})
-    }
+        setNoteData({ title: note.title, content: note.content, _id: note._id});
+    };
     const handleEdit = () => {
         try
         {
-            setShow(false)
+            setShow(false);
             // hand things off to our mutation, hopefully
-            editNote({ variables: {title: note.title, content: note.content, _id: note._id} })
+            editNote({ variables: {title: note.title, content: note.content, _id: note._id} });
         } catch (err) { console.error(err); }
-    }
+    };
     const handleOpen = () => {
-        setShow(true)
-    }
+        setShow(true);
+    };
 
     const [noteData, setNoteData] = useState({
         title: note.title,
         content: note.content,
-        _id: note._id
-    })
+        _id: note._id,
+    });
 
     const handleChange = (event) => {
-        const { name, value } = event.target
-        setNoteData({...noteData, [name] : value })
-    }
+        const { name, value } = event.target;
+        setNoteData({...noteData, [name] : value });
+    };
 
     const handleFormSubmit = async (event) => {
-        event.preventDefault()
+        event.preventDefault();
 
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
@@ -104,8 +103,7 @@ const Note = (props) => {
 
         try {
             console.log(noteData);
-            const { data } = await editNote({ variables: {...noteData} });
-            console.log(data);
+            await editNote({ variables: {...noteData} });
         } catch (err) {
             console.error(err)
         }

@@ -36,7 +36,7 @@ export const REMOVE_NOTE = gql`
           _id
         }
       }
-    }`
+    }`;
 
 
 export const ADD_USER = gql`
@@ -124,4 +124,4 @@ mutation removeRecipe($url: String!) {
     _id
     url
   }
-}`
+}`;
