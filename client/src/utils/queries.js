@@ -11,7 +11,7 @@ export const QUERY_NOTES = gql`
       }
     }
   }
-`
+`;
 export const QUERY_RECIPES = gql`
   query allRecipes {
     recipes {
@@ -20,7 +20,7 @@ export const QUERY_RECIPES = gql`
       url
     }
   }
-`
+`;
 
 export const QUERY_USERS = gql`
   query allUsers {
@@ -31,7 +31,7 @@ export const QUERY_USERS = gql`
       password
     }
   }
-`
+`;
 
 export const GET_EVENTS = gql`
   query getEvents {
