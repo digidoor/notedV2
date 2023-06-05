@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { REMOVE_NOTE, EDIT_NOTE } from "../utils/mutations";
-import { Modal, Button, Form } from 'react-bootstrap';
+import { EDIT_NOTE, REMOVE_NOTE  } from "../utils/mutations";
+import { Button, Form, Modal } from 'react-bootstrap';
 
 const styles = {
     /* sticky notes */
@@ -55,8 +55,7 @@ const Note = (props) => {
         event.preventDefault();
         const id = event.target.id;
         try {
-            const { data } = await removeNote({ variables: { _id: id } });
-            console.log(data);
+            await removeNote({ variables: { _id: id } });
         } catch (e) {
             console.error(e);
         }
@@ -104,8 +103,7 @@ const Note = (props) => {
 
         try {
             console.log(noteData);
-            const { data } = await editNote({ variables: {...noteData} });
-            console.log(data);
+            await editNote({ variables: {...noteData} });
         } catch (err) {
             console.error(err);
         }

@@ -12,6 +12,7 @@
       "no-unused-vars": "error",
       "eqeqeq": "error",
       "sort-imports": ["error", { "ignoreDeclarationSort": true }],
-      "no-console": ["error", { "allow": ["warn", "error"] }]
+      "no-console": ["error", { "allow": ["warn", "error"] }],
+      "react/prop-types": "off"
     }
   }
