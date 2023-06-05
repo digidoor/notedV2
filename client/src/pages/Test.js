@@ -22,7 +22,8 @@ const Test = () =>
     
     const [ weather, setWeather ] = useState("");
     
-    //const { data: geoData, geoPending } = useFetch(`${apiGeo}${query}&appid=${apiKey}`);
+    const { data: geoData, geoPending } = useFetch(`${apiGeo}${query}&appid=${apiKey}`);
+    console.log("geodata via useFetch: ", geoData);
     //const { lon, lat } = geoData[0];
     //const { data: weatherData, weatherPending } = useFetch(`${apiURL + lat}&lon=${lon}&appid=${apiKey}&units=imperial`);
 
@@ -43,21 +44,8 @@ const Test = () =>
     }
     
     var stuff = getGeo(query);
-    //stuff.then( a => console.log(a) );
-    // stuff.then( a => console.log(a.city) );
-    // stuff.then( a => console.log(a.list[0]) );
-    //var weather = "";
-    stuff.then( a => console.log(a.list[0].weather[0].description) );
+    //stuff.then( a => console.log(a.list[0].weather[0].description) );
     stuff.then( a => setWeather(a.list[0].weather[0].description) );
-    //stuff.then( a => console.log(a.list[0].weather[0]).description );
-    // console.log(stuff);
-    // console.log(stuff.list);
-    //console.log(stuff.list[0].weather);
-
-    
-    //const { city, setCity } =  useState("");
-    
-    //const { data: cityWeather, isPending: weatherPending } = useFetch(cityurl);
     
     const [content, setContent] = useState(""); // stuff for the addNote form
     async function handleFormSubmit(event)
@@ -73,8 +61,9 @@ const Test = () =>
     return (
         <main>
             <div>
-                <h1>Weather</h1>
+                <h1>Weather via regular Fetch function</h1>
                 <p>{weather}</p>
+                <p>The console has it via useFetch</p>
             </div>
             <div className="whatever"><h1>Notes</h1>
                 {loading ? (<div>Loading...</div>)
