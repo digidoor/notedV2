@@ -1,13 +1,15 @@
 import React, { useState, useRef, forwardRef } from 'react';
-import { Container, Sidebar, Content, Header, Stack } from "rsuite";
+import { Sidebar, Content, Header, Stack } from "rsuite";
+import { Grid, Row, Col } from 'rsuite';
 import { Calendar, Badge, Button, Drawer, } from 'rsuite';
 import { Form, ButtonToolbar, Input } from 'rsuite';
-import {SchemaModel, StringType, DateType, } from "schema-typed";
+import {SchemaModel, StringType, } from "schema-typed";
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_EVENT } from '../utils/mutations';
 import { GET_EVENTS } from '../utils/queries';
 import EventList from '../components/EventList';
 import Weather from '../components/Weather';
+import moment from 'moment/moment';
 
 const styles = {
   dayContainer: {
@@ -50,6 +52,7 @@ const styles = {
 }
 }
 
+
 const today = new Date(Date.now());
 const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
 
@@ -61,12 +64,6 @@ const model = SchemaModel({
 })
 
 
-function getTodoList(date) {
-  const day = date.toDateString();
-
-  return [];
-
-}
 
 export default function CalendarPage() {
   const [open, setOpen] = useState(false);
@@ -77,12 +74,11 @@ export default function CalendarPage() {
   const events = data?.events || [];
   const formRef = useRef();
 
-  
+ 
   function renderCell(date) {
-    const list = getTodoList(date);
-    //get list of events
+    const list = events.filter(event => event.date === moment(date).format("YYYY-MM-DD"))
     if (list.length) {
-      return <Badge className="calendar-todo-item-badge" />;
+      return <Badge content={list.length} className="calendar-todo-item-badge" />;
     }
     return null;
   }
@@ -104,28 +100,32 @@ export default function CalendarPage() {
 
   return (
     <>
-    <Container>
-      <Sidebar style={{ width: '280', color: 'black', }}>
-        <Stack
-          spacing={6}
-          direction={"column"}
-          alignItems={"center"}
-          justifyContent={"flex-start"}
-        >
-          <Calendar compact bordered renderCell={renderCell} onSelect={setCalState} />{' '}
-          <Button appearance='primary' block onClick={() => setOpen(true)} style={styles.addEventBtn}>Add Event</Button>
-        </Stack>
-      </Sidebar>
-      <Content>
-        <div style={styles.dayContainer}>
-          <Header style={styles.dayHeader}>{calState.toDateString()}</Header>
-          <Content>
-            <h2>Events:</h2>
-            <EventList date={calState} events={events} loading={loading}/>
-          </Content>
-        </div>
-      </Content>
-
+    <Grid fluid>
+      <Row>
+        <Col xs={24} sm={12} md={10} lg={8} xl={6} xxl={4}>
+          <Sidebar style={{ width: '280', color: 'black', }}>
+            <Stack
+              spacing={6}
+              direction={"column"}
+              alignItems={"center"}
+              justifyContent={"flex-start"}
+              >
+                <Calendar compact bordered renderCell={renderCell} onSelect={setCalState} />{' '}
+                <Button appearance='primary' block onClick={() => setOpen(true)} style={styles.addEventBtn}>Add Event</Button>
+              </Stack>
+            </Sidebar>
+        </Col>
+        <Col xs={24} sm={12} md={14} lg={16} xl={18} xxl={20}>
+          <div style={styles.dayContainer}>
+            <Header style={styles.dayHeader}>{calState.toDateString()}</Header>
+            <Content>
+              <h2>Events:</h2>
+              <EventList date={calState} events={events} loading={loading}/>
+            </Content>
+          </div>
+        </Col>
+      </Row>
+    </Grid>
       {/*tags for the drawer*/}
       <Drawer open={open} onClose={() => setOpen(false)}>
         <Drawer.Header>
@@ -176,8 +176,6 @@ export default function CalendarPage() {
           </Form>
         </Drawer.Body>
       </Drawer>
-    </Container>
-
     <Weather />
     </>
   );

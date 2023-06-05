@@ -80,6 +80,34 @@ export const ADD_EVENT = gql`
     }
   }
   `;
+  export const EDIT_EVENT = gql`
+    mutation editEvent($_id: ID! $title: String!, $date: String!, $time: String, $description: String) {
+      editEvent(_id: $_id, title: $title, date: $date, time: $time, description: $description) {
+        _id
+        title
+        date
+        time
+        description
+        createdBy {
+          _id
+        }
+      }
+    }
+  `;
+  export const REMOVE_EVENT = gql`
+    mutation removeEvent($_id: ID!) {
+      removeEvent( _id: $_id) { 
+        _id
+        title
+        date
+        time
+        description
+        createdBy {
+          _id
+        }
+      }
+    }  
+  `;
 
   export const ADD_RECIPE = gql`
   mutation addRecipe($url: String!) {

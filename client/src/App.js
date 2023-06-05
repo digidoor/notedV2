@@ -19,7 +19,7 @@ import Test from './pages/Test';
 import Test2 from './pages/Test2';
 import 'rsuite/dist/rsuite.css';
 import Weather from './components/Weather';
-// import Footer from './components/Footer';
+import Auth from './utils/auth';
 
 const httpLink = createHttpLink({
   uri: '/graphql',

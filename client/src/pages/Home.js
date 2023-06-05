@@ -81,7 +81,6 @@ export default function Home() {
     
     const [addNote, {error}] = useMutation(ADD_NOTE);
 
-
     const [show, setShow] = useState(false);
     const handleClose = () => {
         setShow(false)

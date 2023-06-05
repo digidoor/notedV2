@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 // this file was taken from an activity - we can keep most of it, move 'secret' to a .env variable
 
-const secret = 'mysecretsshhhhh';
+const secret = process.env.SECRET || 'mysecretsshhhhh';
 const expiration = '2h';
 
 module.exports = {

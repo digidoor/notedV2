@@ -61,7 +61,7 @@ const resolvers = {
     editNote: async (parent, content, context) => {
       if (context.user) {
         const note = await Note.findByIdAndUpdate(content._id, 
-          { title: content.title, content: content.content});
+          { ...content });
         return note;
       }
       throw new AuthenticationError('Not Logged in');
@@ -74,6 +74,15 @@ const resolvers = {
         });
         await User.findByIdAndUpdate(context.user._id, { $push: { events: event } });
 
+        return event;
+      }
+      throw new AuthenticationError('Not logged in');
+    },
+    editEvent: async (parent, content, context) => {
+      console.log(content);
+      if (context.user) {
+        const event = await Event.findByIdAndUpdate(content._id,
+          { ...content });
         return event;
       }
       throw new AuthenticationError('Not logged in');
@@ -106,11 +115,19 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     removeNote: async (parent, id , context) => {
-      console.log(id);
       if (context.user) {
         const note = await Note.findOneAndDelete({ _id: id._id });
         await User.findByIdAndUpdate(context.user._id, { $pull: { notes: note._id}});
         return note;
+      }
+      throw new AuthenticationError('Not Logged in');
+    },
+    removeEvent: async (parent, id, context) => {
+      console.log(id);
+      if (context.user) {
+        const event = await Event.findOneAndDelete({ _id: id });
+        await User.findByIdAndUpdate(context.user._id, { $pull: { events: event._id}});
+        return event;
       }
       throw new AuthenticationError('Not Logged in');
     },
