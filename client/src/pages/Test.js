@@ -53,7 +53,7 @@ const Test = () =>
         event.preventDefault();
         try
         {
-            const { data } = await addNote({ variables: { content }, });
+            const { data } = await addNote({ variables: { content } });
             window.location.reload();
         } catch (err) { console.error(err); }
     }
@@ -87,6 +87,6 @@ const Test = () =>
             <div>Content: {content}</div>
         </main>
     );
-}
+};
 
 export default Test;
