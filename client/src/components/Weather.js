@@ -47,7 +47,7 @@ const styles = {
         textAlign: 'center',
     },
     resGroup: {
-        display: 'inline-flex',
+        display: 'block',
         textAlign: 'center',
     },
     weatherResults: {
