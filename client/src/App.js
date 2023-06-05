@@ -16,6 +16,7 @@ import Home from './pages/Home';
 import CalendarPage from './pages/CalendarPage';
 import Nutrition from './pages/Nutrition';
 import Test from './pages/Test';
+import Test2 from './pages/Test2';
 import 'rsuite/dist/rsuite.css';
 import Weather from './components/Weather';
 // import Footer from './components/Footer';
@@ -76,6 +77,10 @@ const App = () => {
             <Route 
               path="/test" 
               element={<Test />} 
+            />
+            <Route 
+              path="/test2" 
+              element={<Test2 />} 
             />
           </Routes>
           {/* <Footer/> */}
