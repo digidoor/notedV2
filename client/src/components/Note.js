@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { REMOVE_NOTE, EDIT_NOTE } from "../utils/mutations";
 import { Modal, Button, Form } from 'react-bootstrap';
@@ -43,9 +43,9 @@ const styles = {
         borderTop: '1px solid',
         borderBottom: 'none',
         marginTop: '1px',
-    }
+    },
 
-}
+};
 
 const Note = (props) => {
     const { note } = props;
@@ -61,40 +61,40 @@ const Note = (props) => {
             console.error(e);
         }
         window.location.reload();
-    }
+    };
 
     const [editNote, {err}] = useMutation(EDIT_NOTE);
     const [show, setShow] = useState(false);
     const handleClose = () => {
-        setShow(false)
+        setShow(false);
         //discard any changes in the noteData in case it's opened again.
-        setNoteData({ title: note.title, content: note.content, _id: note._id})
-    }
+        setNoteData({ title: note.title, content: note.content, _id: note._id});
+    };
     const handleEdit = () => {
         try
         {
-            setShow(false)
+            setShow(false);
             // hand things off to our mutation, hopefully
-            editNote({ variables: {title: note.title, content: note.content, _id: note._id} })
+            editNote({ variables: {title: note.title, content: note.content, _id: note._id} });
         } catch (err) { console.error(err); }
-    }
+    };
     const handleOpen = () => {
-        setShow(true)
-    }
+        setShow(true);
+    };
 
     const [noteData, setNoteData] = useState({
         title: note.title,
         content: note.content,
-        _id: note._id
-    })
+        _id: note._id,
+    });
 
     const handleChange = (event) => {
-        const { name, value } = event.target
-        setNoteData({...noteData, [name] : value })
-    }
+        const { name, value } = event.target;
+        setNoteData({...noteData, [name] : value });
+    };
 
     const handleFormSubmit = async (event) => {
-        event.preventDefault()
+        event.preventDefault();
 
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
@@ -107,10 +107,10 @@ const Note = (props) => {
             const { data } = await editNote({ variables: {...noteData} });
             console.log(data);
         } catch (err) {
-            console.error(err)
+            console.error(err);
         }
         window.location.reload();
-    }
+    };
 
     return (
         <>
@@ -161,8 +161,8 @@ const Note = (props) => {
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={(e) => {
-                            e.preventDefault()
-                            handleClose(e)
+                            e.preventDefault();
+                            handleClose(e);
                         }}>
                             Discard Edits
                         </Button>
@@ -174,6 +174,6 @@ const Note = (props) => {
             </Modal>
 
         </>
-    )
-}
-export default Note
+    );
+};
+export default Note;
