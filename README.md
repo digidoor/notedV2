@@ -48,14 +48,26 @@ Noted is an application designed to help you keep track of your daily life. It c
 Other than fulfilling the assignment requirements and displaying our coding capabilities the motivation to develop the Noted app is to create an application to help organize your daily life. Using the APIs abilities we can make activities that everyone does regularly easier.
 
 # Technologies Used
-Spoonacular food API:
-An API with a catalog of recipes. Input a keyword and the titles of recipes as well as links to the website with the ingredients and cooking instructions will appear on the page.
-Open Weather API:
-An API which has weather information based on longitude and latitude. Input your area code and the screen will display the current temperature, min-max-temperature, humidity and wind speed in the designated area.
+* Spoonacular API: an API which has a catalog of recipes that can be accessed by searching keywords
+* Open Weather API: an API that tells you the weather conditions of a designated area searched for by the user 
+* Bootstrap and React Bootstrap: A free CSS framework library 
+* Materialize: CSS Library 
+* Express 
+* Apollo 
+* Mongo DB 
+* Heroku 
+* React Suite 
+* Moment
+
 
 # Hopes for Future Development
-* Finishing development on Calendar and Lists pages.
-* Add more media query breaks to make mobile friendly.
+* Add a Nav Link to the Weather Section on the Calendar Page.
+* Make more Responsive.
+* Make it to where you can view the Recipe on the website without having to navigate to a new site.
+* Be able to update/click forgot password
+* Make event calendar shareable
+* Add a Dark Mode Option
+
 
 # Questions
 Hi, Thanks for checking out our Project: notedv2! If you have any questions about our project, please E-mail us [HERE!](mailto:ucdnotedproject@gmail.com)
