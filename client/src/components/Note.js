@@ -70,6 +70,14 @@ const Note = (props) => {
         //discard any changes in the noteData in case it's opened again.
         setNoteData({ title: note.title, content: note.content, _id: note._id})
     }
+    const handleEdit = () => {
+        try
+        {
+            setShow(false)
+            // hand things off to our mutation, hopefully
+            editNote({ variables: {title: note.title, content: note.content, _id: note._id} })
+        } catch (err) { console.error(err); }
+    }
     const handleOpen = () => {
         setShow(true)
     }
@@ -158,7 +166,7 @@ const Note = (props) => {
                         }}>
                             Discard Edits
                         </Button>
-                        <Button variant="primary" type="submit" onClick={handleClose}>
+                        <Button variant="primary" type="submit" onClick={handleEdit}>
                             Save Edits
                         </Button>
                     </Modal.Footer>
