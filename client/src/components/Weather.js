@@ -47,7 +47,7 @@ const styles = {
         textAlign: 'center',
     },
     resGroup: {
-        display: 'inline-flex',
+        display: 'block',
         textAlign: 'center',
     },
     weatherResults: {
@@ -100,15 +100,15 @@ const Weather = () => {
         <>
             <hr className="default" style={styles.hr}></hr>
             <h1 className="weather" style={styles.weatherTitle}>Weather</h1>
-            <div style={styles.searchContainer} >
-                <form onSubmit={handleWeatherFormSubmit}>
+            <div>
+                <form onSubmit={handleWeatherFormSubmit} style={styles.searchContainer}>
                     <input style={styles.searchBar} placeholder="Enter City Name" value={query} onChange={ (event) => setQuery(event.target.value)}></input>
                     <button className="btn" style={styles.searchCityBtn}><i className="large material-icons">search</i></button>
                 </form>
             </div>
             <div className="card-group" style={styles.cards}>
                 <div className="card">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" className="card-img-top"
+                    <img src="../assets/weather.png" className="card-img-top"
                         alt="Hollywood Sign on The Hill" />
                     <div className="card-body">
                         <div style={styles.test}>
@@ -135,7 +135,7 @@ const Weather = () => {
                     </div>
                 </div>
                 <div className="card">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" className="card-img-top"
+                    <img src="../assets/weather.png" className="card-img-top"
                         alt="Palm Springs Road" />
                     <div className="card-body">
                     <div style={styles.test}>
@@ -162,7 +162,7 @@ const Weather = () => {
                     </div>
                 </div>
                 <div className="card">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" className="card-img-top"
+                    <img src="../assets/weather.png" className="card-img-top"
                         alt="Palm Springs Road" />
                     <div className="card-body">
                     <div style={styles.test}>
@@ -189,7 +189,7 @@ const Weather = () => {
                     </div>
                 </div>
                 <div className="card">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" className="card-img-top"
+                    <img src="../assets/weather.png" className="card-img-top"
                         alt="Palm Springs Road" />
                     <div className="card-body">
                     <div style={styles.test}>
@@ -216,7 +216,7 @@ const Weather = () => {
                     </div>
                 </div>
                 <div className="card">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" className="card-img-top"
+                    <img src="../assets/weather.png" className="card-img-top"
                         alt="Palm Springs Road" />
                     <div className="card-body">
                     <div style={styles.test}>
