@@ -2,12 +2,13 @@ import React, { useState, useRef, forwardRef } from 'react';
 import { Container, Sidebar, Content, Header, Stack } from "rsuite";
 import { Calendar, Badge, Button, Drawer, } from 'rsuite';
 import { Form, ButtonToolbar, Input } from 'rsuite';
-import {SchemaModel, StringType, DateType, } from "schema-typed";
+import {SchemaModel, StringType, } from "schema-typed";
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_EVENT } from '../utils/mutations';
 import { GET_EVENTS } from '../utils/queries';
 import EventList from '../components/EventList';
 import Weather from '../components/Weather';
+import moment from 'moment/moment';
 
 const styles = {
   dayContainer: {
@@ -50,6 +51,7 @@ const styles = {
 }
 }
 
+
 const today = new Date(Date.now());
 const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
 
@@ -61,12 +63,6 @@ const model = SchemaModel({
 })
 
 
-function getTodoList(date) {
-  const day = date.toDateString();
-
-  return [];
-
-}
 
 export default function CalendarPage() {
   const [open, setOpen] = useState(false);
@@ -77,12 +73,11 @@ export default function CalendarPage() {
   const events = data?.events || [];
   const formRef = useRef();
 
-  
+ 
   function renderCell(date) {
-    const list = getTodoList(date);
-    //get list of events
+    const list = events.filter(event => event.date === moment(date).format("YYYY-MM-DD"))
     if (list.length) {
-      return <Badge className="calendar-todo-item-badge" />;
+      return <Badge content={list.length} className="calendar-todo-item-badge" />;
     }
     return null;
   }
