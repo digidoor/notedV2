@@ -13,8 +13,8 @@ const styles = {
         marginTop: '15px',
         color: '#ef7c8e',
         textShadow: '2px 2px 2px black',
-    }
-}
+    },
+};
 
 const Login = () => {
 
