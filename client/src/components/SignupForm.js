@@ -16,9 +16,9 @@ signUpBtn: {
     },
     signUpForm: {
         paddingTop: '15px',
-    }
+    },
     
-}
+};
 
 
 export default function SignupForm() {
@@ -104,5 +104,5 @@ export default function SignupForm() {
                 </form>
             </div>
         </div>
-    )
+    );
 }
