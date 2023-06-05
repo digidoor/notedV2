@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_NOTES } from "../utils/queries";
 import { ADD_NOTE } from "../utils/mutations";
@@ -78,8 +78,8 @@ export default function Home() {
 
     const { loading, data } = useQuery(QUERY_NOTES);
     const notes = data?.notes || [];
-    
-    const [addNote, {error}] = useMutation(ADD_NOTE);
+
+    const [addNote, { error }] = useMutation(ADD_NOTE);
 
     const [show, setShow] = useState(false);
     const handleClose = () => {
@@ -96,7 +96,7 @@ export default function Home() {
 
     const handleChange = (event) => {
         const { name, value } = event.target
-        setNoteData({...noteData, [name] : value })
+        setNoteData({ ...noteData, [name]: value })
     }
 
     const handleFormSubmit = async (event) => {
@@ -110,7 +110,7 @@ export default function Home() {
 
         try {
             console.log(noteData);
-            const { data } = await addNote({ variables: {...noteData} });
+            const { data } = await addNote({ variables: { ...noteData } });
             console.log(data);
         } catch (err) {
             console.error(err)
@@ -118,7 +118,7 @@ export default function Home() {
         window.location.reload();
     }
 
-   
+
     return (
         <>
             {/* ADDING NEW NOTES*/}
@@ -132,47 +132,47 @@ export default function Home() {
                 </button>
                 {notes ? notes.map((note) => {
                     return (
-                        <Note note={note} />
+                        <Note key={note._id} note={note} />
                     )
                 }) : null}
                 <Modal show={show} onHide={handleClose}>
-                <Form onSubmit={handleFormSubmit}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>What do you need Noted?</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>Note Title</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="title"
-                                onChange={handleChange}
-                                value={noteData.title}
-                                autoFocus
-                            />
-                        </Form.Group>
-                        <Form.Group
-                            className="mb-3"
-                            controlId="exampleForm.ControlTextarea1"
-                        >
-                            <Form.Label>Add your thoughts..</Form.Label>
-                            <Form.Control as="textarea" rows={3} name="content"
-                                onChange={handleChange}
-                                value={noteData.content} />
-                        </Form.Group>
-                    
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={(e) => {
-                            e.preventDefault()
-                            handleClose(e)
-                        }}>
-                            Close
-                        </Button>
-                        <Button variant="primary" type="submit" onClick={handleClose}>
-                            Save Note
-                        </Button>
-                    </Modal.Footer>
+                    <Form onSubmit={handleFormSubmit}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>What do you need Noted?</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                <Form.Label>Note Title</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="title"
+                                    onChange={handleChange}
+                                    value={noteData.title}
+                                    autoFocus
+                                />
+                            </Form.Group>
+                            <Form.Group
+                                className="mb-3"
+                                controlId="exampleForm.ControlTextarea1"
+                            >
+                                <Form.Label>Add your thoughts..</Form.Label>
+                                <Form.Control as="textarea" rows={3} name="content"
+                                    onChange={handleChange}
+                                    value={noteData.content} />
+                            </Form.Group>
+
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={(e) => {
+                                e.preventDefault()
+                                handleClose(e)
+                            }}>
+                                Close
+                            </Button>
+                            <Button variant="primary" type="submit" onClick={handleClose}>
+                                Save Note
+                            </Button>
+                        </Modal.Footer>
                     </Form>
                 </Modal>
             </div>
