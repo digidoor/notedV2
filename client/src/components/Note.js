@@ -75,7 +75,7 @@ const Note = (props) => {
         {
             setShow(false)
             // hand things off to our mutation, hopefully
-            editNote({ title: note.title, content: note.content, _id: note._id})
+            editNote({ variables: {title: note.title, content: note.content, _id: note._id} })
         } catch (err) { console.error(err); }
     }
     const handleOpen = () => {
