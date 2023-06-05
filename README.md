@@ -24,11 +24,19 @@ Noted is an application which is designed to help us keep track of some of the m
 # Description
 Noted is an application designed to help you keep track of your daily life. It comes equipped with two APIs which help it do so. These APIs are Open Weather for the current weather conditions in a specified area and Spoonacular which has a catalogue of recipes accessed through searching keywords. In addition you can write yourself reminders or notes to be referenced.
 
-![Noted Project Screenshot](assets\screenshots\landing(83).png?raw=true "Noted Landing Page 1")
+![Screenshot (240)](https://github.com/digidoor/notedV2/assets/118693956/112358b5-0299-4628-b679-66d671ad3d07)
 
-![Noted Project Screenshot](assets\screenshots\landing(85).png?raw=true "Noted Nutrition Page 2")
+![Screenshot (241)](https://github.com/digidoor/notedV2/assets/118693956/b8c27822-3023-452c-94d9-a6c5c4e59abd)
 
-![Noted Project Screenshot](assets\screenshots\landing(86).png?raw=true "Noted Nutrition Page 3")
+![Screenshot (230)](https://github.com/digidoor/notedV2/assets/118693956/d41def70-2f3e-4641-bc4d-9bb2ef3f5786)
+
+![Screenshot (231)](https://github.com/digidoor/notedV2/assets/118693956/5bf32cad-9226-47eb-84e0-77b8b25b972d)
+
+![Screenshot (233)](https://github.com/digidoor/notedV2/assets/118693956/eeeacd20-0279-48ec-9f7b-f90069d3cdf2)
+
+![Screenshot (234)](https://github.com/digidoor/notedV2/assets/118693956/7c8941d8-a0c9-4b8b-92a6-b0c8320ef0e0)
+
+![Screenshot (237)](https://github.com/digidoor/notedV2/assets/118693956/16d1666c-c7df-43d9-97e6-d9959b7d24bc)
 
 # Github Link
 
@@ -40,16 +48,26 @@ Noted is an application designed to help you keep track of your daily life. It c
 Other than fulfilling the assignment requirements and displaying our coding capabilities the motivation to develop the Noted app is to create an application to help organize your daily life. Using the APIs abilities we can make activities that everyone does regularly easier.
 
 # Technologies Used
-Spoonacular food API:
-An API with a catalog of recipes. Input a keyword and the titles of recipes as well as links to the website with the ingredients and cooking instructions will appear on the page.
-Open Weather API:
-An API which has weather information based on longitude and latitude. Input your area code and the screen will display the current temperature, min-max-temperature, humidity and wind speed in the designated area.
+* Spoonacular API: an API which has a catalog of recipes that can be accessed by searching keywords
+* Open Weather API: an API that tells you the weather conditions of a designated area searched for by the user 
+* Bootstrap and React Bootstrap: A free CSS framework library 
+* Materialize: CSS Library 
+* Express 
+* Apollo 
+* Mongo DB 
+* Heroku 
+* React Suite 
+* Moment
+
 
 # Hopes for Future Development
-* Finishing development on Calendar and Lists pages.
-* Add more media query breaks to make mobile friendly.
-* Expand on styling.
-* Add another API to add to the nutrition page which counts the calories per the ingredients for shown recipes.
+* Add a Nav Link to the Weather Section on the Calendar Page.
+* Make more Responsive.
+* Make it to where you can view the Recipe on the website without having to navigate to a new site.
+* Be able to update/click forgot password
+* Make event calendar shareable
+* Add a Dark Mode Option
+
 
 # Questions
 Hi, Thanks for checking out our Project: notedv2! If you have any questions about our project, please E-mail us [HERE!](mailto:ucdnotedproject@gmail.com)
