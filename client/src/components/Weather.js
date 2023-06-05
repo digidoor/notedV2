@@ -22,7 +22,7 @@ const styles = {
     // City name
     weatherCity: {
         textAlign: 'center',
-        color: 'black'
+        color: 'black',
     },
     // Container that holds the search bar and button for city input
     searchContainer: {
@@ -64,10 +64,10 @@ const styles = {
     },
     cards: {
         textAlign: 'center',
-    }
+    },
 
 
-}
+};
 
 const Weather = () => {
     const [query, setQuery] = useState("");
@@ -214,6 +214,6 @@ const Weather = () => {
             </div>
 
         </>
-    )
-}
-export default Weather
+    );
+};
+export default Weather;
