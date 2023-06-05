@@ -28,7 +28,7 @@ export default function SignupForm() {
         email: '',
         password: '',
     });
-    const [addUser, { error }] = useMutation(ADD_USER);
+    const [addUser] = useMutation(ADD_USER);
 
     // update state based on form input changes
     const handleChange = (event) => {
@@ -65,7 +65,6 @@ export default function SignupForm() {
                     <div className="form-floating mb-3">
                         <input
                             className="form-control"
-                            id="floatingInput"
                             placeholder="username"
                             name="username"
                             type="username"
@@ -73,12 +72,11 @@ export default function SignupForm() {
                             onChange={handleChange}
 
                         />
-                        <label for="floatingInput">Username</label>
+                        <label htmlFor="floatingInput">Username</label>
                     </div>
                     <div className="form-floating mb-3">
                         <input
                             className="form-control"
-                            id="floatingInput"
                             placeholder="name@example.com"
                             name="email"
                             type="email"
@@ -86,7 +84,7 @@ export default function SignupForm() {
                             onChange={handleChange}
 
                         />
-                        <label for="floatingInput">Email address</label>
+                        <label htmlFor="floatingInput">Email address</label>
                     </div>
                     <div className="form-floating">
                         <input
@@ -98,7 +96,7 @@ export default function SignupForm() {
                             value={formState.password}
                             onChange={handleChange}
                         />
-                        <label for="floatingPassword">Password</label>
+                        <label htmlFor="floatingPassword">Password</label>
                     </div>
                     <div className="d-grid gap-2 col-6 mx-auto">
                         <button className="btn" type="submit" style={styles.signUpBtn}>Sign-Up!</button>
