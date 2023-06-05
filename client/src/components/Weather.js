@@ -108,7 +108,7 @@ const Weather = () => {
             </div>
             <div className="card-group" style={styles.cards}>
                 <div className="card">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" className="card-img-top"
+                    <img src="../assets/weather.png" className="card-img-top"
                         alt="Hollywood Sign on The Hill" />
                     <div className="card-body">
                         <div style={styles.test}>
@@ -135,7 +135,7 @@ const Weather = () => {
                     </div>
                 </div>
                 <div className="card">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" className="card-img-top"
+                    <img src="../assets/weather.png" className="card-img-top"
                         alt="Palm Springs Road" />
                     <div className="card-body">
                     <div style={styles.test}>
@@ -162,7 +162,7 @@ const Weather = () => {
                     </div>
                 </div>
                 <div className="card">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" className="card-img-top"
+                    <img src="../assets/weather.png" className="card-img-top"
                         alt="Palm Springs Road" />
                     <div className="card-body">
                     <div style={styles.test}>
@@ -189,7 +189,7 @@ const Weather = () => {
                     </div>
                 </div>
                 <div className="card">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" className="card-img-top"
+                    <img src="../assets/weather.png" className="card-img-top"
                         alt="Palm Springs Road" />
                     <div className="card-body">
                     <div style={styles.test}>
@@ -216,7 +216,7 @@ const Weather = () => {
                     </div>
                 </div>
                 <div className="card">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" className="card-img-top"
+                    <img src="../assets/weather.png" className="card-img-top"
                         alt="Palm Springs Road" />
                     <div className="card-body">
                     <div style={styles.test}>
