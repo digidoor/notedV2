@@ -19,9 +19,9 @@ const styles ={
 
     signInForm: {
         paddingTop: '15px',
-    }
+    },
 
-}
+};
 
 export default function LoginForm() {
     
@@ -92,5 +92,5 @@ export default function LoginForm() {
                 </div>
             </form>
         </div>
-    )
+    );
 }

@@ -40,10 +40,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-if(!Auth.loggedIn()){
-  
-}
-
 const App = () => {
     return (
       <ApolloProvider client={client}>

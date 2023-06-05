@@ -105,10 +105,10 @@ const Note = (props) => {
             console.log(noteData);
             await editNote({ variables: {...noteData} });
         } catch (err) {
-            console.error(err)
+            console.error(err);
         }
         window.location.reload();
-    }
+    };
 
     return (
         <>
@@ -159,8 +159,8 @@ const Note = (props) => {
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={(e) => {
-                            e.preventDefault()
-                            handleClose(e)
+                            e.preventDefault();
+                            handleClose(e);
                         }}>
                             Discard Edits
                         </Button>
@@ -172,6 +172,6 @@ const Note = (props) => {
             </Modal>
 
         </>
-    )
-}
-export default Note
+    );
+};
+export default Note;

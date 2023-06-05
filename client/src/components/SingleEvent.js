@@ -16,5 +16,5 @@ export default function SingleEvent( props ) {
             <h5>{event.description ? event.description :  ""}</h5>
         </Modal.Body>
     </>
-    )
+    );
 }

@@ -11,8 +11,8 @@ const styles = {
     },
     signUpContainer: {
         marginTop: '30px',
-    }
-}
+    },
+};
 
 const Signup = () => {
 
