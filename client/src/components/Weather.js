@@ -102,7 +102,7 @@ const Weather = () => {
             <h1 className="weather" style={styles.weatherTitle}>Weather</h1>
             <div style={styles.searchContainer} >
                 <form onSubmit={handleWeatherFormSubmit}>
-                    <input style={styles.searchBar} placeholder="Enter City Name" value={query} onChange={ (event) => setQuery(event.target.value)}></input>
+                    <input style={styles.searchBar} placeholder="City or Area Code" value={query} onChange={ (event) => setQuery(event.target.value)}></input>
                     <button className="btn" style={styles.searchCityBtn}><i className="large material-icons">search</i></button>
                 </form>
             </div>
