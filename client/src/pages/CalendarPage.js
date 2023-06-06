@@ -1,9 +1,9 @@
 import React, { useState, useRef, forwardRef } from 'react';
 import { Sidebar, Content, Header, Stack } from "rsuite";
 import { Grid, Row, Col } from 'rsuite';
-import { Calendar, Badge, Button, Drawer, } from 'rsuite';
+import { Calendar, Badge, Button, Drawer } from 'rsuite';
 import { Form, ButtonToolbar, Input } from 'rsuite';
-import {SchemaModel, StringType, } from "schema-typed";
+import {SchemaModel, StringType } from "schema-typed";
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_EVENT } from '../utils/mutations';
 import { GET_EVENTS } from '../utils/queries';
@@ -49,8 +49,8 @@ const styles = {
     color: 'black',
     fontWeight: 'bold',
     boxShadow: '2px 2px 0px darkgrey', 
-}
-}
+},
+};
 
 
 const today = new Date(Date.now());
@@ -61,13 +61,13 @@ const model = SchemaModel({
   date: StringType().isRequired("Date is required"),
   time: StringType(),
   description: StringType(),
-})
+});
 
 
 
 export default function CalendarPage() {
   const [open, setOpen] = useState(false);
-  const [calState, setCalState] = useState(today)
+  const [calState, setCalState] = useState(today);
   const [newEvent, setNewEvent] = useState({ title: '', date: calState, time: '', description: ''});
   const [addEvent, { error }] = useMutation(ADD_EVENT);
   const { loading, data } = useQuery(GET_EVENTS);
@@ -76,7 +76,7 @@ export default function CalendarPage() {
 
  
   function renderCell(date) {
-    const list = events.filter(event => event.date === moment(date).format("YYYY-MM-DD"))
+    const list = events.filter(event => event.date === moment(date).format("YYYY-MM-DD"));
     if (list.length) {
       return <Badge content={list.length} className="calendar-todo-item-badge" />;
     }
@@ -89,21 +89,21 @@ export default function CalendarPage() {
 
     try {
       const { data } = await addEvent({
-        variables: {...newEvent}  
+        variables: {...newEvent},  
       });
       console.log(data);
     } catch (e) {
       console.error(e);
     }
     window.location.reload();
-  }
+  };
 
   return (
     <>
     <Grid fluid>
       <Row>
         <Col xs={24} sm={12} md={10} lg={8} xl={6} xxl={4}>
-          <Sidebar style={{ width: '280', color: 'black', }}>
+          <Sidebar style={{ width: '280', color: 'black' }}>
             <Stack
               spacing={6}
               direction={"column"}

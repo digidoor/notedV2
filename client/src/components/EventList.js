@@ -1,6 +1,6 @@
 import React, { useState, useRef, forwardRef } from "react";
 import { List, Modal, Button, ButtonToolbar, Drawer, Form, Input } from 'rsuite';
-import { SchemaModel, StringType, } from "schema-typed";
+import { SchemaModel, StringType } from "schema-typed";
 import { useMutation, useQuery } from '@apollo/client';
 import { EDIT_EVENT, REMOVE_EVENT } from '../utils/mutations';
 import SingleEvent from "./SingleEvent";
@@ -46,9 +46,9 @@ const styles = {
         boxShadow: '2px 2px 0px darkgrey',
     },
     hiddenID: {
-        display: 'none'
+        display: 'none',
     },
-}
+};
 
 const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
 
@@ -57,7 +57,7 @@ const model = SchemaModel({
     date: StringType().isRequired("Date is required"),
     time: StringType(),
     description: StringType(),
-})
+});
 
 
 export default function EventList({ date, events, loading }) {
@@ -72,7 +72,7 @@ export default function EventList({ date, events, loading }) {
 
     const getEvent = (id) => {
         return events[events.findIndex((event) => id === event._id)];
-    }
+    };
 
     const submitEditEvent = async (event) => {
         event.preventDefault();
@@ -80,14 +80,14 @@ export default function EventList({ date, events, loading }) {
         console.log(formData);
         try {
             const { data } = await editEvent({
-                variables: { ...formData }
+                variables: { ...formData },
             });
             console.log(data);
         } catch (e) {
             console.error(e);
         }
         window.location.reload();
-    }
+    };
 
     const handleEditButton = () => {
         const event = getEvent(selectedEvent);
@@ -96,7 +96,7 @@ export default function EventList({ date, events, loading }) {
         setFormData({ ...event });
         console.log(formData);
         setOpen(true);
-    }
+    };
 
     const handleDeleteButton = async (event) => {
         event.preventDefault();
@@ -109,7 +109,7 @@ export default function EventList({ date, events, loading }) {
             console.error(e);
         }
         window.location.reload();
-    }
+    };
 
     return (<>
 
@@ -124,10 +124,10 @@ export default function EventList({ date, events, loading }) {
                 ))}
             </ButtonToolbar>
         </List>
-        <Modal open={!!selectedEvent} onClose={(e) => { setSelectedEvent("") }} >
+        <Modal open={!!selectedEvent} onClose={(e) => { setSelectedEvent(""); }} >
             <SingleEvent event={{ ...getEvent(selectedEvent) }} />
             <Modal.Footer>
-                <Button onClick={(e) => { setSelectedEvent("") }} appearance="primary">
+                <Button onClick={(e) => { setSelectedEvent(""); }} appearance="primary">
                     Ok
                 </Button>
                 <Button onClick={handleEditButton} appearance="subtle">
@@ -191,6 +191,6 @@ export default function EventList({ date, events, loading }) {
             </Drawer.Body>
         </Drawer>
 
-    </>)
-}
+    </>);
+};
 

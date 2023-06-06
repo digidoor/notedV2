@@ -7,11 +7,14 @@
     "plugins": ["react", "react-hooks"],
     "rules": {
       "quotes": ["warn", "single"],
-      "semi": ["warn", "always"],
-      "comma-dangle": ["warn", "always-multiline"],
-      "no-unused-vars": "warn",
-      "eqeqeq": "warn",
-      "sort-imports": ["warn", { "ignoreDeclarationSort": true }],
-      "no-console": ["warn", { "allow": ["warn", "error"] }]
+         "rules": {
+      "quotes": ["warn", "single"],
+      "semi": ["error", "always"],
+      "comma-dangle": ["error", "always-multiline"],
+      "no-unused-vars": "error",
+      "eqeqeq": "error",
+      "sort-imports": ["error", { "ignoreDeclarationSort": true }],
+      "no-console": ["error", { "allow": ["warn", "error"] }]
+    }
     }
   }

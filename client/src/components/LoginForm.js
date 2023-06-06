@@ -19,14 +19,14 @@ const styles ={
 
     signInForm: {
         paddingTop: '15px',
-    }
+    },
 
-}
+};
 
 export default function LoginForm() {
     
     const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login] = useMutation(LOGIN_USER);
+    const [login, { error, data }] = useMutation(LOGIN_USER);
     
     // update state based on form input changes
     const handleChange = (event) => {
@@ -73,7 +73,7 @@ export default function LoginForm() {
                       value={formState.email}
                       onChange={handleChange}
                     />
-                    <label htmlFor="floatingInput">Email address</label>
+                    <label for="floatingInput">Email address</label>
                 </div>
                 <div className="form-floating">
                     <input
@@ -85,12 +85,12 @@ export default function LoginForm() {
                       value={(formState.password)}
                       onChange={handleChange}
                     />
-                    <label htmlFor="floatingPassword">Password</label>
+                    <label for="floatingPassword">Password</label>
                 </div>
                 <div className="d-grid gap-2 col-6 mx-auto">
                     <button className="btn" type="submit" style={styles.signInBtn}>Sign-In</button>
                 </div>
             </form>
         </div>
-    )
+    );
 }

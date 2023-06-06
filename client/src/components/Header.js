@@ -24,14 +24,14 @@ const styles = {
         height: '40px',
         lineHeight: '2',
         fontSize: '20px',
-        boxShadow: '0px 2px 4px 0 grey'
+        boxShadow: '0px 2px 4px 0 grey',
     },
 
     navItem: {
         color: 'black',
         textShadow: '3px 2px 2px #ef7c8e',
-    }
-}
+    },
+};
 
 function showNavigation() {
     if (Auth.loggedIn()) {
@@ -48,11 +48,11 @@ function showNavigation() {
                     </Link>
                 </li>
                 {/* still needs to be set up to navigate to the weather section on the calendar page */}
-                {/* <li className="mx-1 nav-item">
+                <li className="mx-1 nav-item">
                     <Link to="/calendar" style={styles.navItem}>
                     <i className="large material-icons">cloud</i>
                     </Link>
-                </li> */}
+                </li>
                 <li className="mx-1 nav-item">
                     <Link to="/nutrition" style={styles.navItem}>
                     <i className="large material-icons">restaurant_menu</i>
@@ -126,7 +126,7 @@ function Header() {
                 {showNavigation()}
             </nav>
         </>
-    )
+    );
 }
 
 export default Header;

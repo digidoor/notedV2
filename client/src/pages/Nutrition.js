@@ -1,12 +1,12 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { QUERY_RECIPES } from "../utils/queries"
+import { QUERY_RECIPES } from "../utils/queries";
 import { useMutation } from '@apollo/client';
-import { ADD_RECIPE, REMOVE_RECIPE  } from '../utils/mutations'
+import { ADD_RECIPE, REMOVE_RECIPE  } from '../utils/mutations';
 import search from '../utils/nutritionApi';
 import SavedRecipeList from '../components/SavedRecipeList';
-import RecipeList from '../components/RecipeList'
+import RecipeList from '../components/RecipeList';
 
 const styles = {
   columnLeft: {
@@ -83,36 +83,36 @@ const styles = {
   mealPBar: {
     height: '35px',
     width: '90%',
-  }
+  },
 
-}
+};
 
 export default function Nutrition(props) {
   // Create useState variable called query and setQuery that is equal to the input value of the search
   const [query, setQuery] = useState({});
-  const [userSearch, setUserSearch] = useState('')
-  const [addRecipe, { error }] = useMutation(ADD_RECIPE)
+  const [userSearch, setUserSearch] = useState('');
+  const [addRecipe, { error }] = useMutation(ADD_RECIPE);
 
   // Method to get search query and set state
   const searchRecipe = async () => {
     try {
       const response = await search(userSearch);
-      console.log(response)
+      console.log(response);
       setQuery(response.data.results);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
 
   };
 
   const handleUserSearchChange = (e) => {
-    setUserSearch(e.currentTarget.value)
-  }
+    setUserSearch(e.currentTarget.value);
+  };
 
   const [chosenRecipe, setChosenRecipe] = useState({ url: '' });
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -121,20 +121,20 @@ export default function Nutrition(props) {
     }
 
     try {
-      console.log(chosenRecipe)
+      console.log(chosenRecipe);
       const { data } = await addRecipe({
-        variables: { ...chosenRecipe }
-      })
-      console.log(data)
+        variables: { ...chosenRecipe },
+      });
+      console.log(data);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   const handleChange = (event) => {
-    const { name, value } = event.target
-    setChosenRecipe({ ...chosenRecipe, [name]: value })
-  }
+    const { name, value } = event.target;
+    setChosenRecipe({ ...chosenRecipe, [name]: value });
+  };
 
   return (
     <div className="container text-center" style={styles.nutContainer}>
@@ -162,8 +162,8 @@ export default function Nutrition(props) {
               <div style={styles.mealPlanBtns}>
                 <button type='submit' className="add btn " id="add" style={styles.addBtn}>Add</button>
                 <button onClick={(e) => {
-                  e.preventDefault()
-                  setChosenRecipe({ url: "" })
+                  e.preventDefault();
+                  setChosenRecipe({ url: "" });
                 }} className="btn " id="clear-button" style={styles.clearBtn}>Clear</button>
               </div>
             </form>
@@ -190,5 +190,5 @@ export default function Nutrition(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }
