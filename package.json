@@ -19,7 +19,9 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
+    "graphql": "^16.6.0",
     "moment": "^2.29.4",
+    "ra-data-graphql": "^4.11.0",
     "react-bootstrap": "^2.7.4",
     "react-calendar": "^4.2.1"
   }
