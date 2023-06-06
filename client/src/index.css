@@ -11,44 +11,6 @@ code {
     monospace;
     color:black;
 }
-/* home page */
-/* @media screen and (max-width: 1024px) {
-  body,
-  .header,
-  h1 {
-      flex-direction: column;
-      display: block;
-  } */
-
-  /* The header is the blue bar */
-  /* .header {
-      height: 25vh;
-      width: auto;
-
-  } */
-
-  /* Main website Title */
-  /* h1 {
-      text-align: center;
-  } */
-/* } */
-
-/* @media screen and (max-width: 328px) {
-  .clearNotes {
-      justify-content: center;
-}
-.stickyNotes {
-  position:static;
-  margin:0;
-  width: 100%;
-  justify-content: center;
-  flex-direction: column;
-  order:-2;
-}
-} */
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
   /* HEADER COMPONENT - HEADER STYLING  */
   .header {
       background-color: #bbe8d9;
@@ -77,25 +39,4 @@ code {
   .nav-item {
       color: black;
       text-shadow: 3px 2px 2px #ef7c8e;
-  }
-  }
-  
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) {
-  
-  }
-  
-  /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (min-width: 768px) {
-  
-  }
-  
-  /* Large devices (laptops/desktops, 992px and up) */
-  @media only screen and (min-width: 992px) {
-  
-  }
-  
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
-  @media only screen and (min-width: 1200px) {
-  
   }
