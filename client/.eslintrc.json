@@ -7,12 +7,14 @@
     "plugins": ["react", "react-hooks"],
     "rules": {
       "quotes": ["warn", "single"],
+         "rules": {
+      "quotes": ["warn", "single"],
       "semi": ["error", "always"],
       "comma-dangle": ["error", "always-multiline"],
       "no-unused-vars": "error",
       "eqeqeq": "error",
       "sort-imports": ["error", { "ignoreDeclarationSort": true }],
-      "no-console": ["error", { "allow": ["warn", "error"] }],
-      "react/prop-types": "off"
+      "no-console": ["error", { "allow": ["warn", "error"] }]
+    }
     }
   }
