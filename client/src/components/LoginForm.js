@@ -26,8 +26,7 @@ const styles ={
 export default function LoginForm() {
     
     const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login, { error, data }] = useMutation(LOGIN_USER);
-    
+    const [login, { error, data }] = useMutation(LOGIN_USER); //before eslint nonsenst
     // update state based on form input changes
     const handleChange = (event) => {
         const { name, value } = event.target;

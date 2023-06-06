@@ -49,7 +49,7 @@ const styles = {
 
 const Note = (props) => {
     const { note } = props;
-    const [removeNote, {error}] = useMutation(REMOVE_NOTE);
+    const [removeNote, {error}] = useMutation(REMOVE_NOTE); // original pre-eslint
 
     const handleNoteDelete = async (event) => {
         event.preventDefault();
