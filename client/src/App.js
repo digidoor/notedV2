@@ -15,8 +15,8 @@ import Signup from './pages/Signup';
 import Home from './pages/Home';
 import CalendarPage from './pages/CalendarPage';
 import Nutrition from './pages/Nutrition';
-import Test from './pages/Test';
-import Test2 from './pages/Test2';
+// import Test from './pages/Test';
+// import Test2 from './pages/Test2';
 import 'rsuite/dist/rsuite.css';
 import Weather from './components/Weather';
 import Auth from './utils/auth';
@@ -74,14 +74,14 @@ const App = () => {
               path="/"
               element={<Login />}
             />
-            <Route 
+            {/* <Route 
               path="/test" 
               element={<Test />} 
             />
             <Route 
               path="/test2" 
               element={<Test2 />} 
-            />
+            /> */}
           </Routes>
           {/* <Footer/> */}
         </Router>
