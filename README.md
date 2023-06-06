@@ -40,7 +40,7 @@ Noted is an application designed to help you keep track of your daily life. It c
 
 # Github Link
 
-[View The NotedV2 Project Deployment Here!(Coming soon!)](https://github.com/digidoor/notedV2)
+[View The NotedV2 Project Deployment Here!](https://intense-basin-02456.herokuapp.com/)
 
 [View The Original Noted Project Deployment Here!](https://jonahscottlewis.github.io/noted/)
 
